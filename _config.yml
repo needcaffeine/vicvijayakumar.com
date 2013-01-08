@@ -1,0 +1,11 @@
+source: .
+destination: ./_site
+plugins: ./_plugins
+
+future: false
+lsi: true
+markdown: rdiscount
+pygments: true
+permalink: /:year/:month/:day/:title
+
+exclude: ['Rakefile', 'README.markdown', 'config.rb']

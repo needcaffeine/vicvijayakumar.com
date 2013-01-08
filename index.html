@@ -1,0 +1,30 @@
+---
+layout: default
+title: An experiment in documentation &mdash; a blog by Vic Vijayakumar.
+description: This is a blog by Vic Vijayakumar.
+---
+
+<div class="row-fluid">
+	<div class="span5">
+		<div id="introduction">
+			<p>Hello, I’m Vic.</p>
+			<p>I’m an n-tier engineer &amp; foodie from<br>Raleigh, North Carolina.</p>
+			<div class="separator">//</div>
+			<p>This site is an experiment in documentation.</p>
+		</div>
+		<div id="contact">
+			<a href="http://twitter.com/vicvijayakumar"><i class="icon-twitter"></i></a>
+			<a href="http://www.linkedin.com/in/vicvijayakumar"><i class="icon-linkedin"></i></a>
+			<a href="http://github.com/needcaffeine"><i class="icon-github"></i></a>
+		</div>
+	</div>
+	<div class="span7">
+		<div id="listing">
+			<ul>
+				{% for post in site.posts %}
+				<li><span>{{ post.date | date_to_string }}</span> <a href="{{ post.url }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,126 @@
+/* Universal */
+html, body, p {
+	font-family: 'Lato', sans-serif;
+}
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+h1, h2, h3,
+#introduction p,
+div .separator {
+	font-family: 'Goudy Bookletter 1911', serif;
+}
+
+/* Front page specific */
+#introduction p {
+	font-size: 32px;
+	line-height: 50px;
+	text-align: center;
+}
+div .separator {
+	text-align: center;
+	font-size: 20px;
+	line-height: 50px;
+}
+#contact {
+	margin: 30px 0 30px;
+	font-size: 28px;
+	text-align: center;
+}
+#contact a {
+	color: #555;
+	margin-right: 10px;
+}
+#contact a:hover {
+	color: #333;
+	text-decoration: none;
+}
+#listing ul li {
+	list-style-type: none;
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 36px;
+	color: #ccc;
+}
+#listing ul li span {
+	font-family: "Droid Sans Mono", "Courier", "Courier New";
+	margin-right: 20px;
+	font-size: 18px;
+	color: #eee;
+}
+
+/* Post page */
+#post h1 {
+	font-size: 50px;
+	line-height: 60px;
+	margin-top: 0;
+	padding-top: 0;
+	color: #08C;
+}
+#post h2 {
+	font-size: 40px;
+	line-height: 50px;
+	color: #333;
+	margin-top: 30px;
+}
+#post p {
+	margin-top: 20px;
+	font-size: 24px;
+	line-height: 36px;
+	color: #333;
+	font-weight: 300;
+}
+#post ol {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+}
+#post ol li, #post ul li {
+	font-size: 24px;
+	line-height: 32px;
+	font-weight: 300;
+	padding: 5px 0;
+}
+#post a, #post a:link, #post a:active, #post a:visited {
+	border-bottom: 1px dashed #ccc;
+	text-decoration: none;
+	transition: border-color 0.25s linear;
+	-moz-transition: border-color 0.25s linear;    /* FF3.7+ */
+	-o-transition: border-color 0.25s linear;      /* Opera 10.5 */
+	-webkit-transition: border-color 0.25s linear; /* Saf3.2+, Chrome */
+}
+#post a:hover {
+	border-bottom: 1px dashed #fefefe;
+	text-decoration: none;
+}
+code, pre {
+	font-size: 14px;
+}
+#related {
+	border-top: 1px solid #eee;
+	margin: 60px 0 60px;
+	padding-top: 30px;
+}
+#related h2 {
+	font-size: 40px;
+	line-height: 50px;
+	color: #333;
+}
+#related ul li {
+	list-style-type: none;
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 36px;
+	color: #ccc;
+	margin-left: 0;
+}
+#related ul li span {
+	font-family: "Droid Sans Mono", "Courier", "Courier New";
+	margin-right: 20px;
+	font-size: 18px;
+	color: #eee;
+}
+#related ul.posts {
+	margin-left: 0;
+}
