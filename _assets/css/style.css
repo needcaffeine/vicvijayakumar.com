@@ -51,6 +51,21 @@ div .separator {
 }
 
 /* Post page */
+#home-link a, #home-link a:visited, #home-link a:link, #home-link a:active {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 0 7px 0 5px;
+	margin-left: 5px;
+	background-color: #eee;
+	font-weight: 700;
+	color: #ccc;
+	font-size: 48px;
+}
+#home-link a:hover {
+	color: #666;
+	text-decoration: none;
+}
 #post h1 {
 	font-size: 50px;
 	line-height: 60px;

@@ -9,3 +9,10 @@ pygments: true
 permalink: /:year/:month/:day/:title
 
 exclude: ['Rakefile', 'README.markdown', 'config.rb']
+
+asset_pipeline:
+  bundle: true            # Default = true
+  compress: true          # Default = true
+  output_path: assets     # Default = assets
+  display_path:           # Default = nil
+  gzip: true              # Default = false
