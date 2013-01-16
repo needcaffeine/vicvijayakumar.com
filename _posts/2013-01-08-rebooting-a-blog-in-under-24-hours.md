@@ -46,7 +46,9 @@ Pre-requisites: You need Git and Ruby, so if you're on a Mac, just go ahead and 
 
 Source available at <a href="http://github.com/needcaffeine/vicvijayakumar.com"><i class="icon-github-alt"></i> needcaffeine/vicvijayakumar.com</a>.
 
-My under 24 hours [MVP](http://en.wikipedia.org/wiki/Minimum_viable_product) meant that I wasn't going to bother with something to help me auto-deploy to Amazon S3, especially because I already use the very powerful and amazing [s3cmd](http://s3tools.org/s3cmd) to do my backups et al. When I need to push my site up to S3, all I do is `s3cmd sync --acl-public _site/* s3://vicvijayakumar.com/`.
+My under 24 hours [MVP](http://en.wikipedia.org/wiki/Minimum_viable_product) meant that I wasn't going to bother with something to help me auto-deploy to Amazon S3, especially because I already use the very powerful and amazing [s3cmd](http://s3tools.org/s3cmd) to do my backups et al. When I need to push my site up to S3, all I do is ~~`s3cmd sync --acl-public _site/* s3://vicvijayakumar.com/`~~.
+
+Update: It's `s3cmd sync --delete-removed --acl-public _site/* s3://vicvijayakumar.com/`.
 
 ## Epilogue
 So that's where we are. You are currently reading this on a site produced with the help of Jekyll in <b>under 24 hours</b>. While only time will tell whether I find the whole process awesome enough to continue writing, all signs point to a strong yes at present. Let's revisit this post in 6 months.
