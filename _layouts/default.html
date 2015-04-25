@@ -1,31 +1,40 @@
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-    <title>{{ page.title }}</title>
-    <meta charset="utf-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-   	<meta name="description" content="{{ site.description }}">
-	<meta name="author" content="{{ site.author }}" />
-    <meta name="viewport" content="width=device-width">
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+        <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% css_asset_tag global %}
-    - /_assets/css/bootstrap.min.css
-    - /_assets/css/font-awesome.min.css
-    - /_assets/css/style.css
-    - /_assets/css/syntax.css
-    {% endcss_asset_tag %}
-	<link href="http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911|Droid+Sans+Mono|Lato:300,400,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+        <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+    </head>
+    <body>
+        {% include header.html %}
 
-	{% if site.server == false %}{% include analytics.html %}{% endif %}
-</head>
-<body>
-	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-	<div class="container">
-		{{ content }}
-    </div>
-</body>
+        <div class="page-content">
+          <div class="wrapper">
+              {{ content }}
+          </div>
+        </div>
+
+        <script type="text/javascript">
+          // We need to disregard Pingdom, which we use for monitoring.
+          var PINGDOM = "Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)";
+
+          if (navigator.userAgent.indexOf(PINGDOM, 0) == -1) {
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', '{{ site.googleanalytics }}']);
+              _gaq.push(['_trackPageview']);
+
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+          }
+        </script>
+    </body>
 </html>

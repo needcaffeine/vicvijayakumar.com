@@ -1,18 +1,25 @@
-source: .
-destination: ./_site
-plugins: ./_plugins
+# Site settings.
+title: An experiment in documentation &mdash; a blog by Vic Vijayakumar.
+description: Technical blog of Vic Vijayakumar &mdash; a software engineer in Raleigh, North Carolina.
+header: >
+    Hi, I'm Vic! I am a software engineer in Raleigh, NC.<br>
+    I like beer, coding, and cooking.
 
-future: false
-lsi: true
-markdown: rdiscount
-pygments: true
-permalink: /:year/:month/:day/:title
+# Social.
+github_username: needcaffeine
+linkedin_username: vicvijayakumar
 
-exclude: ['Rakefile', 'README.markdown', 'config.rb']
-
-asset_pipeline:
-  bundle: true            # Default = true
-  compress: true          # Default = true
-  output_path: assets     # Default = assets
-  display_path:           # Default = nil
-  gzip: true              # Default = false
+# Build settings.
+url: "http://vicvijayakumar.com"
+baseurl: ""
+permalink: /:title.html
+paginate: 10
+markdown: redcarpet
+redcarpet:
+    extensions: ["strikethrough"]
+kramdown:
+    input: GFM
+highlighter: pygments
+sass:
+    style: :compressed
+googleanalytics: UA-XXXXXX-X

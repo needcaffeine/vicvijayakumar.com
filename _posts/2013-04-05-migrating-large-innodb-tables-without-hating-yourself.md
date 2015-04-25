@@ -4,14 +4,8 @@ title: Migrating INNODB, without the self-loathing
 categories:
   - mysql
   - innodb
-  - percona
   - xtrabackup
 ---
-
-{{ page.title }}
-================
-
-<!--This post is not a product endorsement. Well...it is an endorsement in the same way that I think shoes are a good idea when using a public restroom. I guess I should say this is not a paid endorsement, nor has <a href="http://www.percona.com/">Percona</a> asked me to endorse their product in any which way.-->
 
 First of all, if you use MySQL anywhere in your stack, you should be using [Percona server](http://www.percona.com/software/percona-server/feature-comparison) which is a drop-in replacement for MySQL with dozens of INNODB enhancements (and thus called Xtradb), bug fixes, and all in all just really awesome.
 
