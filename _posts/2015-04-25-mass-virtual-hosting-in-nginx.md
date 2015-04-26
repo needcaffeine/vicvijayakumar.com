@@ -1,0 +1,30 @@
+---
+layout: post
+title: Mass virtual hosting with nginx
+categories:
+  - nginx
+---
+
+I actually forgot to publish this blog post, but since I seem to get a lot of traffic to my post about [mass virtual hosting with Apache](/mass-virtual-hosting-in-apache.html), I feel like I should probably write this simply for the sake of completeness, even though it's brutally simple.
+
+If you need a place to start with nginx, I am a fan of the [H5BP configs](https://github.com/h5bp/server-configs-nginx).
+
+All the mass virtual hosting magic here happens when we get to an individual site.
+
+{% highlight bash linenos %}
+server {
+    listen 80;
+    server_name *.example.com;
+    root /wwwroot/vhosts/$host;
+
+    [...]
+}
+{% endhighlight %}
+
+That's really all there is to it. You can now create all sorts of crazy directories in your `/wwwroot/vhosts/` directory and they'll get served.
+
+1.example.com  
+1.2.example.com  
+etc.
+
+Reload nginx. Profit.
