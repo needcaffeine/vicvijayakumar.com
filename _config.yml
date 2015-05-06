@@ -22,4 +22,4 @@ kramdown:
 highlighter: pygments
 sass:
     style: :compressed
-googleanalytics: UA-XXXXXX-X
+googleanalytics: UA-135048-11
