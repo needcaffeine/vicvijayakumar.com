@@ -4,6 +4,9 @@ title: Mass virtual hosting with Apache
 categories:
   - apache
   - nginx
+redirect_from:
+  - /mass-virtual-hosting-in-apache.html
+  - /2013/01/16/mass-virtual-hosting-in-apache
 ---
 
 I'm going to start off by saying that if the situation permits, you should use [nginx](http://nginx.org/) instead, or at least in front, of Apache. Our setup at work is actually nginx as a reverse proxy to Apache. I'll put up that configuration soon.

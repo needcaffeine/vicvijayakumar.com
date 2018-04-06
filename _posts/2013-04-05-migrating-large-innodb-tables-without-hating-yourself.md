@@ -5,6 +5,9 @@ categories:
   - mysql
   - innodb
   - xtrabackup
+redirect_from:
+  - /migrating-large-innodb-tables-without-hating-yourself.html
+  - /2013/04/05/migrating-large-innodb-tables-without-hating-yourself/
 ---
 
 First of all, if you use MySQL anywhere in your stack, you should be using [Percona server](http://www.percona.com/software/percona-server/feature-comparison) which is a drop-in replacement for MySQL with dozens of INNODB enhancements (and thus called Xtradb), bug fixes, and all in all just really awesome.

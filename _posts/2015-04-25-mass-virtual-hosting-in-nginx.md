@@ -3,6 +3,7 @@ layout: post
 title: Mass virtual hosting with nginx
 categories:
   - nginx
+redirect_from: /mass-virtual-hosting-in-nginx.html
 ---
 
 I actually forgot to publish this blog post, but since I seem to get a lot of traffic to my post about [mass virtual hosting with Apache](/mass-virtual-hosting-in-apache.html), I feel like I should probably write this simply for the sake of completeness, even though it's brutally simple.

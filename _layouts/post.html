@@ -1,13 +1,20 @@
 ---
 layout: default
+class: post
 ---
-<div class="post">
-    <header class="post-header">
-        <h1 class="post-title">{{ page.title }}</h1>
-        <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-    </header>
 
-    <article class="post-content">
-        {{ content }}
-    </article>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10">
+            <p><a href="/">&larr; Back to homepage</a></p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10">
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+
+            {{ content }}
+        </div>
+    </div>
 </div>

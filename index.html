@@ -1,32 +1,47 @@
 ---
 layout: default
+title: Home
+redirect_from:
+  - /posts
 ---
 
-<div class="home">
-    <ul class="post-list">
-      {% for post in paginator.posts %}
-          <li>
-              <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-              <span class="post-list-date">{{ post.date | date: "%b %d %Y" }}</span>
-              <div style="clear:both"></div>
-          </li>
-      {% endfor %}
-    </ul>
-
-    {% if paginator.total_pages > 1 %}
-    <div class="pagination">
-      Page:
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-          <em>{{ page }}</em>
-        {% elsif page == 1 %}
-          <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-        {% else %}
-          <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-        {% endif %}
-      {% endfor %}
+<div class="container intro">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10">
+            <h1>Hello, I'm Vic. I'm a software engineer in Raleigh, NC.</h1>
+            <div class="h4">
+                I work for <a href="https://www.researchsquare.com" rel="noopener nofollow">Research Square</a>.
+                I also consult via Brown Dog White Dog Software.
+            </div>
+            <hr />
+        </div>
     </div>
-    {% endif %}
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10">
+            <div class="posts">
+                {% for post in paginator.posts %}
+                    <div class="post">
+                        <p class="title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
+                        <span class="date text-right">{{ post.date | date: "%b %d %Y" }}</span>
+                    </div>
+                {% endfor %}
+
+                {% if paginator.total_pages > 1 %}
+                <div class="pagination">
+                  Page:
+                  {% for page in (1..paginator.total_pages) %}
+                    {% if page == paginator.page %}
+                      <em>{{ page }}</em>
+                    {% elsif page == 1 %}
+                      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+                    {% else %}
+                      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
