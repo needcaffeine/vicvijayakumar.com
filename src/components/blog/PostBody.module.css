@@ -1,0 +1,40 @@
+.postBody {
+    @apply text-lg leading-relaxed;
+}
+
+.postBody p {
+    @apply py-0 my-6;
+}
+
+.postBody ul,
+.postBody ol,
+.postBody blockquote {
+    @apply my-6;
+}
+
+.postBody h2 {
+    @apply mt-8 mb-4 text-2xl leading-snug;
+}
+
+.postBody h3 {
+    @apply mt-8 mb-4 text-2xl leading-snug;
+}
+
+.postBody a {
+    @apply text-blue-500 underline;
+}
+.postBody a:hover {
+    @apply text-blue-500 no-underline;
+}
+
+.postBody pre {
+    @apply p-3 font-mono text-red-600 bg-gray-100 border border-gray-100 rounded-sm;
+}
+
+.postBody code {
+    @apply font-mono text-red-600 bg-gray-100 border border-gray-50;
+}
+
+.postBody li {
+    @apply list-disc list-inside;
+}

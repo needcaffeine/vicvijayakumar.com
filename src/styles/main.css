@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.homepage a {
+    @apply mr-5 text-xl text-gray-900 no-underline;
+}
+.homepage a:hover {
+    @apply text-gray-700 underline;
+}
+
+.about a {
+    @apply text-blue-500;
+}
+.about a:hover {
+    @apply underline;
+}
+
+p, ul {
+    @apply py-2 leading-relaxed;
+}
+
+li {
+    @apply list-disc list-inside;
+}
