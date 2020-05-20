@@ -33,6 +33,8 @@ export function getPostBySlug(slug, fields = []) {
         if (data[field]) {
             items[field] = data[field]
         }
+
+        items.url = `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${realSlug}`
     })
 
     return items

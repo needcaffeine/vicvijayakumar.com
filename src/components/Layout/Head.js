@@ -20,8 +20,11 @@ const Head = ({ description, title }) => (
 
         <meta property="og:title" content="Vic Vijayakumar" />
         <meta property="og:site_name" content="Vic Vijayakumar" />
-        <meta property="og:url" content="https://VicVijayakumar.com" />
-        <meta property="og:image" content="https://VicVijayakumar.com/static/img/share.png" />
+        <meta property="og:url" content={process.env.NEXT_PUBLIC_BASE_URL} />
+        <meta
+            property="og:image"
+            content={`${process.env.NEXT_PUBLIC_BASE_URL}/static/img/share.png`}
+        />
         <meta property="og:type" content="website" />
         <meta property="og:description" content="Hello, I'm Vic." />
 

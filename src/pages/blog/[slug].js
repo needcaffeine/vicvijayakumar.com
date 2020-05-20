@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import ErrorPage from 'next/error'
+import NextHead from 'next/head'
 import { useRouter } from 'next/router'
 
 import DefaultLayout from 'components/Layout/DefaultLayout'
@@ -15,11 +16,16 @@ export default function Post({ post }) {
     }
 
     return (
-        <DefaultLayout title={post.title} description={post.excerpt}>
-            <div className="md:mx-auto lg:col-span-12 lg:text-left">
-                {router.isFallback ? <h1>Loading...</h1> : <PostBody post={post} />}
-            </div>
-        </DefaultLayout>
+        <>
+            <NextHead>
+                <link rel="canonical" href={post.url} />
+            </NextHead>
+            <DefaultLayout title={post.title} description={post.excerpt}>
+                <div className="md:mx-auto lg:col-span-12 lg:text-left">
+                    {router.isFallback ? <h1>Loading...</h1> : <PostBody post={post} />}
+                </div>
+            </DefaultLayout>
+        </>
     )
 }
 
