@@ -24,6 +24,10 @@ export default function Index() {
                     <Link href="/blog">
                         <a>Blog</a>
                     </Link>
+
+                    <Link href="/uses">
+                        <a>Uses</a>
+                    </Link>
                 </div>
                 <div className="mt-8 text-left">
                     <a

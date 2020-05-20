@@ -9,11 +9,19 @@
     @apply text-gray-700 underline;
 }
 
-.about a {
+.about a, .uses a {
     @apply text-blue-500;
 }
-.about a:hover {
+.about a:hover, .uses a:hover {
     @apply underline;
+}
+
+.uses h3 {
+    @apply mt-8 mb-4 text-2xl font-semibold leading-snug;
+}
+
+.uses h4 {
+    @apply mt-4 mb-2 text-lg font-medium leading-snug;
 }
 
 p, ul {
