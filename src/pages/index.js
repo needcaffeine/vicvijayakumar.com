@@ -9,7 +9,7 @@ export default function Index() {
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
                 <img
                     className="object-cover w-24 h-24 mb-4 rounded-full"
-                    src="/static/img/vic-portrait.jpeg"
+                    src="/static/img/vic-portrait.png"
                     alt="Vic portrait"
                 />
                 <h1 className="mt-1 text-3xl font-semibold leading-10 tracking-tight text-left text-gray-900 sm:leading-none sm:text-5xl lg:text-5xl xl:text-6xl">
