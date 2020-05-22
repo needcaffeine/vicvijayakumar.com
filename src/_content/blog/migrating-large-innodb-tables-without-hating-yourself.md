@@ -16,10 +16,11 @@ I will add that MariaDB is also looking really nice these days.
 
 Okay, back to the problem at hand. I needed to move a 100gb database (all tables are INNODB) from a server in datacenter A to a different server in datacenter B. For the sake of simplicity, let's assume that availability was not important to me. I just needed a particular database moved between servers. There are a few different ways to solve this problem; let's go through all of them.
 
-## Copy the entire data directory over to the other server: Nope
+### Copy the entire data directory over to the other server: Nope
 This is actually a perfectly valid solution if all you are doing is just moving the entire thing. If availability is not important to you, stop mysqld on the source, rsync over the entire data directory to the new server along with the my.cnf file, start mysqld up on the new server, Bob's your uncle. If you don't want to shut down the server, use Percona's <a href="http://www.percona.com/doc/percona-xtrabackup/">Xtrabackup</a>. You'll end up with a nice snapshot to rsync over and you can even ensure that you have no downtime at all. Unfortunately, I'm not replacing the contents of server B with that of server A. I want to keep the databases I already have on B. So this solution doesn't work for me.
 
-## mysqldump: Nope
+### mysqldump: Nope
+
 Yeah, no. First you'd need to lock your tables in order to get a point-in-time consistent dump. For a 100gb database, if you're not using SSDs, it's going to take something like 3 hours for that ~50gb dump (assuming half of it was indices) to be written to disk. Next, you need to rsync it across the country to the new server where it needs to get written to disk. At this point, all you've done is move the data as a single .sql file from server A to server B. Then comes the import. Get ready for a world of pain. No matter how high you increase `max_allowed_packet` and `read_buffer_size`, you're going to get `Lost connection to MySQL server during query` errors. Not to mention that the import is going to take FOREVER. If the import dies a third of the way in, you need to trash everything and restart from scratch. One way to mitigate that is to get mysqldump to give you [one file per table](http://stackoverflow.com/a/134296/115778). This way you at least can just restart the import for the table that failed instead of **everything**. In case you actually want to go down this road, there are a few different ways to speed it up:
 
 1. Pipe mysqldump from Server A to mysql on Server B directly:
@@ -31,7 +32,8 @@ Yeah, no. First you'd need to lock your tables in order to get a point-in-time c
 
 But like I said earlier, this just does not work for large tables and is just going to piss you off over and over and there are only so many times you can truncate and reimport the same table.
 
-## Xtrabackup's partial backups feature: Yes!
+### Xtrabackup's partial backups feature: Yes!
+
 Requisite reading:  
 [June 8, 2009: Impossible – possible, moving InnoDB tables between servers](http://www.mysqlperformanceblog.com/2009/06/08/impossible-possible-moving-innodb-tables-between-servers/)  
 [July 31, 2009: Copying InnoDB tables between servers](http://www.mysqlperformanceblog.com/2009/07/31/copying-innodb-tables-between-servers/)

@@ -27,7 +27,7 @@ Until today! Today, I present to you **yakdb** (**y**et **a**nother **k**ey-valu
 
 yakdb is very simple. You can get data, put data, delete data. That's it. Any and all other operations must be handled on the application side. No MapReduce, no sorting, no ordering, no namespaces, no bulk anything.
 
-## How does it perform?
+### How does it perform?
 This isn't a very scientific test, but let's do some basic benchmarks on read performance.
 
     $ curl -H 'Content-Type: application/json' -XPUT http://localhost:9532/items \

@@ -12,12 +12,16 @@
     @apply my-6;
 }
 
+.postBody blockquote {
+    @apply pl-4 border-4 border-t-0 border-b-0 border-r-0 border-gray-500 border-solid;
+}
+
 .postBody h2 {
-    @apply mt-8 mb-4 text-2xl leading-snug;
+    @apply mt-8 mb-4 text-2xl font-semibold leading-snug;
 }
 
 .postBody h3 {
-    @apply mt-8 mb-4 text-2xl leading-snug;
+    @apply mt-8 mb-4 text-xl font-medium leading-snug;
 }
 
 .postBody a {
