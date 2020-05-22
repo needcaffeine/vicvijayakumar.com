@@ -32,11 +32,15 @@
 }
 
 .postBody pre {
-    @apply p-3 font-mono text-red-600 bg-gray-100 border border-gray-100 rounded-sm;
+    @apply p-3 bg-gray-100 border border-gray-100 rounded-md;
 }
 
-.postBody code {
-    @apply font-mono text-red-600 bg-gray-100 border border-gray-50;
+.postBody pre > code {
+    @apply text-pink-500;
+}
+
+.postBody p > code {
+    @apply font-mono text-pink-600 bg-gray-100;
 }
 
 .postBody li {

@@ -12,7 +12,7 @@ export default function Index() {
                     src="/static/img/vic-portrait.png"
                     alt="Vic portrait"
                 />
-                <h1 className="mt-1 text-3xl font-semibold leading-10 tracking-tight text-left text-gray-900 sm:leading-none sm:text-5xl lg:text-5xl xl:text-6xl">
+                <h1 className="mt-1 text-3xl font-medium leading-10 tracking-tight text-left text-gray-900 sm:leading-none sm:text-5xl lg:text-5xl xl:text-6xl">
                     Hello, I&rsquo;m Vic. I am a software developer and indie maker in Raleigh, NC.
                 </h1>
 
