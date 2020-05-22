@@ -4,10 +4,10 @@ import React from 'react'
 import Head from './Head'
 import Navbar from './Navbar'
 
-function DefaultLayout({ className, children, title, description }) {
+function DefaultLayout({ className, children, title, description, url }) {
     return (
         <>
-            <Head title={title} description={description} />
+            <Head title={title} description={description} url={url} />
 
             <Navbar />
 
@@ -25,12 +25,14 @@ DefaultLayout.propTypes = {
     className: PropTypes.string,
     description: PropTypes.string,
     title: PropTypes.string,
+    url: PropTypes.string,
 }
 
 DefaultLayout.defaultProps = {
     className: '',
-    description: "Hi, I'm Vic Vijayakumar. Stay a while, have some tea.",
+    description: 'Hi, I am Vic. I blog about software engineering and indie making.',
     title: 'Home',
+    url: '',
 }
 
 export default DefaultLayout
