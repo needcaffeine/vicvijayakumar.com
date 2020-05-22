@@ -7,17 +7,13 @@ export default function About() {
         <DefaultLayout className="about" title="About">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
                 <h1 className="mt-1 text-4xl font-medium leading-10 tracking-tight text-left text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
-                    About
+                    Hello, I'm Vic{' '}
+                    <span role="img" aria-label="wave">
+                        👋🏾
+                    </span>
                 </h1>
 
                 <div className="mt-8 text-left">
-                    <p className="pb-2 leading-relaxed">
-                        Hello, I'm Vic.{' '}
-                        <span role="img" aria-label="wave">
-                            👋🏾
-                        </span>{' '}
-                    </p>
-
                     <p className="py-2 leading-relaxed">
                         I am a software engineer working as a full-stack developer on a preprint
                         server. I do frontend work, backend work, SRE work, architecture work, and I
