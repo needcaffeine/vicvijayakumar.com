@@ -5,7 +5,7 @@ import DefaultLayout from 'components/Layout/DefaultLayout'
 
 export default function Index() {
     return (
-        <DefaultLayout className="homepage" title="Home">
+        <DefaultLayout className="homepage" title="Home | Vic Vijayakumar">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
                 <img
                     className="object-cover w-24 h-24 mb-4 rounded-full"

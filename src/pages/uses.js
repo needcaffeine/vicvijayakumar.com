@@ -4,7 +4,7 @@ import DefaultLayout from 'components/Layout/DefaultLayout'
 
 export default function Uses() {
     return (
-        <DefaultLayout className="uses" title="Uses">
+        <DefaultLayout className="uses" title="Uses | Vic Vijayakumar">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
                 <h1 className="mt-1 text-4xl font-medium leading-10 tracking-tight text-left text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
                     Uses

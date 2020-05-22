@@ -7,7 +7,7 @@ import Navbar from './Navbar'
 function DefaultLayout({ className, children, title, description }) {
     return (
         <>
-            <Head title={`${title} | Vic Vijayakumar`} description={description} />
+            <Head title={title} description={description} />
 
             <Navbar />
 
