@@ -1,5 +1,6 @@
 ---
-title: Rebooting a blog in under 24 hours
+title: Rebooting a blog in under 24 hours with Jekyll
+description: Rebooting a blog in under 24 hours with Jekyll
 date: '2013-01-08T00:00:00-04:00'
 aliases:
     - /rebooting-a-blog-in-under-24-hours.html

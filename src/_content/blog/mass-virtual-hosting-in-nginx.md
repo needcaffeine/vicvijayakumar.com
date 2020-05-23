@@ -1,5 +1,6 @@
 ---
 title: Mass virtual hosting with nginx
+description: Mass virtual hosting with nginx
 date: '2015-04-25T00:00:00-04:00'
 tags:
     - nginx

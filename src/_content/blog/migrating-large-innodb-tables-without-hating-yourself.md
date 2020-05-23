@@ -1,5 +1,6 @@
 ---
 title: Migrating INNODB, without the self-loathing
+description: Migrating INNODB, without the self-loathing
 date: '2013-04-05T00:00:00-04:00'
 aliases:
     - /migrating-large-innodb-tables-without-hating-yourself.html

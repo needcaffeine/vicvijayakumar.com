@@ -1,5 +1,6 @@
 ---
 title: Mass virtual hosting with Apache
+description: Mass virtual hosting with Apache
 date: '2013-01-16T00:00:00-04:00'
 tags:
     - apache

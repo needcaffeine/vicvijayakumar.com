@@ -1,5 +1,6 @@
 ---
 title: Automatically set your Slack status
+description: Automatically set your Slack status
 date: '2018-04-19T00:00:00-04:00'
 tags:
     - automation
