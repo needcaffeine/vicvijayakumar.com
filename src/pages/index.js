@@ -5,7 +5,7 @@ import DefaultLayout from 'components/Layout/DefaultLayout'
 
 export default function Index() {
     return (
-        <DefaultLayout className="homepage" title="Home | Vic Vijayakumar">
+        <DefaultLayout className="homepage" title="Vic Vijayakumar">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
                 <img
                     className="object-cover w-24 h-24 mb-4 rounded-full"
@@ -13,7 +13,7 @@ export default function Index() {
                     alt="Vic portrait"
                 />
                 <h1 className="mt-1 text-3xl font-medium leading-10 tracking-tight text-left text-gray-900 sm:leading-none sm:text-5xl lg:text-5xl xl:text-6xl">
-                    Hello, I&rsquo;m Vic. I am a software developer and indie maker in Raleigh, NC.
+                    Hello, I&rsquo;m Vic. I am a software engineer and indie maker in Raleigh, NC.
                 </h1>
 
                 <div className="mt-8 text-left">
