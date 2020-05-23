@@ -36,7 +36,7 @@ I'm providing commands for npm. If you use yarn, just switch all instances of `n
 
 ### 1. Install npm
 
-See instructions [here](https://github.com/npm/cli)
+See instructions on [github.com/npm/cli](https://github.com/npm/cli)
 
 ### 2. Install npx
 
@@ -100,7 +100,7 @@ Open your user settings in VS Code (on a Mac, this is Cmd-Shift-P) and click `Pr
 
 ### 10. Quit and reopen VS Code and watch the magic happen!
 
-<img src="/static/img/blog/eslint-airbnb-style-guide-prettier/format-on-save.gif" alt="VS Code format on save magic!">
+[![VS Code format on save magic!](/static/img/blog/eslint-airbnb-style-guide-prettier/format-on-save.gif)](/static/img/blog/eslint-airbnb-style-guide-prettier/format-on-save.gif)
 
 
 In an upcoming second part, we are going to explore setting up accessibility plugins in ESLint so that you don't ignore the needs of disabled users.

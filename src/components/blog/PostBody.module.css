@@ -32,7 +32,7 @@
 }
 
 .postBody pre {
-    @apply p-3 bg-gray-100 border border-gray-100 rounded-md;
+    @apply p-3 overflow-scroll bg-gray-100 border border-gray-100 rounded-md;
 }
 
 .postBody pre > code {
