@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import Footer from './Footer'
 import Head from './Head'
 import Navbar from './Navbar'
 
@@ -16,6 +17,8 @@ function DefaultLayout({ className, children, title, description, url }) {
                     {children}
                 </div>
             </div>
+
+            <Footer />
         </>
     )
 }
