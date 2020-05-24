@@ -4,18 +4,19 @@ import { join } from 'path'
 import remark from 'remark'
 import html from 'remark-html'
 
-const contentDirectory = 'src/_content'
+const blogPostsDirectory = '_content/blog'
 
-const staticFilesPath = join(join(process.cwd(), contentDirectory))
+const staticFilesPath = join(join(process.cwd(), blogPostsDirectory))
 const readStaticFile = (filePath) => fs.readFileSync(join(staticFilesPath, filePath), 'utf8')
 
 export function getPostSlugs() {
-    return fs.readdirSync(`${contentDirectory}/blog`).filter((file) => file.indexOf('.') !== 0)
+    return fs.readdirSync(blogPostsDirectory).filter((file) => file.indexOf('.') !== 0)
 }
 
 export function getPostBySlug(slug, fields = []) {
+    // Sometimes we call this function with the extension, so chop it off.
     const realSlug = slug.replace(/\.md$/, '')
-    const fileContents = readStaticFile(`blog/${realSlug}.md`)
+    const fileContents = readStaticFile(`${realSlug}.md`)
 
     const { data, content } = matter(fileContents)
 
@@ -35,6 +36,8 @@ export function getPostBySlug(slug, fields = []) {
         }
 
         items.url = `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${realSlug}`
+
+        items.githubLink = `${process.env.NEXT_PUBLIC_GITHUB_PATH}/_content/blog/${realSlug}.md`
     })
 
     return items
