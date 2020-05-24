@@ -12,8 +12,15 @@ export default function PostBody({ post }) {
                 {post.title}
             </h1>
 
-            <div className="mt-6 font-light">
-                {format(utcToZonedTime(post.date, 'America/New_York'), 'MMMM dd, yyyy')}
+            <div className="justify-between py-1 mt-6 font-light md:flex">
+                <div className="max-w-80">
+                    {format(utcToZonedTime(post.date, 'America/New_York'), 'MMMM dd, yyyy')}
+                </div>
+                <span className="">
+                    <a href={post.githubLink} rel="noreferrer nofollow">
+                        edit this post
+                    </a>
+                </span>
             </div>
 
             <div className="mt-8" dangerouslySetInnerHTML={{ __html: post.content }} />
