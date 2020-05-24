@@ -10,8 +10,6 @@ export default function Uses() {
                     Uses
                 </h1>
 
-                <div className="mt-6 font-light">Last updated: May 20, 2020</div>
-
                 <div className="mt-8 text-left">
                     <p>This is a list of my hardware, software, and other tools I use regularly.</p>
                     <h3 id="hardware">Hardware</h3>
