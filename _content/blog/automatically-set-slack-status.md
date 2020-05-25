@@ -1,6 +1,6 @@
 ---
 title: Automatically set your Slack status
-description: Automatically set your Slack status
+description: Automate the process of syncing your calendar status with your Slack availability using Zapier.
 date: '2018-04-19T00:00:00-04:00'
 tags:
     - automation

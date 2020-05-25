@@ -1,13 +1,7 @@
 ---
 title: Mass virtual hosting with Apache
-description: Mass virtual hosting with Apache
+description: Sometimes you have no choice but to use Apache. And you might want to support wildcard domains for your entire team so dynamic hostnames work.
 date: '2013-01-16T00:00:00-04:00'
-tags:
-    - apache
-    - nginx
-aliases:
-    - /mass-virtual-hosting-in-apache.html
-    - /2013/01/16/mass-virtual-hosting-in-apache
 ---
 
 I'm going to start off by saying that if the situation permits, you should use [nginx](http://nginx.org/) instead, or at least in front, of Apache. Our setup at work is actually nginx as a reverse proxy to Apache. I'll put up that configuration soon.

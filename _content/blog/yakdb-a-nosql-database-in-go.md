@@ -1,17 +1,7 @@
 ---
 title: "yakdb: a NoSQL database in Go"
-description: "yakdb: a NoSQL database in Go"
+description: yakdb is a highly-performant in-memory key-value store. This in an experiment in writing a key-value store with Golang.
 date: '2015-05-05T00:00:00-04:00'
-tags:
-    - databases
-    - NoSQL
-    - programming
-    - yakdb
-    - yak
-    - Go
-    - Golang
-aliases:
-    - /yakdb-a-nosql-database-in-go.html
 ---
 
 The very first programming language I ever used was BASIC. I remember that the room where the computers were stored was air conditioned. It was the only room in my school that was air conditioned. Heck, it was the only room in my school with lockable doors that sealed tight. I wish that I knew then that I would someday love programming, because I'd have paid better attention to what my first program did. I remember there were a lot of **GOTO**s, that's about it.

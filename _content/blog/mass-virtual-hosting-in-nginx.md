@@ -1,11 +1,7 @@
 ---
-title: Mass virtual hosting with nginx
-description: Mass virtual hosting with nginx
+title: Mass virtual hosting with NGINX
+description: I seem to get a lot of traffic to my post about mass virtual hosting with Apache, so I felt like I should probably write this simply for the sake of completeness, even though it's brutally simple.
 date: '2015-04-25T00:00:00-04:00'
-tags:
-    - nginx
-aliases:
-    - /mass-virtual-hosting-in-nginx.html
 ---
 
 I actually forgot to publish this blog post, but since I seem to get a lot of traffic to my post about [mass virtual hosting with Apache](/blog/mass-virtual-hosting-in-apache), I feel like I should probably write this simply for the sake of completeness, even though it's brutally simple.

@@ -1,10 +1,7 @@
 ---
 title: Rebooting a blog in under 24 hours with Jekyll
-description: Rebooting a blog in under 24 hours with Jekyll
+description: Once upon a time, I really enjoyed writing in my blog. While I enjoyed blogging, the website/server maintenance part of it sucked because I had to keep Wordpress updated and run yum update semi-religiously to ensure that my server didn't get taken over by a bunch of script kiddies, all to protect a few dozen blog entries.
 date: '2013-01-08T00:00:00-04:00'
-aliases:
-    - /rebooting-a-blog-in-under-24-hours.html
-    - /2013/01/08/rebooting-a-blog-in-under-24-hours/
 ---
 
 Once upon a time, I really enjoyed writing in my blog. I documented lots of little bits and pieces of my life. Hey check out how to automate Word document creation with headless Open Office. Hey look at this beautiful roast chicken and root vegetables I just made. Hey read my rant about Python vs PHP. While I enjoyed blogging, the website/server maintenance part of it sucked because I had to keep Wordpress updated and run `yum update` semi-religiously to ensure that my server didn't get taken over by a bunch of script kiddies, all to protect a few dozen blog entries.

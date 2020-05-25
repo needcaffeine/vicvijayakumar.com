@@ -32,7 +32,7 @@ export default function Index({ allPosts }) {
                                         </a>
                                     </Link>
                                 </div>
-                                <div className="text-xl">{post.excerpt}</div>
+                                <div className="text-xl">{post.description}</div>
                             </div>
                         </section>
                     ))}
@@ -47,7 +47,7 @@ Index.propTypes = {
 }
 
 export async function getStaticProps() {
-    const allPosts = await getAllPosts(['title', 'date', 'excerpt', 'slug'])
+    const allPosts = await getAllPosts(['title', 'date', 'description', 'slug'])
 
     allPosts.sort((a, b) => (a.date > b.date ? -1 : 1))
 

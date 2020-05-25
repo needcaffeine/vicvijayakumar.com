@@ -1,18 +1,14 @@
 ---
 title: Prettier and ESLint with the Airbnb JavaScript Style Guide in VS Code
-description: Set up Prettier and ESLint with the Airbnb JavaScript Style Guide for React in Visual Studio Code
+description: We spend far more time reading code than writing it. Set up a linter and code formatter so you don't spend time worrying about how your code should look.
 date: '2020-05-22T17:00:00-04:00'
 ---
-
-## Show me the code!
-
-If you want to get straight to the code for this post, you can [download it from GitHub](https://github.com/needcaffeine/eslint-prettier-react-example).
-
-## Why
 
 Code **linting** is a type of analysis that is frequently used to find problematic patterns that can introduce bugs, or code that doesn’t adhere to certain style guidelines.
 
 Code **formatting** is a way to ensure that all your code looks the same; across your team, across your project. You spend far more time reading code than writing it, so be kind to your future self.
+
+## Why
 
 By using a linter and code formatter together you can stop spending time worrying about unimportant things like how many spaces there should be between a function name and the parentheses. Additionally, if you are part of a team, adopting a linter and formatter saves you valuable code review time because you won’t spend time bikeshedding about how wide your lines of code can be or whether to use spaces or tabs, etc.
 
@@ -105,5 +101,6 @@ Open your user settings in VS Code (on a Mac, this is Cmd-Shift-P) and click `Pr
 
 In an upcoming second part, we are going to explore setting up accessibility plugins in ESLint so that you don't ignore the needs of disabled users.
 
+## Show me the code!
 
-As a reminder, you can [download the code for this post](https://github.com/needcaffeine/eslint-prettier-react-example) from GitHub.
+You can [download the code for this post](https://github.com/needcaffeine/eslint-prettier-react-example) from GitHub.
