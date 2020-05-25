@@ -1,9 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'next/link'
 
 import DefaultLayout from 'components/Layout/DefaultLayout'
+import PostPreview from 'components/blog/PostPreview'
 import { getAllPosts } from 'utils/blog'
 
 export default function Index({ allPosts }) {
@@ -20,21 +20,10 @@ export default function Index({ allPosts }) {
                 </h1>
 
                 <div className="mt-12 text-left">
-                    <h2 className="mb-5 text-2xl font-semibold">All my writings</h2>
+                    <h2 className="mb-5 text-2xl font-semibold">Blog</h2>
 
                     {allPosts.map((post, i) => (
-                        <section key={i} className="justify-between py-1 md:flex md:text-2xl">
-                            <div className="mb-8 max-w-80">
-                                <div className="mb-2">
-                                    <Link href={`/blog/${post.slug}`}>
-                                        <a className="text-2xl hover:text-gray-700 hover:underline">
-                                            {post.title}
-                                        </a>
-                                    </Link>
-                                </div>
-                                <div className="text-xl">{post.description}</div>
-                            </div>
-                        </section>
+                        <PostPreview key={i} post={post} />
                     ))}
                 </div>
             </div>
