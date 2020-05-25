@@ -5,7 +5,7 @@ import React from 'react'
 
 function NavbarLink({ href, label }) {
     const className =
-        'font-medium transition duration-150 ease-in-out sm:mr-0 sm:ml-10 focus:outline-none'
+        'mr-10 font-medium transition duration-150 ease-in-out sm:mr-0 sm:ml-10 focus:outline-none'
 
     const { pathname } = useRouter()
     const activeClass =

@@ -29,7 +29,7 @@ function Footer() {
                     </a>
                 </div>
                 <div className="mt-8 md:mt-0 md:order-1">
-                    <p className="text-base leading-6 text-center text-gray-400">
+                    <p className="text-base leading-6 text-center text-gray-500">
                         &copy; {new Date().getFullYear()} Vic Vijayakumar
                     </p>
                 </div>
