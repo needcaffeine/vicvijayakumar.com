@@ -2,18 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.homepage a {
-    @apply mr-5 text-xl text-gray-900 no-underline;
+.about a, .homepage a, .uses a {
+    @apply text-blue-500 border-b border-blue-500 border-dashed;
 }
-.homepage a:hover {
-    @apply text-gray-700 underline;
-}
-
-.about a, .uses a {
-    @apply text-blue-500;
-}
-.about a:hover, .uses a:hover {
-    @apply underline;
+.about a:hover, .homepage a:hover, .uses a:hover {
+    @apply no-underline border-b-0 border-none;
 }
 
 .uses h3 {
