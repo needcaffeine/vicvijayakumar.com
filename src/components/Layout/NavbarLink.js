@@ -23,7 +23,6 @@ function NavbarLink({ href, label }) {
 NavbarLink.propTypes = {
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
 }
 
 export default NavbarLink
