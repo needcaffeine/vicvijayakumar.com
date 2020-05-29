@@ -2,6 +2,6 @@
 .env
 .next
 .now
-/node_modules/
-
 .vercel
+/node_modules/
+/public/sitemap.xml
