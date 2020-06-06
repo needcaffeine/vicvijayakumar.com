@@ -43,6 +43,9 @@
     @apply font-mono text-pink-600 bg-gray-100;
 }
 
-.postBody li {
-    @apply list-disc list-inside;
+.postBody ol > li {
+    @apply pl-3 ml-5 list-decimal list-outside;
+}
+.postBody ul > li {
+    @apply pl-3 ml-5 list-disc list-outside;
 }
