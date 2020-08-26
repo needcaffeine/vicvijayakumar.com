@@ -55,7 +55,7 @@ export default function Uses() {
                                 Office Star WorkSmart Breathable Mesh chair
                             </a>
                         </li>
-                        <li>Apple MacBook Pro (15", 2019)</li>
+                        <li>Apple MacBook Pro (16", 2019)</li>
                         <li>
                             <a
                                 href="https://www.yubico.com/product/yubikey-5c-nano"
