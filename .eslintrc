@@ -2,7 +2,9 @@
   "parser": "babel-eslint",
   "extends": [
       "airbnb",
-      "plugin:prettier/recommended"
+      "plugin:prettier/recommended",
+      "plugin:react-hooks/recommended",
+      "plugin:jsx-a11y/recommended"
   ],
   "plugins": [
       "prettier"
@@ -34,7 +36,7 @@
   "settings": {
       "import/resolver": {
           "node": {
-              "paths": ["./src"]
+              "paths": ["./"]
           }
       }
   }
