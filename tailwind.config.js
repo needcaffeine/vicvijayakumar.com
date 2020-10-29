@@ -1,7 +1,20 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    purge: ['./components/**/*.js', './pages/**/*.js', './_content/**/*.md'],
+    future: {
+        removeDeprecatedGapUtilities: true,
+        purgeLayersByDefault: true,
+        defaultLineHeights: true,
+        standardFontWeights: true,
+    },
+    purge: {
+        content: [
+            './components/**/*.{js,ts,jsx,tsx}',
+            './pages/**/*.{js,ts,jsx,tsx}',
+            './_content/**/*.{md,mdx}',
+        ],
+        preserveHtmlElements: true,
+    },
     theme: {
         extend: {
             fontFamily: {
@@ -10,4 +23,7 @@ module.exports = {
         },
     },
     plugins: [require('@tailwindcss/ui')],
+    'tailwindCSS.includeLanguages': {
+        plaintext: 'html',
+    },
 }
