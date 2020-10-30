@@ -22,8 +22,8 @@ export default function Index({ allPosts }) {
                 <div className="mt-12 text-left">
                     <h2 className="mb-5 text-2xl font-semibold">Blog</h2>
 
-                    {allPosts.map((post, i) => (
-                        <PostPreview key={i} post={post} />
+                    {allPosts.map((post) => (
+                        <PostPreview key={post.filePath} post={post} />
                     ))}
                 </div>
             </div>
@@ -36,11 +36,9 @@ Index.propTypes = {
 }
 
 export async function getStaticProps() {
-    const allPosts = await getAllPosts(['title', 'date', 'description', 'slug'])
+    const allPosts = await getAllPosts()
 
-    allPosts.sort((a, b) => (a.date > b.date ? -1 : 1))
+    allPosts.sort((a, b) => (a.data.date > b.data.date ? -1 : 1))
 
-    return {
-        props: { allPosts },
-    }
+    return { props: { allPosts } }
 }

@@ -6,13 +6,13 @@ export default function PostPreview({ post }) {
     return (
         <section className="mb-8">
             <div className="mb-2">
-                <Link href={`/blog/${post.slug}`}>
+                <Link as={`/blog/${post.filePath.replace(/\.mdx?$/, '')}`} href="/blog/[slug]">
                     <a className="text-2xl text-blue-500 border-b border-blue-500 border-dashed hover:text-gray-700 hover:border-none">
-                        {post.title}
+                        {post.data.title}
                     </a>
                 </Link>
             </div>
-            <div className="text-xl">{post.description}</div>
+            <div className="text-xl">{post.data.description}</div>
         </section>
     )
 }

@@ -1,24 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import hydrate from 'next-mdx-remote/hydrate'
 
 import ErrorPage from 'next/error'
 import { useRouter } from 'next/router'
 
 import DefaultLayout from 'components/Layout/DefaultLayout'
 import PostBody from 'components/blog/PostBody'
-import { getAllPosts, getPostBySlug, markdownToHtml } from 'utils/blog'
+import { getAllSlugs, getPostBySlug } from 'utils/blog'
 
-export default function Post({ post }) {
+export default function Post({ githubLink, post, data, url }) {
     const router = useRouter()
-    if (!router.isFallback && !post?.slug) {
+    if (!router.isFallback && !data?.title) {
         return <ErrorPage statusCode={404} />
     }
 
+    const content = hydrate(post)
+
     return (
         <>
-            <DefaultLayout title={post.title} description={post.description} url={post.url}>
+            <DefaultLayout title={data.title} description={data.description} url={url}>
                 <div className="md:mx-auto lg:col-span-12 lg:text-left">
-                    {router.isFallback ? <h1>Loading...</h1> : <PostBody post={post} />}
+                    <PostBody
+                        title={data.title}
+                        date={data.date}
+                        content={content}
+                        githubLink={githubLink}
+                    />
                 </div>
             </DefaultLayout>
         </>
@@ -26,35 +34,28 @@ export default function Post({ post }) {
 }
 
 Post.propTypes = {
+    githubLink: PropTypes.string.isRequired,
+    data: PropTypes.object.isRequired,
     post: PropTypes.object.isRequired,
+    url: PropTypes.string.isRequired,
 }
 
 export async function getStaticProps({ params }) {
-    const post = getPostBySlug(params.slug, ['title', 'date', 'slug', 'content', 'description'])
-
-    const content = await markdownToHtml(post.content || '')
+    const { githubLink, post, data, url } = await getPostBySlug(params.slug)
 
     return {
         props: {
-            post: {
-                ...post,
-                content,
-            },
+            githubLink,
+            post,
+            data,
+            url,
         },
     }
 }
 
 export async function getStaticPaths() {
-    const posts = getAllPosts(['slug'])
-
     return {
-        paths: posts.map((post) => {
-            return {
-                params: {
-                    slug: post.slug,
-                },
-            }
-        }),
+        paths: getAllSlugs(),
         fallback: false,
     }
 }

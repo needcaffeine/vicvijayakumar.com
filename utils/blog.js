@@ -1,56 +1,61 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import { join } from 'path'
-import remark from 'remark'
-import html from 'remark-html'
+import renderToString from 'next-mdx-remote/render-to-string'
+import path from 'path'
 
-const blogPostsDirectory = '_content/blog'
+export const POSTS_PATH = path.join(process.cwd(), '_content/blog')
 
-const staticFilesPath = join(join(process.cwd(), blogPostsDirectory))
-const readStaticFile = (filePath) => fs.readFileSync(join(staticFilesPath, filePath), 'utf8')
+// postFilePaths is the list of all mdx files inside the POSTS_PATH directory
+export const postFilePaths = fs
+    .readdirSync(POSTS_PATH)
+    // Only include md(x) files
+    .filter((p) => /\.mdx?$/.test(p))
 
-export function getPostSlugs() {
-    return fs.readdirSync(blogPostsDirectory).filter((file) => file.indexOf('.') !== 0)
-}
+const readStaticFile = (filePath) => fs.readFileSync(path.join(POSTS_PATH, filePath), 'utf8')
 
-export function getPostBySlug(slug, fields = []) {
-    // Sometimes we call this function with the extension, so chop it off.
-    const realSlug = slug.replace(/\.md$/, '')
-    const fileContents = readStaticFile(`${realSlug}.md`)
+export const getPostBySlug = async (slug) => {
+    const fileName = `${slug}.mdx`
+    const fileContents = readStaticFile(fileName)
 
-    const { data, content } = matter(fileContents)
+    const { content, data } = matter(fileContents)
 
-    const items = {}
-
-    // Ensure only the minimal needed data is exposed
-    fields.forEach((field) => {
-        if (field === 'slug') {
-            items[field] = realSlug
-        }
-        if (field === 'content') {
-            items[field] = content
-        }
-
-        if (data[field]) {
-            items[field] = data[field]
-        }
-
-        items.url = `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${realSlug}`
-
-        items.githubLink = `${process.env.NEXT_PUBLIC_GITHUB_PATH}/_content/blog/${realSlug}.md`
+    const mdxSource = await renderToString(content, {
+        // Optionally pass remark/rehype plugins
+        mdxOptions: {
+            remarkPlugins: [],
+            rehypePlugins: [],
+        },
+        scope: data,
     })
 
-    return items
+    return {
+        fileName,
+        post: mdxSource,
+        data,
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${slug}`,
+        githubLink: `${process.env.NEXT_PUBLIC_GITHUB_PATH}/_content/blog/${slug}.mdx`,
+    }
 }
 
-export function getAllPosts(fields = []) {
-    const slugs = getPostSlugs()
+export function getAllPosts() {
+    return postFilePaths.map((filePath) => {
+        const source = readStaticFile(filePath)
+        const { content, data } = matter(source)
 
-    return slugs.map((slug) => getPostBySlug(slug, fields))
+        return {
+            content,
+            data,
+            filePath,
+        }
+    })
 }
 
-export async function markdownToHtml(markdown) {
-    const result = await remark().use(html).process(markdown)
-
-    return result.toString()
+export function getAllSlugs() {
+    return postFilePaths
+        .map((filePath) => filePath.replace(/\.mdx?$/, ''))
+        .map((slug) => ({
+            params: {
+                slug,
+            },
+        }))
 }
