@@ -13,21 +13,27 @@ export default function About() {
                     </span>
                 </h1>
 
-                <div className="mt-8 text-left">
+                <div className="mt-8 text-lg text-left">
                     <p>
-                        I'm a software engineer in Raleigh, North Carolina, currently working as a
-                        full-stack developer in scientific publishing. I am comfortable with
-                        frontend work, backend work, SRE, architecture, and I really enjoy mentoring
-                        engineers and clearing roadblocks.
+                        I'm a principal software engineer working in scientific publishing. I find
+                        joy in having a breadth of knowledge across the stack and I really really
+                        enjoy mentoring engineers and clearing roadblocks.
                     </p>
 
                     <p>
-                        I consider Raleigh my home, but I grew up in India, Somalia, and Kenya. I
-                        have a Bachelor's degree in Computer Engineering from Iowa State University.
+                        I live in Raleigh, North Carolina and have spent most of my life here, but I
+                        grew up in India, Somalia, and Kenya. I have a Bachelor's degree in Computer
+                        Engineering from Iowa State University.
                     </p>
 
                     <p>
-                        I am also an indie maker, helping preschools with my project{' '}
+                        I enjoy running, biking, disc golf, reading, food, dadding, growing plants,
+                        and I have backyard chickens. I've also recently started learning to play
+                        violin at the same time as one of my children.
+                    </p>
+
+                    <p>
+                        I am also an indie maker helping preschools with my project{' '}
                         <a
                             href="https://www.everyoak.com/"
                             rel="noreferrer noopener"
@@ -35,13 +41,7 @@ export default function About() {
                         >
                             Everyoak
                         </a>
-                        , and in addition, I also have a few other small B2C projects.
-                    </p>
-
-                    <p>
-                        I enjoy running, biking, disc golf, reading, cooking, making pizza, and I
-                        raise backyard chickens and children. I've also recently started learning to
-                        play violin at the same time as one of my kids.
+                        .
                     </p>
                 </div>
             </div>

@@ -13,9 +13,7 @@ function DefaultLayout({ className, children, title, description, url }) {
             <Navbar />
 
             <div className={className}>
-                <div className="max-w-screen-lg px-4 mx-auto mt-4 sm:mt-12 sm:px-6 md:mt-16 xl:mt-12">
-                    {children}
-                </div>
+                <div className="max-w-screen-lg px-4 mx-auto mt-4">{children}</div>
             </div>
 
             <Footer />

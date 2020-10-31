@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .about a, .homepage a, .uses a {
-    @apply text-blue-500 border-b border-blue-500 border-dashed;
+    @apply text-blue-500 underline;
 }
 .about a:hover, .homepage a:hover, .uses a:hover {
     @apply no-underline border-b-0 border-none;

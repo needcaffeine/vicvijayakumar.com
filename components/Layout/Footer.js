@@ -15,7 +15,7 @@ function Footer() {
                         </svg>
                     </a>
                     <a
-                        href="https://github.com/needcaffeine"
+                        href="https://github.com/needcaffeine/vicvijayakumar.com"
                         className="ml-6 text-black hover:text-gray-500"
                     >
                         <span className="sr-only">GitHub</span>
