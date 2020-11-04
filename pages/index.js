@@ -18,10 +18,10 @@ export default function Index({ allPosts }) {
                     </span>
                 </h1>
 
-                <div className="mt-8 text-lg text-left">
+                <div className="mt-8 text-2xl text-left">
                     <p>
                         I'm a software engineer, runner, dad, and indie maker currently living in
-                        Raleigh, NC. I work in scientific publishing.
+                        Raleigh, NC.
                     </p>
                     <p>
                         <Link href="/about">
@@ -32,7 +32,7 @@ export default function Index({ allPosts }) {
 
                 <div className="mt-12 text-left">
                     <h2 className="mb-3 text-2xl font-semibold">Writing</h2>
-                    <p className="mb-8 text-lg">
+                    <p className="mb-8 text-xl leading-normal">
                         This is my personal website. I've realized that if I try to get my thoughts{' '}
                         <b>perfect</b> before hitting publish they will never see the light of day.
                         So strap yourself in and read the things I was happy to put out into the
