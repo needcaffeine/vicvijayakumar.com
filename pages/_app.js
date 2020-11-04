@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import 'styles/main.css'
+import 'styles/postbody.css'
 
 function MyApp({ Component, pageProps }) {
     return <Component {...pageProps} />

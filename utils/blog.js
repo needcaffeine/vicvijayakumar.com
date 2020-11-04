@@ -3,6 +3,9 @@ import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
 import path from 'path'
 
+const rehypeSlug = require('rehype-slug')
+const rehypeAutolinkHeadings = require('rehype-autolink-headings')
+
 export const POSTS_PATH = path.join(process.cwd(), '_content/blog')
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
@@ -23,7 +26,20 @@ export const getPostBySlug = async (slug) => {
         // Optionally pass remark/rehype plugins
         mdxOptions: {
             remarkPlugins: [],
-            rehypePlugins: [],
+            rehypePlugins: [
+                rehypeSlug,
+                [
+                    rehypeAutolinkHeadings,
+                    {
+                        behavior: 'append',
+                        properties: { class: 'headingLink' },
+                        content: {
+                            type: 'text',
+                            value: '#',
+                        },
+                    },
+                ],
+            ],
         },
         scope: data,
     })

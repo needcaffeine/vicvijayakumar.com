@@ -1,0 +1,59 @@
+.postBody {
+    @apply text-lg leading-relaxed;
+}
+
+.postBody p {
+    @apply py-0 my-6;
+}
+
+.postBody ul,
+.postBody ol,
+.postBody blockquote {
+    @apply my-6;
+}
+
+.postBody ol > li {
+    @apply pl-3 ml-5 list-decimal list-outside;
+}
+.postBody ul > li {
+    @apply pl-3 ml-5 list-disc list-outside;
+}
+
+.postBody pre {
+    @apply p-3 overflow-scroll bg-gray-100 border border-gray-100 rounded-md;
+}
+
+.postBody pre > code {
+    @apply text-pink-500;
+}
+
+.postBody p > code {
+    @apply font-mono text-pink-600 bg-gray-100;
+}
+
+.postBody blockquote {
+    @apply pl-4 border-4 border-t-0 border-b-0 border-r-0 border-gray-500 border-solid;
+}
+
+.postBody h2 {
+    @apply mb-4 text-2xl font-semibold leading-snug mt-13;
+}
+
+.postBody h3 {
+    @apply mt-8 mb-4 text-xl font-medium leading-snug;
+}
+
+.postBody a {
+    @apply text-blue-500;
+}
+.postBody a:hover {
+    @apply text-blue-500 underline;
+}
+
+.postBody a.headingLink {
+    @apply pl-1 ml-1 font-light;
+}
+
+.postBody a.headingLink:hover {
+    @apply pl-1 ml-1 font-normal no-underline;
+}
