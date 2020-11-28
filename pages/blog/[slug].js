@@ -23,7 +23,7 @@ export default function Post({ githubLink, post, data, url }) {
                 <div className="md:mx-auto lg:col-span-12 lg:text-left">
                     <PostBody
                         title={data.title}
-                        date={data.date}
+                        date={data.updatedAt}
                         content={content}
                         githubLink={githubLink}
                     />

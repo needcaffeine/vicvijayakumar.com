@@ -1,13 +1,14 @@
 ---
 title: Migrating large INNODB database tables
 description: I needed to move a 100gb database (all tables are INNODB) from a server in datacenter A to a different server in datacenter B. It was complicated enough to need to be documented.
-date: '2013-04-05T00:00:00-04:00'
+createdAt: '2013-04-05T00:00:00-04:00'
+updatedAt: '2013-04-05T00:00:00-04:00'
 ---
 
 First of all, if you use MySQL anywhere in your stack, you should be using [Percona server](http://www.percona.com/software/percona-server/feature-comparison) which is a drop-in replacement for MySQL with dozens of INNODB enhancements (and thus called Xtradb), bug fixes, and all in all just really awesome.
 
-If you want to do some light reading, here you go:  
-[March 15, 2010: Which MySQL Fork/Version to Pick?](http://stackoverflow.com/questions/2450534/which-mysql-fork-version-to-pick)  
+If you want to do some light reading, here you go:
+[March 15, 2010: Which MySQL Fork/Version to Pick?](http://stackoverflow.com/questions/2450534/which-mysql-fork-version-to-pick)
 [August 20, 2012: Xtradb vs INNODB](http://stackoverflow.com/questions/12037363/xtradb-vs-innodb)
 
 I will add that MariaDB is also looking really nice these days.
@@ -32,8 +33,8 @@ But like I said earlier, this just does not work for large tables and is just go
 
 ### Xtrabackup's partial backups feature: Yes!
 
-Requisite reading:  
-[June 8, 2009: Impossible – possible, moving InnoDB tables between servers](http://www.mysqlperformanceblog.com/2009/06/08/impossible-possible-moving-innodb-tables-between-servers/)  
+Requisite reading:
+[June 8, 2009: Impossible – possible, moving InnoDB tables between servers](http://www.mysqlperformanceblog.com/2009/06/08/impossible-possible-moving-innodb-tables-between-servers/)
 [July 31, 2009: Copying InnoDB tables between servers](http://www.mysqlperformanceblog.com/2009/07/31/copying-innodb-tables-between-servers/)
 
 **Note: This will not work for you unless you're running XtraDB on the destination server, and you must have [innodb_import_table_from_xtrabackup](http://www.percona.com/doc/percona-server/5.5/management/innodb_expand_import.html#innodb_import_table_from_xtrabackup) enabled on the destination.**

@@ -55,7 +55,7 @@ Index.propTypes = {
 export async function getStaticProps() {
     const allPosts = await getAllPosts()
 
-    allPosts.sort((a, b) => (a.data.date > b.data.date ? -1 : 1))
+    allPosts.sort((a, b) => (a.data.updatedAt > b.data.updatedAt ? -1 : 1))
 
     return { props: { allPosts } }
 }
