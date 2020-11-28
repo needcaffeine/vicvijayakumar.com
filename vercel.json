@@ -17,6 +17,7 @@
         { "source": "/2018/automatically-set-slack-status", "destination": "/blog/automatically-set-slack-status" },
         { "source": "/2013/01/08/rebooting-a-blog-in-under-24-hours", "destination": "/blog/rebooting-a-blog-in-under-24-hours" },
         { "source": "/2013/01/16/mass-virtual-hosting-in-apache", "destination": "/blog/mass-virtual-hosting-in-apache" },
-        { "source": "/2013/04/05/migrating-large-innodb-tables-without-hating-yourself", "destination": "/blog/migrating-large-innodb-tables" }
+        { "source": "/2013/04/05/migrating-large-innodb-tables-without-hating-yourself", "destination": "/blog/migrating-large-innodb-tables" },
+        { "source": "/blog/basic-data-analysis-unix-tools", "destination": "/blog/basic-data-analysis-unix-linux-tools" }
     ]
 }
