@@ -14,7 +14,7 @@
         "date-fns-tz": "^1.0.12",
         "globby": "^11.0.0",
         "gray-matter": "^4.0.2",
-        "next": "^10.0.1",
+        "next": "^10.0.3",
         "next-mdx-remote": "^1.0.0",
         "next-remote-watch": "^0.2.0",
         "prettier": "^2.1.2",
