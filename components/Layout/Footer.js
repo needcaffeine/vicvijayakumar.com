@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <div className="max-w-screen-lg px-4 mx-auto my-10 sm:px-6 md:flex md:items-center md:justify-between lg:px-6">
+        <div className="max-w-screen-lg px-4 mx-auto my-10 md:flex md:items-center md:justify-between">
             <div className="flex justify-center md:order-2">
                 <a
                     href="https://twitter.com/vicvijayakumar"
