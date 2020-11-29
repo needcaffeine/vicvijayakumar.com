@@ -4,10 +4,10 @@ import React from 'react'
 export default class MyDocument extends Document {
     render() {
         return (
-            <Html className="bg-white" lang="en">
+            <Html className="bg-white dark:bg-gray-800" lang="en">
                 <Head />
 
-                <body className="font-sans antialiased leading-normal text-gray-900">
+                <body className="font-sans antialiased leading-normal text-gray-900 dark:text-white">
                     <Main />
                     <NextScript />
                 </body>

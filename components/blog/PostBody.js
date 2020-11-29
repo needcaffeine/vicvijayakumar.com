@@ -6,7 +6,7 @@ import { format, utcToZonedTime } from 'date-fns-tz'
 export default function PostBody({ content, date, githubLink, title }) {
     return (
         <div className="postBody">
-            <h1 className="mt-1 text-4xl font-medium leading-10 tracking-tight text-left text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
+            <h1 className="mt-1 text-4xl font-medium leading-10 tracking-tight text-left sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
                 {title}
             </h1>
 

@@ -20,7 +20,7 @@
 }
 
 .postBody pre {
-    @apply p-3 overflow-scroll bg-gray-100 border border-gray-100 rounded-md;
+    @apply p-3 overflow-scroll bg-gray-100 border border-gray-100 rounded-md dark:border-gray-800 dark:bg-gray-700;
 }
 
 .postBody pre > code {
