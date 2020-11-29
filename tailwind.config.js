@@ -1,12 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    future: {
-        removeDeprecatedGapUtilities: true,
-        purgeLayersByDefault: true,
-        defaultLineHeights: true,
-        standardFontWeights: true,
-    },
     purge: {
         content: [
             './components/**/*.{js,ts,jsx,tsx}',
@@ -22,7 +16,11 @@ module.exports = {
             },
         },
     },
-    plugins: [require('@tailwindcss/ui')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/aspect-ratio'),
+    ],
     'tailwindCSS.includeLanguages': {
         plaintext: 'html',
     },
