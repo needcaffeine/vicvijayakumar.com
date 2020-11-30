@@ -7,7 +7,7 @@ export default function About() {
         <DefaultLayout className="about" title="About Vic Vijayakumar">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
                 <h1 className="mt-1 text-4xl font-medium leading-10 tracking-tight text-left sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
-                    Hello, I'm Vic{' '}
+                    Hello, I&rsquo;m Vic{' '}
                     <span role="img" aria-label="wave">
                         👋🏾
                     </span>
@@ -15,21 +15,21 @@ export default function About() {
 
                 <div className="mt-8 text-lg text-left">
                     <p>
-                        I'm a principal software engineer working in scientific publishing. I find
-                        joy in having a breadth of knowledge across the stack and I really really
-                        enjoy mentoring engineers and clearing roadblocks.
+                        I&rsquo;m a principal software engineer working in scientific publishing. I
+                        find joy in having a breadth of knowledge across the stack and I really
+                        really enjoy mentoring engineers and clearing roadblocks.
                     </p>
 
                     <p>
                         I live in Raleigh, North Carolina and have spent most of my life here, but I
-                        grew up in India, Somalia, and Kenya. I have a Bachelor's degree in Computer
-                        Engineering from Iowa State University.
+                        grew up in India, Somalia, and Kenya. I have a Bachelor&rsquo;s degree in
+                        Computer Engineering from Iowa State University.
                     </p>
 
                     <p>
                         I enjoy running, biking, disc golf, reading, food, dadding, growing plants,
-                        and I have backyard chickens. I've also recently started learning to play
-                        violin at the same time as one of my children.
+                        and I have backyard chickens. I&rsquo;ve also recently started learning to
+                        play violin at the same time as one of my children.
                     </p>
 
                     <p>

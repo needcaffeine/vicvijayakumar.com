@@ -55,7 +55,7 @@ export default function Uses() {
                                 Office Star WorkSmart Breathable Mesh chair
                             </a>
                         </li>
-                        <li>Apple MacBook Pro (16", 2019)</li>
+                        <li>Apple MacBook Pro (16&rdquo;, 2019)</li>
                         <li>
                             <a
                                 href="https://www.yubico.com/product/yubikey-5c-nano"
@@ -65,7 +65,7 @@ export default function Uses() {
                                 YubiKey 5C Nano
                             </a>
                         </li>
-                        <li>ASUS 26" LCD monitor x 2</li>
+                        <li>ASUS 26&rdquo; LCD monitor x 2</li>
                         <li>
                             Beats Studio<sup>3</sup> headphones
                         </li>
@@ -116,8 +116,8 @@ export default function Uses() {
                         <li>Firefox - my daily browser</li>
                         <li>iTerm2</li>
                         <li>
-                            KeepingYouAwake - prevents my Mac from going to sleep when I'm making
-                            lunch
+                            KeepingYouAwake - prevents my Mac from going to sleep when I&rsquo;m
+                            making lunch
                         </li>
                         <li>Notion</li>
                         <li>Slack</li>
