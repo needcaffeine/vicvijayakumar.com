@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "next",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "lint": "eslint ."
     },
     "dependencies": {
         "@babel/core": "^7.12.9",

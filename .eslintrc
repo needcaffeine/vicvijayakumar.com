@@ -3,6 +3,7 @@
   "extends": [
       "airbnb",
       "plugin:prettier/recommended",
+      "plugin:react/recommended",
       "plugin:react-hooks/recommended",
       "plugin:jsx-a11y/recommended"
   ],
@@ -31,7 +32,9 @@
       "react/jsx-indent-props":               [2, 4],
       "react/jsx-one-expression-per-line":    [0],
       "react/prefer-stateless-function":      [1],
-      "react/static-property-placement":      [1, "property assignment"]
+      "react/static-property-placement":      [1, "property assignment"],
+      "react-hooks/rules-of-hooks":           "error", // Checks rules of Hooks
+      "react-hooks/exhaustive-deps":          "warn" // Checks effect dependencies
   },
   "settings": {
       "import/resolver": {
