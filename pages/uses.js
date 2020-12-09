@@ -97,21 +97,22 @@ export default function Uses() {
                                 target="_blank"
                             >
                                 Visual Studio Code
-                            </a>
-                        </li>
-                        <li>
-                            Night Owl by{' '}
+                            </a>{' '}
+                            +{' '}
                             <a
-                                href="https://twitter.com/sarah_edo"
+                                href="https://marketplace.visualstudio.com/items?itemName=kaos.nightowl"
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
-                                Sarah Drasner
-                            </a>
+                                Night Owl
+                            </a>{' '}
+                            theme
                         </li>
                     </ul>
                     <h4>Other applications that are always open</h4>
                     <ul>
+                        <li>Apple Music</li>
+                        <li>Discord</li>
                         <li>Docker</li>
                         <li>Firefox - my daily browser</li>
                         <li>iTerm2</li>
@@ -120,9 +121,10 @@ export default function Uses() {
                             making lunch
                         </li>
                         <li>Notion</li>
+                        <li>Postman</li>
+                        <li>Sequel Pro</li>
                         <li>Slack</li>
                         <li>Spectacle - window management</li>
-                        <li>Spotify</li>
                     </ul>
 
                     <p>
