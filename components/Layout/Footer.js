@@ -26,6 +26,23 @@ function Footer() {
                         />
                     </svg>
                 </a>
+                <a href="/rss.xml" className="ml-6 text-gray-500 hover:text-yellow-400">
+                    <span className="sr-only">RSS</span>
+                    <svg
+                        className="w-6 h-6 text-yellow-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"
+                        />
+                    </svg>
+                </a>
             </div>
             <div className="mt-8 md:mt-0 md:order-1">
                 <p className="text-base leading-6 text-center text-gray-500">
