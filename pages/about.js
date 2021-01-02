@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 import DefaultLayout from 'components/Layout/DefaultLayout'
@@ -28,19 +29,15 @@ export default function About() {
 
                     <p>
                         I enjoy running, biking, disc golf, reading, food, dadding, growing plants,
-                        and I have backyard chickens. I&rsquo;ve also recently started learning to
-                        play violin at the same time as one of my children.
+                        and I have backyard chickens. I&rsquo;ve also recently started playing
+                        violin.
                     </p>
 
                     <p>
-                        I am also an indie maker helping preschools with my project{' '}
-                        <a
-                            href="https://www.everyoak.com/"
-                            rel="noreferrer noopener"
-                            target="_blank"
-                        >
-                            Everyoak
-                        </a>
+                        I am also an indie maker. You can see my projects{' '}
+                        <Link href="/projects">
+                            <a>here</a>
+                        </Link>
                         .
                     </p>
                 </div>
