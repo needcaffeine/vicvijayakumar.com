@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 
 import DefaultLayout from 'components/Layout/DefaultLayout'
 import PostBody from 'components/blog/PostBody'
+import Share from 'components/blog/Share'
 import { getAllSlugs, getPostBySlug } from 'utils/blog'
 
 export default function Post({ githubLink, post, data, url }) {
@@ -27,6 +28,8 @@ export default function Post({ githubLink, post, data, url }) {
                         content={content}
                         githubLink={githubLink}
                     />
+
+                    <Share url={url} title={data.title} />
                 </div>
             </DefaultLayout>
         </>

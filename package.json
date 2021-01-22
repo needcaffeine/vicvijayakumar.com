@@ -28,6 +28,7 @@
         "prop-types": "^15.7.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
+        "react-share": "^4.3.1",
         "rehype-autolink-headings": "^4.0.0",
         "rehype-slug": "^3.0.0",
         "rss": "^1.2.2",
