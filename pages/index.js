@@ -10,7 +10,7 @@ import { getAllPosts } from 'utils/blog'
 
 export default function Index({ allPosts }) {
     return (
-        <DefaultLayout className="homepage" title="Vic Vijayakumar">
+        <DefaultLayout className="homepage" title="Home">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
                 <h1 className="mt-1 text-4xl font-medium leading-10 tracking-tight text-left sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
                     Hello, I&rsquo;m Vic{' '}

@@ -6,9 +6,11 @@ import Head from './Head'
 import Navbar from './Navbar'
 
 function DefaultLayout({ className, children, title, description, url }) {
+    const metaUrl = url || process.env.NEXT_PUBLIC_BASE_URL
+
     return (
         <>
-            <Head title={title} description={description} url={url} />
+            <Head title={title} description={description} url={metaUrl} />
 
             <Navbar />
 
@@ -25,14 +27,13 @@ DefaultLayout.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     description: PropTypes.string,
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired,
     url: PropTypes.string,
 }
 
 DefaultLayout.defaultProps = {
     className: '',
     description: 'Hi, I am Vic. I blog about software engineering and indie making.',
-    title: 'Home',
     url: '',
 }
 
