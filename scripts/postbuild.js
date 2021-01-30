@@ -6,13 +6,13 @@ const prettier = require('prettier')
 const RSS = require('rss')
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
-const POSTS_PATH = path.join(process.cwd(), '_content/blog')
+const POSTS_PATH = path.join(process.cwd(), 'data/blog')
 const POST_AUTHOR = 'Vic Vijayakumar'
 
 async function generateSitemap() {
     const files = await globby([
         'pages/**/*.js',
-        '_content/blog/*.mdx',
+        'data/blog/*.mdx',
         '!pages/_*.js',
         '!pages/blog/[slug].js',
     ])
@@ -20,7 +20,7 @@ async function generateSitemap() {
     const routes = files.map((file) => {
         const path = file
             .replace('pages', '')
-            .replace('_content', '')
+            .replace('data', '')
             .replace('.js', '')
             .replace('.mdx', '')
 

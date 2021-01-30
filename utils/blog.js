@@ -6,7 +6,7 @@ import path from 'path'
 const rehypeSlug = require('rehype-slug')
 const rehypeAutolinkHeadings = require('rehype-autolink-headings')
 
-export const POSTS_PATH = path.join(process.cwd(), '_content/blog')
+export const POSTS_PATH = path.join(process.cwd(), 'data/blog')
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
 export const postFilePaths = fs
@@ -49,7 +49,7 @@ export const getPostBySlug = async (slug) => {
         post: mdxSource,
         data,
         url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${slug}`,
-        githubLink: `${process.env.NEXT_PUBLIC_GITHUB_PATH}/_content/blog/${slug}.mdx`,
+        githubLink: `${process.env.NEXT_PUBLIC_GITHUB_PATH}/data/blog/${slug}.mdx`,
     }
 }
 
