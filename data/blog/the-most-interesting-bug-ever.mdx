@@ -1,0 +1,49 @@
+---
+title: The most interesting bug I've ever encountered
+description: This is the dramatic retelling of the time I had to chase a particular bug across several layers of the stack. Read on and see if you can figure out what the issue was before I reveal it to you.
+createdAt: '2021-03-30T12:00:00-04:00'
+updatedAt: '2021-03-30T12:00:00-04:00'
+---
+
+This is the dramatic retelling of the time I had to chase a particular bug across several layers of the stack. It's also an exercise in writing — this post is scheduled to auto-publish at a particular time and I need to write as much as possible by then.
+
+----
+
+My favorite bugs to read about are the kind that make you question your sanity and then when they're fixed them you look back and are amazed at how lucky it was that you ever figured it out.
+
+One fun morning a user messaged my team on Slack to say that an internal tool was responding really really slowly. Searches were taking forever. Some other users were writing in saying similar things.
+
+I was on call and claimed the tickets.
+
+* I looked through recent deployments. Nothing suspicious.
+* I ran our test suite. No failures.
+* I ran the automation bots that login, make transactions, update profiles, etc. No failures.
+* I tried to reproduce the issue locally. No failures.
+* I tried to reproduce the issue on the test envirnment. No failures.
+
+I logged into production to reproduce the issue. Login failed. Wait what. At this point no one had mentioned login failing. And then...we started getting complaints about external users not being able to login to one of our sites. Then other sites.
+
+us-east-1 was not on fire. All our servers looked to be up. Other applications using the database worked just fine though were showing increased latency.
+
+I started watching network traffic as I was testing this on prod. My credentials were getting posted successfully. The API was responding with a 200 HTTP code and returning cookies. But login had failed. Things running slowly is one thing but users not being able to login skyrockets to the top of the priority list.
+
+I ran the automation bot against production. Roughly half the bots succeeded, half failed.
+
+I had now isolated this to a login issue. And a things being slow issue. A moment of epiphany hits me. Sessions and caches are both stored on Redis.
+
+We used AWS Elasticache Redis for session storage. I logged into the AWS console and went to the Redis dashboard and it was out of disk space! How???? This was impossible. I knew for a fact that we used a LRU cache with Redis so it would always evict the oldest keys in order to make space for new keys ensuring that we would never run out of space. I ran some Lua queries and realized that:
+
+1. Yes, there was in fact no space left on disk
+2. The average TTL of the keys in Redis was...77 years.
+
+I check to make sure what the server key eviction policy is. It's [volatile-lru](https://redis.io/topics/lru-cache#eviction-policies) (the default in Elasticache), which means it evicts the least used- wait what... it ONLY removes keys **that have an expire set**. 99% of our keys had no EXPIRE set. So the 1% of keys which did have an EXPIRE set kept getting evicted to make space for new keys.
+
+This means that database queries weren't getting cached anymore, sessions were expiring too quickly, and our database server was getting slammed hard.
+
+My first fix was to switch the eviction strategy to allkeys-lru across the entire cluster which immediately started evicting the oldest keys and fixed the issue.
+
+Then we went and found the applications which were incorrectly using our in-house Redis SDK library and not setting an expiration time. We fixed them.
+
+Then we fixed the library so that it defaulted to a sane expire time if one was not provided or the provided time was unreasonable.
+
+And finally we added alerting so that if we got dangerously close to running out of disk space we'd actually get alerted.
