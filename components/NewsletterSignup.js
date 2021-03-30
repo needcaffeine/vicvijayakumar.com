@@ -1,8 +1,8 @@
 export default function NewsletterSignup() {
     return (
         <div id="newsletter" className="mt-10">
-            <div className="px-6 py-6 mx-auto bg-purple-600 rounded-md md:p-8 lg:p-12">
-                <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            <div className="px-6 py-6 mx-auto text-white bg-purple-600 rounded-md md:p-8 lg:p-12">
+                <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
                     Want to hear more from me about coding, building things, and just life in
                     general?
                 </h2>
