@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.about a, .homepage a, .uses a {
+.about a, .postPreview a, .uses a {
     @apply text-blue-500 underline;
 }
-.about a:hover, .homepage a:hover, .uses a:hover {
+.about a:hover, .postPreview a:hover, .uses a:hover {
     @apply no-underline border-b-0 border-none;
 }
 

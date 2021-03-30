@@ -11,50 +11,52 @@ export default function NewsletterSignup() {
                     I&rsquo;m learning, and maybe a dad joke or two. Unsubscribe at any time.
                 </p>
                 <div className="mt-4 sm:w-full sm:max-w-md">
-                    <div id="mc_embed_signup">
+                    <div id="revue-embed">
                         <form
-                            action="https://vicvijayakumar.us7.list-manage.com/subscribe/post?u=9ad3311be3bf1c7f63f2eca24&amp;id=713a5b95a4"
+                            action="https://www.getrevue.co/profile/vicvijayakumar/add_subscriber"
                             method="post"
-                            id="mc-embedded-subscribe-form"
-                            name="mc-embedded-subscribe-form"
+                            id="revue-form"
+                            name="revue-form"
                             className="sm:flex"
-                            target="_blank"
-                            noValidate={true}
                         >
-                            <label htmlFor="mce-EMAIL" className="sr-only">
-                                Email address
-                                <div
-                                    style={{ position: 'absolute', left: '-5000px' }}
-                                    aria-hidden="true"
-                                >
-                                    <input
-                                        type="text"
-                                        name="b_9ad3311be3bf1c7f63f2eca24_713a5b95a4"
-                                        tabIndex="-1"
-                                        defaultValue=""
-                                    />
-                                </div>
-                            </label>
-
                             <input
-                                id="mce-EMAIL"
-                                type="email"
-                                name="EMAIL"
-                                defaultValue=""
-                                autoComplete="email"
                                 className="w-full px-5 py-3 text-black placeholder-gray-500 rounded-md"
+                                type="email"
+                                name="member[email]"
+                                id="member_email"
                                 placeholder="Enter your email"
-                                required={true}
+                                autoComplete="email"
                             />
 
                             <input
                                 type="submit"
                                 value="Subscribe"
-                                name="subscribe"
-                                id="mc-embedded-subscribe"
+                                name="member[subscribe]"
+                                id="member_submit"
                                 className="flex items-center justify-center w-full px-5 py-3 mt-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow cursor-pointer hover:bg-indigo-400 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0"
                             />
                         </form>
+                        <div className="mt-1 text-xs">
+                            By subscribing, you agree with Revue’s{' '}
+                            <a
+                                target="_blank"
+                                className="text-white underline hover:no-underline hover:text-black"
+                                rel="noreferrer"
+                                href="https://www.getrevue.co/terms"
+                            >
+                                Terms
+                            </a>{' '}
+                            and{' '}
+                            <a
+                                target="_blank"
+                                className="text-white underline hover:no-underline hover:text-black"
+                                rel="noreferrer"
+                                href="https://www.getrevue.co/privacy"
+                            >
+                                Privacy Policy
+                            </a>
+                            .
+                        </div>
                     </div>
                 </div>
             </div>
