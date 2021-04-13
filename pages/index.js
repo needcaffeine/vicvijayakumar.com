@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-import Link from 'next/link'
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -23,11 +22,6 @@ export default function Index({ allPosts }) {
                     <p>
                         I&rsquo;m a software engineer, runner, dad, and indie maker currently living
                         in Raleigh, NC.
-                    </p>
-                    <p>
-                        <Link href="/about">
-                            <a>More about me →</a>
-                        </Link>
                     </p>
                 </div>
 
