@@ -2,7 +2,7 @@
 title: When recursion may not be the right answer
 description: I was recently asked about the best way to calculate a particular Fibonacci number. In this post I explain why you may not always want to reach for recursion, a favorite technique of interviewers. ✨ WITH MEMES AND GRAPHS. ✨
 createdAt: '2021-01-21T16:50:00-04:00'
-updatedAt: '2021-01-21T16:50:00-04:00'
+updatedAt: '2021-06-15T00:32:00-04:00'
 ---
 
 <img alt="Distracted boyfriend meme" src="/static/img/blog/when-recursion-is-too-slow-fibonacci/distracted-boyfriend-recursion.jpg" className="w-full" />
@@ -54,7 +54,7 @@ Wow, the problem has been simplified so much that it's incredibly easy to unders
 
 Yeah, hang on. Let's see how long these algorithms actually take to run. We can add some instrumentation statements to help us calculate the runtime of each function call.
 
-For this, I am going to use the [process.hrtime()](https://nodejs.org/docs/v0.8.0/api/all.html#all_process_hrtime) function call in nodejs. And then let plot the results.
+For this, I am going to use the [process.hrtime()](https://nodejs.org/docs/v0.8.0/api/all.html#all_process_hrtime) function call in nodejs. And then let&rsquo;s plot the results.
 
     // This is an instrumentation function to help us determine how long something
     // takes to run.
