@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "@babel/core": "^7.16.0",
+        "@babel/eslint-parser": "^7.16.3",
         "@tailwindcss/aspect-ratio": "^0.3.0",
         "@tailwindcss/forms": "^0.3.4",
         "@tailwindcss/typography": "^0.4.1",
@@ -36,7 +37,6 @@
     },
     "devDependencies": {
         "@tailwindcss/jit": "^0.1.18",
-        "babel-eslint": "^10.1.0",
         "eslint": "^7.32.0",
         "eslint-config-airbnb": "^19.0.0",
         "eslint-config-airbnb-base": "^15.0.0",
