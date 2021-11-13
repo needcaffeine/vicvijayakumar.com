@@ -1,8 +1,7 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 
-export default function PostPreview({ post }) {
+const PostPreview = ({ post }) => {
     return (
         <section className="mb-8 postPreview">
             <div className="mb-2">
@@ -20,3 +19,5 @@ export default function PostPreview({ post }) {
 PostPreview.propTypes = {
     post: PropTypes.object.isRequired,
 }
+
+export default PostPreview

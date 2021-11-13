@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import PostPreview from 'components/blog/PostPreview'
@@ -7,7 +6,7 @@ import DefaultLayout from 'components/Layout/DefaultLayout'
 import NewsletterSignup from 'components/NewsletterSignup'
 import { getAllPosts } from 'utils/blog'
 
-export default function Index({ allPosts }) {
+const Index = ({ allPosts }) => {
     return (
         <DefaultLayout className="homepage" title="Home">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
@@ -49,6 +48,8 @@ export default function Index({ allPosts }) {
 Index.propTypes = {
     allPosts: PropTypes.array.isRequired,
 }
+
+export default Index
 
 export async function getStaticProps() {
     const allPosts = await getAllPosts()

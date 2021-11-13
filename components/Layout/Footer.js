@@ -1,6 +1,4 @@
-import React from 'react'
-
-function Footer() {
+const Footer = () => {
     return (
         <div className="max-w-screen-lg px-4 mx-auto my-10 md:flex md:items-center md:justify-between">
             <div className="flex justify-center md:order-2">

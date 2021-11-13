@@ -1,9 +1,7 @@
-import React from 'react'
-
 import Project from 'components/Project'
 import DefaultLayout from 'components/Layout/DefaultLayout'
 
-export default function Projects() {
+const Projects = () => {
     return (
         <DefaultLayout className="projets" title="Projects | Vic Vijayakumar">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
@@ -52,3 +50,5 @@ export default function Projects() {
         </DefaultLayout>
     )
 }
+
+export default Projects

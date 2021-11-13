@@ -1,9 +1,8 @@
 import Link from 'next/link'
-import React from 'react'
 
 import DefaultLayout from 'components/Layout/DefaultLayout'
 
-export default function About() {
+const About = () => {
     return (
         <DefaultLayout className="about" title="About Vic Vijayakumar">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
@@ -45,3 +44,5 @@ export default function About() {
         </DefaultLayout>
     )
 }
+
+export default About

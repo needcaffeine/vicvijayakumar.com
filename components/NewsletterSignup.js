@@ -1,4 +1,4 @@
-export default function NewsletterSignup() {
+const NewsletterSignup = () => {
     return (
         <div id="newsletter" className="mt-10">
             <div className="px-6 py-6 mx-auto text-white bg-purple-600 rounded-md md:p-8 lg:p-12">
@@ -63,3 +63,5 @@ export default function NewsletterSignup() {
         </div>
     )
 }
+
+export default NewsletterSignup

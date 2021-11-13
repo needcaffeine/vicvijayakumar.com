@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 
 const ucfirst = (string) => string && string.charAt(0).toUpperCase() + string.slice(1)
 
-function Status({ status }) {
+const Status = ({ status }) => {
     let statusClasses
 
     switch (status) {
@@ -29,7 +28,7 @@ Status.propTypes = {
     status: PropTypes.string.isRequired,
 }
 
-function Project({ image, title, description, status, url }) {
+const Project = ({ image, title, description, status, url }) => {
     return (
         <div className="flex flex-col overflow-hidden rounded-lg shadow-lg">
             <div className="flex-shrink-0">

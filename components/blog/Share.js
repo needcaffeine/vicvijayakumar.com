@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { TwitterShareButton } from 'react-share'
 
-export default function Share({ url, title, twitterHandle }) {
+const Share = ({ url, title, twitterHandle }) => {
     return (
         <div className="mx-auto mt-20 text-center border-t border-blue-400">
             <TwitterShareButton url={url} title={title} via={twitterHandle}>
@@ -25,3 +25,5 @@ Share.propTypes = {
 Share.defaultProps = {
     twitterHandle: 'VicVijayakumar',
 }
+
+export default Share

@@ -1,8 +1,6 @@
-import React from 'react'
-
 import NavbarLink from 'components/Layout/NavbarLink'
 
-function Navbar() {
+const Navbar = () => {
     return (
         <div className="relative overflow-hidden">
             <div className="relative pt-6 pb-12">

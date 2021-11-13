@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import hydrate from 'next-mdx-remote/hydrate'
 
@@ -10,7 +9,7 @@ import PostBody from 'components/blog/PostBody'
 import Share from 'components/blog/Share'
 import { getAllSlugs, getPostBySlug } from 'utils/blog'
 
-export default function Post({ githubLink, post, data, url }) {
+const Post = ({ githubLink, post, data, url }) => {
     const router = useRouter()
     if (!router.isFallback && !data?.title) {
         return <ErrorPage statusCode={404} />
@@ -19,20 +18,18 @@ export default function Post({ githubLink, post, data, url }) {
     const content = hydrate(post)
 
     return (
-        <>
-            <DefaultLayout title={data.title} description={data.description} url={url}>
-                <div className="md:mx-auto lg:col-span-12 lg:text-left">
-                    <PostBody
-                        title={data.title}
-                        date={data.updatedAt}
-                        content={content}
-                        githubLink={githubLink}
-                    />
+        <DefaultLayout title={data.title} description={data.description} url={url}>
+            <div className="md:mx-auto lg:col-span-12 lg:text-left">
+                <PostBody
+                    title={data.title}
+                    date={data.updatedAt}
+                    content={content}
+                    githubLink={githubLink}
+                />
 
-                    <Share url={url} title={data.title} />
-                </div>
-            </DefaultLayout>
-        </>
+                <Share url={url} title={data.title} />
+            </div>
+        </DefaultLayout>
     )
 }
 
@@ -42,6 +39,8 @@ Post.propTypes = {
     post: PropTypes.object.isRequired,
     url: PropTypes.string.isRequired,
 }
+
+export default Post
 
 export async function getStaticProps({ params }) {
     const { githubLink, post, data, url } = await getPostBySlug(params.slug)

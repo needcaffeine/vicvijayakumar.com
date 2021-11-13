@@ -5,7 +5,7 @@ import Footer from './Footer'
 import Head from './Head'
 import Navbar from './Navbar'
 
-function DefaultLayout({ className, children, title, description, url }) {
+const DefaultLayout = ({ className, children, title, description, url }) => {
     const metaUrl = url || process.env.NEXT_PUBLIC_BASE_URL
 
     return (
