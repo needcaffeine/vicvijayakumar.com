@@ -1,7 +1,5 @@
 module.exports = {
-    future: {
-        webpack5: true,
-    },
+    swcMinify: true,
     webpack: (config, { isServer }) => {
         if (isServer) {
             // eslint-disable-next-line global-require
