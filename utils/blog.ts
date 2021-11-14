@@ -2,8 +2,8 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
 import path from 'path'
-import { rehypeSlug } from 'rehype-slug'
-import { rehypeAutolinkHeadings } from 'rehype-autolink-headings'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 export const POSTS_PATH = path.join(process.cwd(), 'data/blog')
 

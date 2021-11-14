@@ -1,11 +1,12 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "extends": [
       "airbnb",
       "plugin:prettier/recommended",
       "plugin:react/recommended",
       "plugin:react-hooks/recommended",
-      "plugin:jsx-a11y/recommended"
+      "plugin:jsx-a11y/recommended",
+      "plugin:@next/next/recommended"
   ],
   "plugins": [
       "prettier"
@@ -32,7 +33,7 @@
                                                   "namedComponents": "arrow-function"
                                               }],
       "react/jsx-boolean-value":              [1, "always"],
-      "react/jsx-filename-extension":         [1, { "extensions": [".js", ".jsx"] }],
+      "react/jsx-filename-extension":         [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
       "react/jsx-indent-props":               [2, 4],
       "react/jsx-indent":                     [2, 4],
       "react/jsx-one-expression-per-line":    [0],
