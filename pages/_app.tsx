@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 
 import 'styles/main.css'
 import 'styles/postbody.css'
+import 'styles/prism-material-dark.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return <Component {...pageProps} />

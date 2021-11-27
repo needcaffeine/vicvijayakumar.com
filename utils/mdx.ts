@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
-import rehypePrism from '@mapbox/rehype-prism'
+import rehypePrism from 'rehype-prism-plus'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 export const ROOT = process.cwd()
@@ -76,8 +76,6 @@ const getCompiledMDX = async (mdxSource: string) => {
 export const getPostBySlug = async (slug: string) => {
     const mdxSource = getFileContent(`${slug}.mdx`)
     const { code, frontmatter } = await getCompiledMDX(mdxSource)
-
-    console.log(code)
 
     return {
         code,
