@@ -22,45 +22,49 @@ None of the users really want to muck around with httpd.conf creating virtual ho
 
 ### /etc/httpd/conf/vhosts.d/example.conf:
 
-	<VirtualHost *:80>
-		ServerAlias *.example.com
-		VirtualDocumentRoot /var/www/vhosts/%0/
+```bash
+<VirtualHost *:80>
+    ServerAlias *.example.com
+    VirtualDocumentRoot /var/www/vhosts/%0/
 
-		<Directory "/var/www/vhosts/">
-			Options FollowSymlinks
-			AllowOverride All
-		</Directory>
-	</VirtualHost>
+    <Directory "/var/www/vhosts/">
+        Options FollowSymlinks
+        AllowOverride All
+    </Directory>
+</VirtualHost>
+```
 
 
 What this does is set the virtual document root to whatever the hostname is, as long as it ends in example.com. So if you want to serve vic.design1.example.com, all you need to do is create /var/www/vhosts/vic.design1.example.com and going to that site (assuming that DNS points to this server) will serve whatever is inside that directory. That's all you need to do for basic HTTP. HTTPS is a little more complicated. Let's look at that configuration.
 
 ### /etc/httpd/conf.d/ssl.conf:
 
-    <VirtualHost 1.2.3.4:443>
-		[...]
+```bash
+<VirtualHost 1.2.3.4:443>
+    [...]
 
-		RewriteEngine on
+    RewriteEngine on
 
-		#   1. define two maps: one for fixing the URL and one which defines
-		#   the available virtual hosts with their corresponding
-		#   DocumentRoot.
-		RewriteMap    lowercase    int:tolower
+    #   1. define two maps: one for fixing the URL and one which defines
+    #   the available virtual hosts with their corresponding
+    #   DocumentRoot.
+    RewriteMap    lowercase    int:tolower
 
-		#   2. make sure we have a Host header
-		RewriteCond   %{HTTP_HOST}  !^$
+    #   2. make sure we have a Host header
+    RewriteCond   %{HTTP_HOST}  !^$
 
-		#   3. lowercase the hostname
-		RewriteCond   ${lowercase:%{HTTP_HOST}|NONE}  ^(.+)$
+    #   3. lowercase the hostname
+    RewriteCond   ${lowercase:%{HTTP_HOST}|NONE}  ^(.+)$
 
-		#   5. finally we can map the URL to its docroot location
-		#      and remember the virtual host for logging puposes
-		RewriteRule ^/(.*)$ /var/www/vhosts/%{HTTP_HOST}/$1 [E=VHOST:${lowercase:%{HTTP_HOST}}]
+    #   5. finally we can map the URL to its docroot location
+    #      and remember the virtual host for logging puposes
+    RewriteRule ^/(.*)$ /var/www/vhosts/%{HTTP_HOST}/$1 [E=VHOST:${lowercase:%{HTTP_HOST}}]
 
-		<Directory "/var/www/vhosts/">
-			Options FollowSymLinks
-			AllowOverride All
-		</Directory>
-    </VirtualHost>
+    <Directory "/var/www/vhosts/">
+        Options FollowSymLinks
+        AllowOverride All
+    </Directory>
+</VirtualHost>
+```
 
 Restart Apache and bam, you got it.

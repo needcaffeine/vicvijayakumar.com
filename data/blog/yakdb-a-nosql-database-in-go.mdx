@@ -22,22 +22,24 @@ yakdb is very simple. You can get data, put data, delete data. That's it. Any an
 ### How does it perform?
 This isn't a very scientific test, but let's do some basic benchmarks on read performance.
 
-    $ curl -H 'Content-Type: application/json' -XPUT http://localhost:9532/items \
-      -d '{
-        "id": "Firefly",
-        "value": "{\"Name\": \"Firefly\", \"Genre\": [\"Space Western\", \"Drama\", \"Science fiction\"]}"
-      }'
-    {"status":"OK"}
+```bash
+$ curl -H 'Content-Type: application/json' -XPUT http://localhost:9532/items \
+  -d '{
+    "id": "Firefly",
+    "value": "{\"Name\": \"Firefly\", \"Genre\": [\"Space Western\", \"Drama\", \"Science fiction\"]}"
+  }'
+{"status":"OK"}
 
-    $ wrk -c 100 -d10 -t10 "http://localhost:9532/items/Firefly"
-    Running 10s test @ http://localhost:9532/items/Firefly
-      10 threads and 100 connections
-      Thread Stats   Avg      Stdev     Max   +/- Stdev
-        Latency     5.12ms    1.37ms  24.84ms   71.51%
-        Req/Sec     1.97k   186.35     3.99k    89.25%
-      196638 requests in 10.10s, 46.69MB read
-    Requests/sec:  19463.31
-    Transfer/sec:      4.62MB
+$ wrk -c 100 -d10 -t10 "http://localhost:9532/items/Firefly"
+Running 10s test @ http://localhost:9532/items/Firefly
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     5.12ms    1.37ms  24.84ms   71.51%
+    Req/Sec     1.97k   186.35     3.99k    89.25%
+  196638 requests in 10.10s, 46.69MB read
+Requests/sec:  19463.31
+Transfer/sec:      4.62MB
+```
 
 Running this two more times and averaging it gives us **19564.206 requests per second**! Except...that's not entirely surprising given that this is running on localhost with minimum network latency on an SSD.
 

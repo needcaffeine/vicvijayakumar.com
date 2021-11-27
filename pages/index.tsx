@@ -1,12 +1,23 @@
 /* eslint-disable react/no-array-index-key */
-import PropTypes from 'prop-types'
 
-import PostPreview from 'components/blog/PostPreview'
-import DefaultLayout from 'components/Layout/DefaultLayout'
-import NewsletterSignup from 'components/NewsletterSignup'
-import { getAllPosts } from 'utils/blog'
+import { getAllPosts } from '@/utils/mdx'
+import PostPreview from '@/components/blog/PostPreview'
+import DefaultLayout from '@/components/Layout/DefaultLayout'
+import NewsletterSignup from '@/components/NewsletterSignup'
 
-const Index = ({ allPosts }) => {
+export type Frontmatter = {
+    title: string
+    description: string
+    createdAt: Date
+    updatedAt: Date
+}
+
+type Post = {
+    slug: string
+    frontmatter: Frontmatter
+}
+
+const IndexPage = ({ posts }: { posts: Post[] }) => {
     return (
         <DefaultLayout className="homepage" title="Home">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
@@ -36,8 +47,12 @@ const Index = ({ allPosts }) => {
                         the things I was happy to put out into the world, freed from expectations.
                     </p>
 
-                    {allPosts.map((post) => (
-                        <PostPreview key={post.filePath} post={post} />
+                    {posts.map((post) => (
+                        <PostPreview
+                            key={post.slug}
+                            slug={post.slug}
+                            frontmatter={post.frontmatter}
+                        />
                     ))}
                 </div>
             </div>
@@ -45,16 +60,11 @@ const Index = ({ allPosts }) => {
     )
 }
 
-Index.propTypes = {
-    allPosts: PropTypes.array.isRequired,
-}
+export default IndexPage
 
-export default Index
+export const getStaticProps = async () => {
+    const posts = getAllPosts()
+    posts.sort((a, b) => (a.frontmatter.updatedAt > b.frontmatter.updatedAt ? -1 : 1))
 
-export async function getStaticProps() {
-    const allPosts = await getAllPosts()
-
-    allPosts.sort((a, b) => (a.data.updatedAt > b.data.updatedAt ? -1 : 1))
-
-    return { props: { allPosts } }
+    return { props: { posts } }
 }

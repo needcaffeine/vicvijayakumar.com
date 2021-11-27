@@ -26,27 +26,31 @@ and so on. The value of the Fibonacci number F<sub>7</sub> is F<sub>6</sub> + F<
 
 First let's write a solution that uses a for loop to accomplish this. Nothing fancy for this first attempt, just a brute array. As previously stated, we can express this function as F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub>.
 
-    function fibonacci(n)
-    {
-        // Instantiate our array for the first two elements of the sequence.
-        const sequence = [0, 1]
+```js
+function fibonacci(n)
+{
+    // Instantiate our array for the first two elements of the sequence.
+    const sequence = [0, 1]
 
-        // Populate the array up to the element index that we need.
-        for (let i = 2; i <= n; i++) {
-            sequence.push(sequence[sequence.length - 2] + sequence[sequence.length - 1])
-        }
-
-        return sequence[n]
+    // Populate the array up to the element index that we need.
+    for (let i = 2; i <= n; i++) {
+        sequence.push(sequence[sequence.length - 2] + sequence[sequence.length - 1])
     }
+
+    return sequence[n]
+}
+```
 
 And then let's write the same thing with recursion so you can see what that looks like:
 
-    function recursiveFibonacci(n)
-    {
-        if (n < 2) return n
+```js
+function recursiveFibonacci(n)
+{
+    if (n < 2) return n
 
-        return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2)
-    }
+    return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2)
+}
+```
 
 Wow, the problem has been simplified so much that it's incredibly easy to understand.
 
@@ -56,30 +60,34 @@ Yeah, hang on. Let's see how long these algorithms actually take to run. We can 
 
 For this, I am going to use the [process.hrtime()](https://nodejs.org/docs/v0.8.0/api/all.html#all_process_hrtime) function call in nodejs. And then let&rsquo;s plot the results.
 
-    // This is an instrumentation function to help us determine how long something
-    // takes to run.
-    let start = process.hrtime()
-    const elapsedTime = (text) => {
-        // hrtime() returns an array of seconds and ns. let's convert it to ms.
-        const elapsed = process.hrtime(start)[0] * 1000 + process.hrtime(start)[1] / 1000000
-        console.info(`${text}: ${elapsed.toFixed(3)} ms`)
+```js
+// This is an instrumentation function to help us determine how long something
+// takes to run.
+let start = process.hrtime()
+const elapsedTime = (text) => {
+    // hrtime() returns an array of seconds and ns. let's convert it to ms.
+    const elapsed = process.hrtime(start)[0] * 1000 + process.hrtime(start)[1] / 1000000
+    console.info(`${text}: ${elapsed.toFixed(3)} ms`)
 
-        // reset the clock
-        start = process.hrtime()
-    }
+    // reset the clock
+    start = process.hrtime()
+}
 
-    for (let i = 0; i <= 10; i++) {
-        console.log(`F${i} =`, recursiveFibonacci(i))
-        elapsedTime(`F${i}`)
-    }
+for (let i = 0; i <= 10; i++) {
+    console.log(`F${i} =`, recursiveFibonacci(i))
+    elapsedTime(`F${i}`)
+}
+```
 
 We get some output from running this code, and it looks pretty fast. Let's run this for a few more iterations (50 is a nice number), and because I love graphs, I'm going to plot it. I'm going to change our instrumentation function a little to return the runtime instead of printing it to the console. This way we can use something like plotter or gnuplot to graph the results of the arrays.
 
-    const runtimes = []
-    for (let i = 0; i <= 50; i++) {
-        console.log(`F${i} =`, recursiveFibonacci(i))
-        runtimes.push(elapsedTime())
-    }
+```js
+const runtimes = []
+for (let i = 0; i <= 50; i++) {
+    console.log(`F${i} =`, recursiveFibonacci(i))
+    runtimes.push(elapsedTime())
+}
+```
 
 It's taking a little while to run, isn't it. It finally finishes and let's examine what happened. Oh no, this has all gone horribly wrong. <span role="img" aria-label="facepalm">🤦🏾‍♂️</span>
 
@@ -101,27 +109,29 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Memoization): memoization is an o
 
 That sounds like exactly what we want, I'll take two. Let's refactor our recursive function the slightest bit to cache the results of the previous work done by the function.
 
-    const memo = {}
-    function memoizedRecursiveFibonacci(n) {
-        // Is the value we want in the memo already?
-        if (n in memo) {
-            return memo[n]
-        }
-
-        // If we get here, this is our first time calculating this value.
-        let value
-        if (n < 2) {
-            value = n
-        } else {
-            value = memoizedRecursiveFibonacci(n - 1) + memoizedRecursiveFibonacci(n - 2)
-        }
-
-        // Store the results of this computation in our memo for the next iteration
-        // before we return it.
-        memo[n] = value
-
-        return value
+```js
+const memo = {}
+function memoizedRecursiveFibonacci(n) {
+    // Is the value we want in the memo already?
+    if (n in memo) {
+        return memo[n]
     }
+
+    // If we get here, this is our first time calculating this value.
+    let value
+    if (n < 2) {
+        value = n
+    } else {
+        value = memoizedRecursiveFibonacci(n - 1) + memoizedRecursiveFibonacci(n - 2)
+    }
+
+    // Store the results of this computation in our memo for the next iteration
+    // before we return it.
+    memo[n] = value
+
+    return value
+}
+```
 
 And once again, let's plot this against our other two implementations and see how they all compare.
 

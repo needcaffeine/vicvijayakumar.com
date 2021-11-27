@@ -43,30 +43,42 @@ See instructions on [github.com/npm/cli](https://github.com/npm/cli)
 
 ### 2. Install npx
 
-    npm install -g npx
+```bash
+npm install -g npx
+```
 
 ### 3. Install eslint and Prettier
 
-    npm install --save-dev eslint prettier
+```bash
+npm install --save-dev eslint prettier
+```
 
 ### 4. Install the Airbnb style config for ESLint, and all dependencies
 
-    npm install --save-dev eslint-config-airbnb
-    npx install-peerdeps --dev eslint-config-airbnb-base
+```bash
+npm install --save-dev eslint-config-airbnb
+npx install-peerdeps --dev eslint-config-airbnb-base
+```
 
 The npx utility automatically detects if you are using yarn or npm to manage your codebase, and runs the appropriate commands. If you do not have npx, you will need to manually install the [eslint-config-airbnb-base](https://www.npmjs.com/package/eslint-config-airbnb-base) package and all peer dependencies.
 
 ### 5. Display Prettier suggestions as ESLint rules
 
-    npm install --save-dev eslint-plugin-prettier
+```bash
+npm install --save-dev eslint-plugin-prettier
+```
 
 ### 6. Turn off all unnecessary ESLint rules that conflict with Prettier
 
-    npm install --save-dev eslint-config-prettier
+```bash
+npm install --save-dev eslint-config-prettier
+```
 
 ### 7. Set up React-specific linting rules
 
-    npm install --save-dev eslint-plugin-react
+```bash
+npm install --save-dev eslint-plugin-react
+```
 
 The configuration below enables all recommended options, but if you want any custom configuration see [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react).
 
@@ -74,13 +86,17 @@ The configuration below enables all recommended options, but if you want any cus
 
 Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
 
-    npm install --save-dev eslint-plugin-react-hooks
+```bash
+npm install --save-dev eslint-plugin-react-hooks
+```
 
 If you want to add custom configuration, see [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks).
 
 ### 9. Identify accessibility issues in your work
 
-    npm install --save-dev eslint-plugin-jsx-a11y
+```bash
+npm install --save-dev eslint-plugin-jsx-a11y
+```
 
 For custom configuration, see [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y).
 
@@ -95,54 +111,60 @@ For this, your project needs .eslintrc and a .prettierrc file. This is the most 
 
 **.eslintrc:**
 
-    {
-        "extends": [
-            "airbnb",
-            "plugin:prettier/recommended",
-            "plugin:react/recommended",
-            "plugin:react-hooks/recommended",
-            "plugin:jsx-a11y/recommended"
-        ],
-        "plugins": [
-            "prettier",
-            "react"
-        ],
-        "rules": {
-            "prettier/prettier": ["error"],
-            "react/jsx-filename-extension":         [1, { "extensions": [".js", ".jsx"] }],
-            "react/jsx-indent":                     [2, 4],
-            "react/jsx-indent-props":               [2, 4],
-            "react/jsx-one-expression-per-line":    [0],
-            "react/prefer-stateless-function":      [1],
-            "react/static-property-placement":      [1, "property assignment"],
-            "react-hooks/rules-of-hooks":           "error",
-            "react-hooks/exhaustive-deps":          "warn"
-        },
-        "parserOptions": {
-            "ecmaFeatures": {
-                "jsx": true
-            }
+```js
+{
+    "extends": [
+        "airbnb",
+        "plugin:prettier/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "plugins": [
+        "prettier",
+        "react"
+    ],
+    "rules": {
+        "prettier/prettier": ["error"],
+        "react/jsx-filename-extension":         [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-indent":                     [2, 4],
+        "react/jsx-indent-props":               [2, 4],
+        "react/jsx-one-expression-per-line":    [0],
+        "react/prefer-stateless-function":      [1],
+        "react/static-property-placement":      [1, "property assignment"],
+        "react-hooks/rules-of-hooks":           "error",
+        "react-hooks/exhaustive-deps":          "warn"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
         }
     }
+}
+```
 
 **.prettierrc:**
 
-    {
-        "printWidth": 100,
-        "semi": false,
-        "singleQuote": true,
-        "tabWidth": 4,
-        "trailingComma": "es5"
-    }
+```js
+{
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "es5"
+}
+```
 
 ### 12. Set up VS Code to format your code automatically on save
 
 Open your user settings in VS Code (on a Mac, this is Cmd-Shift-P) and click `Preferences: Open Settings (JSON)`. You will need to add this section:
 
-    "[javascript]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-    }
+```js
+"[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+}
+```
 
 Restart VS Code and watch the magic happen!
 

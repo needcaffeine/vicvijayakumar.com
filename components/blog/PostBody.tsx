@@ -1,8 +1,18 @@
 /* eslint-disable react/no-danger */
-import PropTypes from 'prop-types'
 import { format, utcToZonedTime } from 'date-fns-tz'
+import { ReactNode } from 'react'
 
-const PostBody = ({ content, date, githubLink, title }) => {
+const PostBody = ({
+    date,
+    githubLink,
+    title,
+    children,
+}: {
+    date: Date
+    githubLink: string
+    title: string
+    children: ReactNode
+}) => {
     return (
         <div className="postBody">
             <h1 className="mt-1 text-4xl font-medium leading-10 tracking-tight text-left sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
@@ -20,16 +30,9 @@ const PostBody = ({ content, date, githubLink, title }) => {
                 </span>
             </div>
 
-            <div className="mt-8">{content}</div>
+            <div className="mt-8">{children}</div>
         </div>
     )
-}
-
-PostBody.propTypes = {
-    content: PropTypes.object.isRequired,
-    date: PropTypes.string.isRequired,
-    githubLink: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
 }
 
 export default PostBody

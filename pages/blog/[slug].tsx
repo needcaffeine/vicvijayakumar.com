@@ -1,63 +1,75 @@
-import PropTypes from 'prop-types'
-import hydrate from 'next-mdx-remote/hydrate'
-
 import ErrorPage from 'next/error'
 import { useRouter } from 'next/router'
 
+import { useMemo } from 'react'
 import DefaultLayout from 'components/Layout/DefaultLayout'
 import PostBody from 'components/blog/PostBody'
 import Share from 'components/blog/Share'
-import { getAllSlugs, getPostBySlug } from 'utils/blog'
+import { getAllPosts, getPostBySlug } from 'utils/mdx'
+import { getMDXComponent } from 'mdx-bundler/client'
 
-const Post = ({ githubLink, post, data, url }) => {
+export type Frontmatter = {
+    title: string
+    description: string
+    createdAt: Date
+    updatedAt: Date
+}
+
+const Post = ({
+    code,
+    frontmatter,
+    githubLink,
+    url,
+}: {
+    code: string
+    frontmatter: Frontmatter
+    githubLink: string
+    url: string
+}) => {
+    const Component = useMemo(() => getMDXComponent(code), [code])
+
     const router = useRouter()
-    if (!router.isFallback && !data?.title) {
+    if (!router.isFallback && !frontmatter?.title) {
         return <ErrorPage statusCode={404} />
     }
 
-    const content = hydrate(post)
-
     return (
-        <DefaultLayout title={data.title} description={data.description} url={url}>
+        <DefaultLayout title={frontmatter.title} description={frontmatter.description} url={url}>
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
                 <PostBody
-                    title={data.title}
-                    date={data.updatedAt}
-                    content={content}
+                    title={frontmatter.title}
+                    date={frontmatter.updatedAt}
                     githubLink={githubLink}
-                />
+                >
+                    <Component />
+                </PostBody>
 
-                <Share url={url} title={data.title} />
+                <Share url={url} title={frontmatter.title} />
             </div>
         </DefaultLayout>
     )
 }
 
-Post.propTypes = {
-    githubLink: PropTypes.string.isRequired,
-    data: PropTypes.object.isRequired,
-    post: PropTypes.object.isRequired,
-    url: PropTypes.string.isRequired,
-}
-
 export default Post
 
-export async function getStaticProps({ params }) {
-    const { githubLink, post, data, url } = await getPostBySlug(params.slug)
+export const getStaticProps = async ({ params }) => {
+    const { code, frontmatter, githubLink, url } = await getPostBySlug(params.slug)
 
     return {
         props: {
+            code,
+            frontmatter,
             githubLink,
-            post,
-            data,
             url,
         },
     }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
+    const paths = getAllPosts().map(({ slug }) => ({ params: { slug } }))
+
     return {
-        paths: getAllSlugs(),
+        paths,
         fallback: false,
     }
 }
