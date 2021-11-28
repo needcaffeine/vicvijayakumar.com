@@ -58,7 +58,7 @@ const getCompiledMDX = async (mdxSource: string) => {
     try {
         return await bundleMDX({
             source: mdxSource,
-            xdmOptions(options) {
+            xdmOptions(options: any) {
                 // this is the recommended way to add custom remark/rehype plugins:
                 // The syntax might look weird, but it protects you in case we add/remove
                 // plugins in the future.
