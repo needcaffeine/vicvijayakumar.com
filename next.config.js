@@ -1,4 +1,6 @@
-module.exports = {
+const { withPlausibleProxy } = require('next-plausible')
+
+module.exports = withPlausibleProxy()({
     swcMinify: true,
     webpack: (config, { isServer }) => {
         if (isServer) {
@@ -8,4 +10,4 @@ module.exports = {
 
         return config
     },
-}
+})
