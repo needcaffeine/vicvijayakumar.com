@@ -1,6 +1,6 @@
 ---
 title: Migrating away from Google Analytics
-description: I've decided to move away from GA and go with a different analytics company.
+description: I've decided to move away from GA and go with a different analytics product.
 createdAt: '2021-11-29T00:00:00-04:00'
 updatedAt: '2021-11-29T00:00:00-04:00'
 ---
@@ -74,7 +74,7 @@ If you have a `<BlitzHead>` or `<NextHead>` section in your app, add the script 
 
 Plausible is privacy conscious, but ad blockers do not see it that way. Plausible is afterall still tracking a user's behavior, and so ad blockers will block the plausible.io domain.
 
-For this reason, I set up the <a href="https://github.com/4lejandrito/next-plausible" rel="nofollow noreferrer">next-plausible</a> library which turns the Plausible library and its network calls into a proxied first party script.
+For this reason, I set up the [next-plausible](https://github.com/4lejandrito/next-plausible) library which turns the Plausible library and its network calls into a proxied first party script.
 
 ```bash
 npm install next-plausible
@@ -94,7 +94,7 @@ export default function MyApp({ Component, pageProps }) {
 }
 ```
 
-You will need to do one final thing, which is to wrap your config in next.config.j|ts / blitz.config.j|ts:
+You will need to do one final thing, which is to wrap your config in next.config.js / blitz.config.js:
 
 ```js
 import { withPlausibleProxy } from 'next-plausible'
