@@ -1,0 +1,186 @@
+---
+title: "TypeScript: Type Alias versus Interface"
+description: Should you use Type Aliases or Interfaces? The answer may surprise you.
+createdAt: '2021-11-30T00:00:00-04:00'
+updatedAt: '2021-11-30T00:00:00-04:00'
+---
+
+One confusing thing for newcomers to TypeScript (and even some of us who have used it for a while) is whether to use a Type Alias or an Interface.
+
+Let me save you a lot of reading right now to say: **there are very few differences between Type aliases and Interfaces. Pick one and use it.**
+
+The biggest difference between a Type Alias and an Interface is that Type Aliases cannot be added onto or changed, whereas Interfaces are extendable at will.
+
+We're going to go through some examples of how they both work, but before we get started, this article will be most beneficial for you if you copy-paste the code snippets into the [TypeScript Playground](https://www.typescriptlang.org/play) and run it, or run it in some other Read-Eval-Print Loop (REPL) of your choice.
+
+## Basic usage of a Type Alias and Interface
+
+```TypeScript
+interface CarInterface {
+    color: string
+    make: string
+    model: string
+}
+
+type CarType = {
+    color: string
+    make: string
+    model: string
+}
+
+const describeCarFromInterface = (car: CarInterface) => console.log(`The ${car.color} car is a ${car.make} ${car.model}.`);
+
+const describeCarFromType = (car: CarType) => console.log(`The ${car.color} car is a ${car.make} ${car.model}.`);
+
+describeCarFromInterface({ color: 'Blue', make: 'Subaru', model: 'Impreza' });
+describeCarFromType({ color: 'Silver', make: 'Subaru', model: 'Outback' });
+```
+
+You can copy paste this code and run it in a REPL like TypeScript Playground and you will get:
+
+```bash
+[LOG]: "The Blue car is a Subaru Outback."
+[LOG]: "The Silver car is a Subaru Outback."
+```
+
+Okay that was a simple example of how to use Type Aliases and Interfaces. How do we change our original declarations?
+
+## Things you can do with a Type Alias
+
+### You **cannot** reassign a Type Alias after creation
+
+```TypeScript
+type CarType = {
+    color: string
+    make: string
+    model: string
+}
+
+// This will make TypeScript unhappy.
+type CarType = {
+    mileage: number
+}
+
+const describeCarFromType = (car: CarType) => console.log(`The ${car.color} car is a ${car.make} ${car.model}.`);
+
+describeCarFromType({ color: 'Silver', make: 'Subaru', model: 'Outback', mileage: 1000 });
+```
+
+### You **can** add new fields to a Type Alias by _extending_ it
+
+```TypeScript
+type CarType = {
+    color: string
+    make: string
+    model: string
+}
+
+type ElectricCarType = CarType & {
+    mileage: number
+    chargeTime: number
+}
+
+const describeCarFromType = (car: ElectricCarType) => console.log(`The ${car.color} car is a ${car.make} ${car.model} with ${car.mileage} miles. It charges in ${car.chargeTime} hours.`);
+
+describeCarFromType({ color: 'Silver', make: 'Subaru', model: 'Outback', mileage: 1000, chargeTime: 5 });
+```
+
+### You **can** use Type Aliases to create custom names for a primitive
+
+```TypeScript
+type CarType = {
+    color: string
+    make: string
+    model: string
+}
+
+type PositiveNumber = number
+
+type ElectricCarType = CarType & {
+    mileage: PositiveNumber
+    chargeTime: PositiveNumber
+}
+
+const describeCarFromType = (car: ElectricCarType) => console.log(`The ${car.color} car is a ${car.make} ${car.model} with ${car.mileage} miles. It charges in ${car.chargeTime} hours.`);
+
+describeCarFromType({ color: 'Silver', make: 'Subaru', model: 'Outback', mileage: 1000, chargeTime: 5 });
+```
+
+## Things you can do with an Interface
+
+### You **can** redeclare an Interface and add new fields
+
+```TypeScript
+interface CarInterface {
+    color: string
+    make: string
+    model: string
+}
+
+interface CarInterface {
+    mileage: number     // This adds onto the original interface
+    model: number       // Just for fun, but this is invalid. You cannot change the type after the initial declaration.
+}
+
+const describeCarFromInterface = (car: CarInterface) => console.log(`The ${car.color} car is a ${car.make} ${car.model}.`);
+
+describeCarFromInterface({ color: 'Blue', make: 'Subaru', model: 'Impreza', mileage: 1000 });
+```
+
+### You **can** add new fields to an Interface by extending it
+
+```TypeScript
+interface CarInterface {
+    color: string
+    make: string
+    model: string
+}
+
+interface ElectricCarInterface extends CarInterface {
+    chargeTime: number
+    model: number       // Just for fun, this is still invalid. You cannot change an extended type after the initial declaration.
+}
+
+const describeCarFromInterface = (car: ElectricCarInterface) => console.log(`The ${car.color} car is a ${car.make} ${car.model}. It charges in ${car.chargeTime} hours.`);
+
+describeCarFromInterface({ color: 'Blue', make: 'Subaru', model: 'Impreza', chargeTime: 5 });
+```
+
+## Type Aliases and Interfaces are interchangeable. Really.
+
+Look, if you are reading this article, TypeScript and static typing have already made a positive impact on your life. It really doesn't matter which one you use in your code, as long as you're consistent with yourself.
+
+If you need someone to make a bold assertion for you, I personally prefer Interfaces unless I need to create a custom name for a primitive type. Nothing prevents you from mixing and matching them, like this. 🎉
+
+```TypeScript
+interface CarInterface {
+    color: string
+    make: string
+    model: string
+}
+
+// Type Alias extending an Interface
+type RaceCarType = CarInterface & {
+    hasRacingStripes: boolean
+    hasTurboEngine: boolean
+}
+
+type PositiveNumber = number
+
+// Interface extending an Interface
+interface ElectricCarInterface extends CarInterface {
+    mileage: PositiveNumber     // This is a Type Alias.
+    chargeTime: PositiveNumber  // This is a Type Alias.
+}
+
+// Interface extending a Type Alias
+interface ElectricRaceCarInterface extends RaceCarType {
+    mileage: PositiveNumber
+    chargeTime: PositiveNumber
+    hasSpoiler: boolean
+}
+
+const describeCar = (car: ElectricCarInterface) => console.log(`The ${car.color} car is a ${car.make} ${car.model} with ${car.mileage} miles. It charges in ${car.chargeTime} hours.`);
+
+describeCar({ color: 'Silver', make: 'Subaru', model: 'Outback', mileage: 1000, chargeTime: 5 });
+```
