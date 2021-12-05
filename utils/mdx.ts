@@ -5,6 +5,7 @@ import { bundleMDX } from 'mdx-bundler'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypePrism from 'rehype-prism-plus'
+import rehypeCodeTitles from 'rehype-code-titles'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 export const ROOT = process.cwd()
@@ -40,6 +41,7 @@ const getCompiledMDX = async (mdxSource: string) => {
     // Add your remark and rehype plugins here
     const remarkPlugins = [remarkGfm]
     const rehypePlugins = [
+        rehypeCodeTitles,
         rehypePrism,
         rehypeSlug,
         [

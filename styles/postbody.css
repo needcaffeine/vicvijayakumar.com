@@ -49,3 +49,7 @@
 .postBody a.headingLink:hover {
     @apply pl-1 ml-1 font-normal no-underline;
 }
+
+.postBody .rehype-code-title {
+    @apply mt-6 font-bold;
+}
