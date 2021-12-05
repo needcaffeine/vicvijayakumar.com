@@ -9,13 +9,17 @@ const Uses = () => {
                 </h1>
 
                 <div className="mt-8 text-left">
-                    <p>This is a list of my hardware, software, and other tools I use regularly.</p>
+                    <p>
+                        This is a list of my hardware, software, and other things I use regularly.
+                    </p>
+
                     <h3 id="hardware">Hardware</h3>
                     <p>
                         When I first started coding professionally in 2004, I did all my work on a
                         Dell Inspiron. I think I first switched to a MacBook Pro in 2010, and have
                         not looked back.
                     </p>
+
                     <h4>My office</h4>
                     <ul>
                         <li>
@@ -68,11 +72,15 @@ const Uses = () => {
                             Beats Studio<sup>3</sup> headphones
                         </li>
                     </ul>
+
                     <h4>On the go</h4>
                     <ul>
                         <li>Powerbeats Pro wireless headphones</li>
                         <li>Kindle Paperwhite</li>
+                        <li>Apple Watch Series 4</li>
+                        <li>Garmin Forerunner 235</li>
                     </ul>
+
                     <h3 id="software">Software</h3>
                     <p>
                         Every few months, I wipe my laptop and set it up from scratch using my{' '}
@@ -86,6 +94,7 @@ const Uses = () => {
                         . My dotfiles repo contains scripts that uses Homebrew to set up most to all
                         the applications I use.
                     </p>
+
                     <h4>Coding environment</h4>
                     <ul>
                         <li>
@@ -107,6 +116,7 @@ const Uses = () => {
                             theme
                         </li>
                     </ul>
+
                     <h4>Other applications that are always open</h4>
                     <ul>
                         <li>Apple Music</li>
@@ -123,6 +133,15 @@ const Uses = () => {
                         <li>Sequel Pro</li>
                         <li>Slack</li>
                         <li>Spectacle - window management</li>
+                    </ul>
+
+                    <h3 id="shoes">My shoes</h3>
+                    <ul>
+                        <li>Hoka One One Clifton 7</li>
+                        <li>Nike Downshifter 11</li>
+                        <li>Mizuno Wave Rider 24</li>
+                        <li>New Balance 680 V6</li>
+                        <li>Altra Torin 4</li>
                     </ul>
 
                     <p>

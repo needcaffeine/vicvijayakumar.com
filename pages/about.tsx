@@ -15,9 +15,11 @@ const About = () => {
 
                 <div className="mt-8 text-lg text-left">
                     <p>
-                        I&rsquo;m a principal software engineer working in scientific publishing. I
-                        find joy in having a breadth of knowledge across the stack and I really
-                        really enjoy mentoring engineers and clearing roadblocks.
+                        I&rsquo;m a software engineer currently working on frontend tooling,
+                        architecture, and infrastructure. Previously, I found joy in building
+                        solutions to accelerate the dissemination of scientific research. I enjoy
+                        having a breadth of knowledge across the stack and I really really enjoy
+                        mentoring engineers, clearing roadblocks, and making things fast.
                     </p>
 
                     <p>
@@ -27,13 +29,13 @@ const About = () => {
                     </p>
 
                     <p>
-                        I enjoy running, biking, disc golf, reading, food, dadding, growing plants,
-                        and I have backyard chickens. I&rsquo;ve also recently started playing
-                        violin.
+                        I enjoy running, biking, disc golf, reading, writing, food, dadding, growing
+                        plants, playing with dough, and I have backyard chickens. I am also recently
+                        a violinist, and I enjoy playing music.
                     </p>
 
                     <p>
-                        I am also an indie maker. You can see my projects{' '}
+                        I am also a part-time indie maker. You can see my projects{' '}
                         <Link href="/projects">
                             <a>here</a>
                         </Link>

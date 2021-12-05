@@ -13,10 +13,7 @@ const Projects = () => {
                 </h1>
 
                 <div className="mt-8 text-lg text-left">
-                    <p>
-                        This is a collection of some of the projects I&rsquo;ve worked on in my own
-                        time.
-                    </p>
+                    <p>This is a collection of some of my projects.</p>
 
                     <div className="grid max-w-lg gap-5 mt-6 md:grid-cols-3 md:max-w-none">
                         <Project
