@@ -1,19 +1,19 @@
 import Project from 'components/Project'
 import DefaultLayout from 'components/Layout/DefaultLayout'
 
-const Projects = () => {
+const LinksPage = () => {
     return (
-        <DefaultLayout className="projets" title="Projects | Vic Vijayakumar">
+        <DefaultLayout className="projets" title="Links | Vic Vijayakumar">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
                 <h1 className="mt-1 text-4xl font-medium leading-10 tracking-tight text-left sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
-                    My personal projects{' '}
+                    Links{' '}
                     <span role="img" aria-label="tools">
-                        🛠
+                        ✅
                     </span>
                 </h1>
 
                 <div className="mt-8 text-lg text-left">
-                    <p>This is a collection of some of my projects.</p>
+                    <p>Super important links to things.</p>
 
                     <div className="grid max-w-lg gap-5 mt-6 md:grid-cols-3 md:max-w-none">
                         <Project
@@ -48,4 +48,4 @@ const Projects = () => {
     )
 }
 
-export default Projects
+export default LinksPage

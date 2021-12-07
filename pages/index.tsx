@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 
+import Link from 'next/link'
 import { getAllPosts } from '@/utils/mdx'
 import PostPreview from '@/components/blog/PostPreview'
 import DefaultLayout from '@/components/Layout/DefaultLayout'
@@ -28,10 +29,32 @@ const IndexPage = ({ posts }: { posts: Post[] }) => {
                     </span>
                 </h1>
 
-                <div className="mt-8 text-2xl text-left">
+                <div className="mt-8 text-xl text-left">
                     <p>
-                        I&rsquo;m a software engineer, runner, dad, and indie maker currently living
-                        in Raleigh, NC.
+                        I&rsquo;m a software engineer in Raleigh, North Carolina. I enjoy running,
+                        biking, disc golf, reading, writing, food, dadding, buying plants, playing
+                        with dough, playing violin, and raising backyard chickens.
+                    </p>
+
+                    <p>
+                        I also start a lot of new projects. Some of them are{' '}
+                        <Link href="/links">
+                            <a>here</a>
+                        </Link>
+                        .
+                    </p>
+
+                    <p>
+                        This is my personal website. What you see below are a collection of my
+                        thoughts, and sometimes just public documentation. I&rsquo;ve realized that
+                        if I try to get my thoughts <b>perfect</b> before hitting publish they will
+                        never see the light of day. So strap yourself in and read the things I was
+                        happy to put out into the world, freed from expectations.
+                    </p>
+
+                    <p>
+                        If you want to get in touch with me, you can reply to my newsletter, or via{' '}
+                        <a href="https://twitter.com/VicVijayakumar">Twitter</a>.
                     </p>
                 </div>
 
@@ -39,13 +62,6 @@ const IndexPage = ({ posts }: { posts: Post[] }) => {
 
                 <div className="mt-12 text-left">
                     <h2 className="mb-3 text-2xl font-semibold">Writing</h2>
-                    <p className="mb-8 text-xl leading-normal">
-                        This is my personal website. What you see below are a collection of my
-                        thoughts, insights, and sometimes just public documentation. I&rsquo;ve
-                        realized that if I try to get my thoughts <b>perfect</b> before hitting
-                        publish they will never see the light of day. So strap yourself in and read
-                        the things I was happy to put out into the world, freed from expectations.
-                    </p>
 
                     {posts.map((post) => (
                         <PostPreview

@@ -40,7 +40,6 @@ const NewsletterSignup = () => {
                             By subscribing, you agree with Revue’s{' '}
                             <a
                                 target="_blank"
-                                className="text-white underline hover:no-underline hover:text-black"
                                 rel="noreferrer"
                                 href="https://www.getrevue.co/terms"
                             >
@@ -49,7 +48,6 @@ const NewsletterSignup = () => {
                             and{' '}
                             <a
                                 target="_blank"
-                                className="text-white underline hover:no-underline hover:text-black"
                                 rel="noreferrer"
                                 href="https://www.getrevue.co/privacy"
                             >

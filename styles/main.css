@@ -2,11 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-.about a, .postPreview a, .uses a {
+.homepage a, .postPreview a, .uses a {
     @apply text-blue-500 underline;
 }
-.about a:hover, .postPreview a:hover, .uses a:hover {
+.homepage a:hover, .postPreview a:hover, .uses a:hover {
     @apply no-underline border-b-0 border-none;
+}
+
+#newsletter a {
+    @apply text-white underline;
+}
+
+#newsletter a:hover {
+    @apply text-black no-underline;
 }
 
 .uses h3 {
