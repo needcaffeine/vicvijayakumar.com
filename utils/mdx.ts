@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
+import readingTime from 'reading-time'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypePrism from 'rehype-prism-plus'
@@ -81,7 +82,10 @@ export const getPostBySlug = async (slug: string) => {
 
     return {
         code,
-        frontmatter,
+        frontmatter: {
+            readingTime: readingTime(mdxSource),
+            ...frontmatter,
+        },
         githubLink: `${process.env.NEXT_PUBLIC_GITHUB_PATH}/data/blog/${slug}.mdx`,
         url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${slug}`,
     }

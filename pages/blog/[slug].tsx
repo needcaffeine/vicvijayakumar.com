@@ -11,6 +11,9 @@ import { getMDXComponent } from 'mdx-bundler/client'
 export type Frontmatter = {
     title: string
     description: string
+    readingTime: {
+        text: string
+    }
     createdAt: Date
     updatedAt: Date
 }
@@ -40,6 +43,7 @@ const Post = ({
                     title={frontmatter.title}
                     date={frontmatter.updatedAt}
                     githubLink={githubLink}
+                    readingTime={frontmatter.readingTime}
                 >
                     <Component />
                 </PostBody>
