@@ -2,10 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.homepage a, .postPreview a, .uses a {
+.homepage a,
+.links a,
+.postPreview a,
+.uses a {
     @apply text-blue-500 underline;
 }
-.homepage a:hover, .postPreview a:hover, .uses a:hover {
+.homepage a:hover,
+.links a:hover,
+.postPreview a:hover,
+.uses a:hover {
     @apply no-underline border-b-0 border-none;
 }
 
@@ -15,6 +21,10 @@
 
 #newsletter a:hover {
     @apply text-black no-underline;
+}
+
+.links li {
+    @apply mb-1;
 }
 
 .uses h3 {
