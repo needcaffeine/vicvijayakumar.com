@@ -1,6 +1,5 @@
 /* eslint react/no-danger: 0 */
 import PropTypes from 'prop-types'
-import React from 'react'
 import NextHead from 'next/head'
 import { DefaultSeo, NextSeo } from 'next-seo'
 
