@@ -45,7 +45,7 @@ const Uses = () => {
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
-                                VIVO Dual Monitor desk mount
+                                2 x VIVO Dual Monitor desk mount
                             </a>
                         </li>
                         <li>
@@ -68,6 +68,15 @@ const Uses = () => {
                             </a>
                         </li>
                         <li>ASUS 26&rdquo; LCD monitor x 2</li>
+                        <li>
+                            <a
+                                href="https://www.amazon.com/Dell-P2719HC-Monitor-Full-1080p/dp/B07GDR6TJJ"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                Dell 27&rdquo; P2719HC LED monitor x 1
+                            </a>
+                        </li>
                         <li>
                             Beats Studio<sup>3</sup> headphones
                         </li>
@@ -122,6 +131,7 @@ const Uses = () => {
                         <li>Apple Music</li>
                         <li>Discord</li>
                         <li>Docker</li>
+                        <li>Fig</li>
                         <li>Firefox - my daily browser</li>
                         <li>iTerm2</li>
                         <li>
@@ -129,8 +139,9 @@ const Uses = () => {
                             making lunch
                         </li>
                         <li>Notion</li>
+                        <li>Otter.ai</li>
                         <li>Postman</li>
-                        <li>Sequel Pro</li>
+                        <li>Sequel Ace</li>
                         <li>Slack</li>
                         <li>Spectacle - window management</li>
                     </ul>
