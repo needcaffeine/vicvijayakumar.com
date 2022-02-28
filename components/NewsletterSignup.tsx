@@ -1,4 +1,8 @@
+import { usePlausible } from 'next-plausible'
+
 const NewsletterSignup = () => {
+    const plausible = usePlausible()
+
     return (
         <div id="newsletter" className="mt-10">
             <div className="px-6 py-6 mx-auto text-white bg-purple-600 rounded-md md:p-8 lg:p-12">
@@ -34,6 +38,7 @@ const NewsletterSignup = () => {
                                 name="member[subscribe]"
                                 id="member_submit"
                                 className="flex items-center justify-center w-full px-5 py-3 mt-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow cursor-pointer hover:bg-indigo-400 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0"
+                                onClick={() => plausible('Subscribed to newsletter')}
                             />
                         </form>
                         <div className="mt-1 text-xs">
