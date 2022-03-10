@@ -1,76 +1,52 @@
 import ErrorPage from 'next/error'
 import { useRouter } from 'next/router'
 
-import { useMemo } from 'react'
 import DefaultLayout from 'components/Layout/DefaultLayout'
 import PostBody from 'components/blog/PostBody'
 import Share from 'components/blog/Share'
-import { getAllPosts, getPostBySlug } from 'utils/mdx'
-import { getMDXComponent } from 'mdx-bundler/client'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import { allPosts, Post } from 'contentlayer/generated'
 
-export type Frontmatter = {
-    title: string
-    description: string
-    readingTime: {
-        text: string
-    }
-    createdAt: Date
-    updatedAt: Date
-}
-
-const Post = ({
-    code,
-    frontmatter,
-    githubLink,
-    url,
-}: {
-    code: string
-    frontmatter: Frontmatter
-    githubLink: string
-    url: string
-}) => {
-    const Component = useMemo(() => getMDXComponent(code), [code])
+const PostPage = ({ post }: { post: Post }) => {
+    const Component = useMDXComponent(post.body.code)
 
     const router = useRouter()
-    if (!router.isFallback && !frontmatter?.title) {
+    if (!router.isFallback && !post?.title) {
         return <ErrorPage statusCode={404} />
     }
 
     return (
-        <DefaultLayout title={frontmatter.title} description={frontmatter.description} url={url}>
+        <DefaultLayout title={post.title} description={post.description} url={post.url}>
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
                 <PostBody
-                    title={frontmatter.title}
-                    date={frontmatter.updatedAt}
-                    githubLink={githubLink}
-                    readingTime={frontmatter.readingTime}
+                    title={post.title}
+                    date={post.updatedAt}
+                    githubLink={post.githubLink}
+                    readingTime={post.readingTime}
                 >
                     <Component />
                 </PostBody>
 
-                <Share url={url} title={frontmatter.title} />
+                <Share url={post.url} title={post.title} />
             </div>
         </DefaultLayout>
     )
 }
 
-export default Post
+export default PostPage
 
 export const getStaticProps = async ({ params }) => {
-    const { code, frontmatter, githubLink, url } = await getPostBySlug(params.slug)
+    const post = allPosts.find((p) => p.slug === params.slug)
 
     return {
         props: {
-            code,
-            frontmatter,
-            githubLink,
-            url,
+            post,
         },
     }
 }
 
 export const getStaticPaths = async () => {
-    const paths = getAllPosts().map(({ slug }) => ({ params: { slug } }))
+    const paths = allPosts.map(({ slug }) => ({ params: { slug } }))
 
     return {
         paths,

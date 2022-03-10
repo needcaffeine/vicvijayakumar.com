@@ -11,10 +11,10 @@ const POST_AUTHOR = 'Vic Vijayakumar'
 
 async function generateSitemap() {
     const files = await globby([
-        'pages/**/*.js',
+        'pages/**/*.tsx',
         'data/blog/*.mdx',
         '!pages/_*.js',
-        '!pages/blog/[slug].js',
+        '!pages/blog/[slug].tsx',
     ])
 
     const routes = files.map((file) => {

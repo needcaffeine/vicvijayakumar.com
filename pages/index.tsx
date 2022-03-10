@@ -1,22 +1,11 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-array-index-key */
-
 import Link from 'next/link'
-import { getAllPosts } from '@/utils/mdx'
+import { allPosts, Post } from 'contentlayer/generated'
+import { compareDesc } from 'date-fns'
 import PostPreview from '@/components/blog/PostPreview'
 import DefaultLayout from '@/components/Layout/DefaultLayout'
 import NewsletterSignup from '@/components/NewsletterSignup'
-
-export type Frontmatter = {
-    title: string
-    description: string
-    createdAt: Date
-    updatedAt: Date
-}
-
-type Post = {
-    slug: string
-    frontmatter: Frontmatter
-}
 
 const IndexPage = ({ posts }: { posts: Post[] }) => {
     return (
@@ -65,9 +54,10 @@ const IndexPage = ({ posts }: { posts: Post[] }) => {
 
                     {posts.map((post) => (
                         <PostPreview
-                            key={post.slug}
+                            key={post._id}
+                            title={post.title}
+                            description={post.description}
                             slug={post.slug}
-                            frontmatter={post.frontmatter}
                         />
                     ))}
                 </div>
@@ -79,8 +69,20 @@ const IndexPage = ({ posts }: { posts: Post[] }) => {
 export default IndexPage
 
 export const getStaticProps = async () => {
-    const posts = getAllPosts()
-    posts.sort((a, b) => (a.frontmatter.updatedAt > b.frontmatter.updatedAt ? -1 : 1))
+    const blogPosts = allPosts.sort((a, b) => {
+        return compareDesc(new Date(a.updatedAt), new Date(b.updatedAt))
+    })
+
+    // This is a lot of data. Let's provide our page only what it needs.
+    const posts = []
+    blogPosts.forEach((post: Post) =>
+        posts.push({
+            _id: post._id,
+            title: post.title,
+            description: post.description,
+            slug: post.slug,
+        })
+    )
 
     return { props: { posts } }
 }

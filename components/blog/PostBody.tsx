@@ -9,7 +9,7 @@ const PostBody = ({
     title,
     children,
 }: {
-    date: Date
+    date: string
     githubLink: string
     readingTime: {
         text: string
