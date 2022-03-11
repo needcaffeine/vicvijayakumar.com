@@ -47,10 +47,8 @@ const IndexPage = ({ posts }: { posts: Post[] }) => {
                     </p>
                 </div>
 
-                <NewsletterSignup />
-
                 <div className="mt-12 text-left">
-                    <h2 className="mb-3 text-2xl font-semibold">Writing</h2>
+                    <h2 className="mb-6 text-3xl font-semibold">Some personal favorites</h2>
 
                     {posts.map((post) => (
                         <PostPreview
@@ -60,7 +58,29 @@ const IndexPage = ({ posts }: { posts: Post[] }) => {
                             slug={post.slug}
                         />
                     ))}
+
+                    <Link href="/articles">
+                        <a className="text-2xl">
+                            See all articles{' '}
+                            <svg
+                                className="inline-block w-6 h-6"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                />
+                            </svg>
+                        </a>
+                    </Link>
                 </div>
+
+                <NewsletterSignup />
             </div>
         </DefaultLayout>
     )
@@ -73,16 +93,25 @@ export const getStaticProps = async () => {
         return compareDesc(new Date(a.updatedAt), new Date(b.updatedAt))
     })
 
-    // This is a lot of data. Let's provide our page only what it needs.
+    // Homepage only shows specific favorite articles.
+    const favorites = [
+        'basic-data-analysis-unix-linux-tools',
+        'the-art-of-writing-good-commit-messages',
+        'when-recursion-is-too-slow-fibonacci',
+    ]
+
     const posts = []
-    blogPosts.forEach((post: Post) =>
-        posts.push({
-            _id: post._id,
-            title: post.title,
-            description: post.description,
-            slug: post.slug,
-        })
-    )
+    blogPosts.forEach((post: Post) => {
+        if (favorites.includes(post.slug)) {
+            // This is a lot of data. Let's provide our page only what it needs.
+            posts.push({
+                _id: post._id,
+                title: post.title,
+                description: post.description,
+                slug: post.slug,
+            })
+        }
+    })
 
     return { props: { posts } }
 }

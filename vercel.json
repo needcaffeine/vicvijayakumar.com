@@ -20,6 +20,7 @@
         { "source": "/2013/04/05/migrating-large-innodb-tables-without-hating-yourself", "destination": "/blog/migrating-large-innodb-tables" },
         { "source": "/blog/basic-data-analysis-unix-tools", "destination": "/blog/basic-data-analysis-unix-linux-tools" },
         { "source": "/about", "destination": "/" },
+        { "source": "/blog", "destination": "/articles" },
         { "source": "/projects", "destination": "/links" }
     ]
 }

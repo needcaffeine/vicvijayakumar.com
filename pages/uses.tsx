@@ -8,7 +8,7 @@ const Uses = () => {
                     Uses
                 </h1>
 
-                <div className="mt-8 text-left">
+                <div className="mt-8 text-lg text-left">
                     <p>
                         This is a list of my hardware, software, and other things I use regularly.
                     </p>

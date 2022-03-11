@@ -5,16 +5,16 @@ const NewsletterSignup = () => {
 
     return (
         <div id="newsletter" className="mt-10">
-            <div className="px-6 py-6 mx-auto text-white bg-purple-600 rounded-md md:p-8 lg:p-12">
-                <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            <div className="p-6 mx-auto text-white bg-purple-600 rounded-md">
+                <h2 className="text-lg font-semibold tracking-tight sm:text-lg">
                     Want to hear more from me about coding, building things, and just life in
                     general?
                 </h2>
-                <p className="max-w-3xl mt-3 text-lg leading-6 text-purple-200">
+                <p className="max-w-3xl mt-3 leading-6 text-purple-200 text-md">
                     I send out emails about once a month talking about any new blog posts, what
                     I&rsquo;m learning, and maybe a dad joke or two. Unsubscribe at any time.
                 </p>
-                <div className="mt-4 sm:w-full sm:max-w-md">
+                <div className="mt-2 sm:w-full sm:max-w-md">
                     <div id="revue-embed">
                         <form
                             action="https://www.getrevue.co/profile/vicvijayakumar/add_subscriber"
@@ -24,7 +24,7 @@ const NewsletterSignup = () => {
                             className="sm:flex"
                         >
                             <input
-                                className="w-full px-5 py-3 text-black placeholder-gray-500 rounded-md"
+                                className="w-full px-3 py-3 text-black placeholder-gray-500 rounded-md"
                                 type="email"
                                 name="member[email]"
                                 id="member_email"
