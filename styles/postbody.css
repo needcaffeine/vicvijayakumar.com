@@ -51,5 +51,9 @@
 }
 
 .postBody .rehype-code-title {
-    @apply mt-6 font-bold;
+    @apply px-5 py-3 font-mono text-sm font-semibold text-white bg-gray-800 border border-b-0 border-gray-200 rounded-t-md dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
+}
+
+.postBody .rehype-code-title + pre {
+    @apply mt-0 rounded-t-none;
 }
