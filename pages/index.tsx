@@ -95,6 +95,7 @@ export const getStaticProps = async () => {
 
     // Homepage only shows specific favorite articles.
     const favorites = [
+        'full-stack-app-remix-prisma-supabase-vercel',
         'basic-data-analysis-unix-linux-tools',
         'the-art-of-writing-good-commit-messages',
         'when-recursion-is-too-slow-fibonacci',
