@@ -91,7 +91,7 @@ https://pris.ly/d/getting-started
 
 Before we can access our database from code, we also need to create a file that helps us make a connection to Prisma. Let's add a file named `app/lib/db.server.ts`. The `.server.ts` part of the filename is pretty cool. It guarantees that Remix will never bundle the file and send it to clients.
 
-```typescript:app/lib/db.server.ts
+```typescript:app/lib/db.server.ts showLineNumbers
 import { PrismaClient } from "@prisma/client";
 
 let db: PrismaClient;
@@ -129,7 +129,7 @@ After your database has been created, go to Settings > Database, scroll down to 
 
 You will need to add this to your .env file. Prisma has helpfully created a DATABASE_URL key in our .env file for us. Replace it with the real one.
 
-```plaintext:.env
+```plaintext:.env showLineNumbers
 # Environment variables declared in this file are automatically made available to Prisma.
 # See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
 
@@ -143,7 +143,7 @@ Step 3: Create a Beverage table
 
 We need to make sure that we have correctly confiured Prisma and that our connection string to talk to Supabase is correct. What we are going to do in this step is to create a "model" in Prisma (a table) and then tell Prisma to create that model in our datasource. Open up `prisma/schema.prisma` and add the `Beverage` model as shown below.
 
-```json:prisma/schema.prisma
+```json:prisma/schema.prisma {13-17} showLineNumbers
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -186,7 +186,7 @@ We've done a lot already. We set up Remix, we set up Prisma, we signed up for a 
 
 Next up, we want to make sure that we can read our PostgreSQL database from our code. Open up `app/routes/index.tsx` and let's replace it with the following snippet:
 
-```typescript:app/routes/index.tsx
+```typescript:app/routes/index.tsx showLineNumbers
 import { useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
 import type { Beverage } from "@prisma/client";
@@ -231,7 +231,7 @@ Forms in Remix are super simple. No need to build an API or anything.
 
 First we create a form, and then we create the form handler. Both are going to live in the same file, our IndexRoute.
 
-```typescript:app/routes/index.tsx
+```typescript:app/routes/index.tsx {1-2,19-32,46-58} showLineNumbers
 import { useLoaderData, Form, redirect } from "remix";
 import type { LoaderFunction, ActionFunction } from "remix";
 import type { Beverage } from "@prisma/client";
@@ -301,7 +301,7 @@ Try it out!
 
 We're going to make one more cosmetic change here. Much like the Wordle game, we only want to display the beverages consumed *today*, so let's change our Loader slightly.
 
-```typescript:app/routes/index.tsx
+```typescript:app/routes/index.tsx {2-16}
 export const loader: LoaderFunction = async () => {
   const todayDate = new Date();
   todayDate.setHours(0, 0, 0, 0);

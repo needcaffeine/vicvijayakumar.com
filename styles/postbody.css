@@ -57,3 +57,17 @@
 .postBody .rehype-code-title + pre {
     @apply mt-0 rounded-t-none;
 }
+
+.postBody .highlight-line {
+    @apply block pl-3 -ml-4 -mr-4 bg-gray-800 border-l-4 border-l-green-600;
+}
+
+.postBody .line-number::before {
+    display: inline-block;
+    width: 1rem;
+    text-align: right;
+    margin-right: 16px;
+    margin-left: -8px;
+    color: rgb(156, 163, 175); /* Line number color */
+    content: attr(line);
+}
