@@ -28,16 +28,34 @@ const LinksPage = () => {
                             <a href="https://meetsweats.com/">Meetsweats</a> - the phenomenon that
                             is taking the internet by storm
                         </li>
+                        <li>
+                            <a href="https://engineeringadvice.dev/">
+                                Engineering Advice You Didn&rsquo;t Ask For
+                            </a>{' '}
+                            - a weekly engineering leadership podcast.
+                        </li>
                     </ul>
 
                     <h2 className="mt-6 mb-4 text-2xl font-semibold leading-snug">Other</h2>
                     <ul>
                         <li>
-                            <a href="https://virtualcoffee.io/podcast/0104-vic-vijayakumar/">
+                            <a
+                                href="https://virtualcoffee.io/podcast/0104-vic-vijayakumar/"
+                                rel="noreferrer nofollow"
+                            >
                                 Virtual Coffee podcast ep 0104
                             </a>{' '}
                             - I spoke about Indie Hacking, and my take on when to ship, what to
                             focus on, etc.
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.youtube.com/watch?v=yVacRISm0t4"
+                                rel="noreferrer nofollow"
+                            >
+                                Building minimum viable products with low-code tools
+                            </a>{' '}
+                            - part of Virtual Coffee Lightning Talks 2021
                         </li>
                         <li>
                             <a href="https://dogears.xyz">Dog Ears</a> (inactive) - helps Twitter
