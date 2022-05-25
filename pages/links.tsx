@@ -58,6 +58,15 @@ const LinksPage = () => {
                             - part of Virtual Coffee Lightning Talks 2021
                         </li>
                         <li>
+                            <a href="/static/files/remix-conf-talk-building-tech-low-code-tools.pdf">
+                                Building tech for social good with low-code tools
+                            </a>{' '}
+                            - a lightning talk given at{' '}
+                            <a href="https://remix.run/conf" rel="noreferrer nofollow">
+                                Remix Conf 2022
+                            </a>
+                        </li>
+                        <li>
                             <a href="https://dogears.xyz">Dog Ears</a> (inactive) - helps Twitter
                             users instantly search their likes and retweets
                         </li>
