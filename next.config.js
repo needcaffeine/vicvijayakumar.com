@@ -1,8 +1,8 @@
 const { withPlausibleProxy } = require('next-plausible')
 const { withContentlayer } = require('next-contentlayer')
 
-module.exports = withContentlayer()(
-    withPlausibleProxy()({
+module.exports = withPlausibleProxy()(
+    withContentlayer({
         swcMinify: true,
         webpack: (config, { isServer }) => {
             if (isServer) {
