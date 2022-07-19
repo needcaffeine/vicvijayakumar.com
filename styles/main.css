@@ -32,7 +32,7 @@
 }
 
 .uses h4 {
-    @apply mt-4 mb-2 text-lg font-medium leading-snug;
+    @apply mt-4 mb-2 text-lg font-bold leading-snug;
 }
 
 p, ul {

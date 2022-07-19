@@ -20,7 +20,7 @@ const Uses = () => {
                         not looked back.
                     </p>
 
-                    <h4>My office</h4>
+                    <h4>My desk</h4>
                     <ul>
                         <li>
                             <a
@@ -41,6 +41,15 @@ const Uses = () => {
                         </li>
                         <li>
                             <a
+                                href="https://www.costco.com/office-star-worksmart-breathable-mesh-seat-and-back-managers-chair.product.100311431.html"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                Office Star WorkSmart Breathable Mesh chair
+                            </a>
+                        </li>
+                        <li>
+                            <a
                                 href="https://www.amazon.com/gp/product/B009S750LA"
                                 rel="noopener noreferrer"
                                 target="_blank"
@@ -50,14 +59,16 @@ const Uses = () => {
                         </li>
                         <li>
                             <a
-                                href="https://www.costco.com/office-star-worksmart-breathable-mesh-seat-and-back-managers-chair.product.100311431.html"
+                                href="https://www.amazon.com/Dell-P2719HC-Monitor-Full-1080p/dp/B07GDR6TJJ"
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
-                                Office Star WorkSmart Breathable Mesh chair
+                                Dell 27&rdquo; P2719HC LED monitor x 1
                             </a>
                         </li>
+                        <li>ASUS 26&rdquo; LCD monitor x 2</li>
                         <li>Apple MacBook Pro (16&rdquo;, 2019)</li>
+                        <li>Apple MacBook Pro (14&rdquo;, 2021)</li>
                         <li>
                             <a
                                 href="https://www.yubico.com/product/yubikey-5c-nano"
@@ -67,18 +78,42 @@ const Uses = () => {
                                 YubiKey 5C Nano
                             </a>
                         </li>
-                        <li>ASUS 26&rdquo; LCD monitor x 2</li>
                         <li>
                             <a
-                                href="https://www.amazon.com/Dell-P2719HC-Monitor-Full-1080p/dp/B07GDR6TJJ"
+                                href="https://www.amazon.com/Bose-QuietComfort-45-Bluetooth-Canceling-Headphones/dp/B098FKXT8L"
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
-                                Dell 27&rdquo; P2719HC LED monitor x 1
+                                Bose QC45 Wireless Noise Canceling headphones
                             </a>
                         </li>
                         <li>
-                            Beats Studio<sup>3</sup> headphones
+                            <a
+                                href="https://www.amazon.com/gp/product/B078MHS3SC/"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                Blue Yeticaster USB microphone + Radius III Shockmount &amp; Compass
+                                Boom
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.amazon.com/gp/product/B0973DV11T/"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                Elgato Facecam
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.amazon.com/gp/product/B09DKF5ST1/"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                Lume Cube Edge LED Desk Light
+                            </a>
                         </li>
                     </ul>
 
@@ -129,6 +164,7 @@ const Uses = () => {
                     <h4>Other applications that are always open</h4>
                     <ul>
                         <li>Apple Music</li>
+                        <li>Descript</li>
                         <li>Discord</li>
                         <li>Docker</li>
                         <li>Fig</li>
@@ -138,12 +174,12 @@ const Uses = () => {
                             KeepingYouAwake - prevents my Mac from going to sleep when I&rsquo;m
                             making lunch
                         </li>
-                        <li>Notion</li>
-                        <li>Otter.ai</li>
+                        <li>Obsidian</li>
                         <li>Postman</li>
                         <li>Sequel Ace</li>
                         <li>Slack</li>
                         <li>Spectacle - window management</li>
+                        <li>WhatsApp</li>
                     </ul>
 
                     <h3 id="shoes">My shoes</h3>
