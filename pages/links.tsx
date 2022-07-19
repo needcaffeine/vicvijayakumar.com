@@ -20,6 +20,11 @@ const LinksPage = () => {
                             system that helps schools move their paperwork online
                         </li>
                         <li>
+                            <a href="https://www.heytexting.com">Hey Texting</a> - Two way texting
+                            for soloists and small businesses. SMS conversations that work without a
+                            phone.
+                        </li>
+                        <li>
                             <a href="https://github.com/needcaffeine/heimdall">Heimdall</a> - a
                             program that allows you to programmatically connect to AWS EC2 hosts via
                             a Bastion
@@ -32,11 +37,13 @@ const LinksPage = () => {
                             <a href="https://engineeringadvice.dev/">
                                 Engineering Advice You Didn&rsquo;t Ask For
                             </a>{' '}
-                            - a weekly engineering leadership podcast.
+                            - a weekly engineering leadership podcast
                         </li>
                     </ul>
 
-                    <h2 className="mt-6 mb-4 text-2xl font-semibold leading-snug">Other</h2>
+                    <h2 className="mt-6 mb-4 text-2xl font-semibold leading-snug">
+                        Podcast appearances
+                    </h2>
                     <ul>
                         <li>
                             <a
@@ -45,9 +52,23 @@ const LinksPage = () => {
                             >
                                 Virtual Coffee podcast ep 0104
                             </a>{' '}
-                            - I spoke about Indie Hacking, and my take on when to ship, what to
-                            focus on, etc.
+                            - In this episode, Vic talks about Indie Hacking and gives us his take
+                            on when to ship, what to focus on, and the value of diverse opinions in
+                            your community.
                         </li>
+                        <li>
+                            <a
+                                href="https://softwaresocial.dev/episodes/when-should-you-let-people-pay-you"
+                                rel="noreferrer nofollow"
+                            >
+                                Software Social Podcast ep 104
+                            </a>{' '}
+                            - Michele chats with longtime listener Vic Vijayakumar about how to get
+                            to the point where he feels comfortable letting people pay for his new
+                            shared SMS inbox SaaS, HeyTexting.
+                        </li>
+
+                        <h2 className="mt-6 mb-4 text-2xl font-semibold leading-snug">Talks</h2>
                         <li>
                             <a
                                 href="https://www.youtube.com/watch?v=yVacRISm0t4"
@@ -58,17 +79,13 @@ const LinksPage = () => {
                             - part of Virtual Coffee Lightning Talks 2021
                         </li>
                         <li>
-                            <a href="/static/files/remix-conf-talk-building-tech-low-code-tools.pdf">
+                            <a
+                                href="https://www.youtube.com/watch?v=4_nxvVTNY9s&t=21868s"
+                                rel="noreferrer nofollow"
+                            >
                                 Building tech for social good with low-code tools
                             </a>{' '}
-                            - a lightning talk given at{' '}
-                            <a href="https://remix.run/conf" rel="noreferrer nofollow">
-                                Remix Conf 2022
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://dogears.xyz">Dog Ears</a> (inactive) - helps Twitter
-                            users instantly search their likes and retweets
+                            - a lightning talk given at Remix Conf 2022
                         </li>
                     </ul>
                 </div>
