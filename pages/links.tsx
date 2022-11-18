@@ -39,6 +39,10 @@ const LinksPage = () => {
                             </a>{' '}
                             - a weekly engineering leadership podcast
                         </li>
+                        <li>
+                            <a href="https://vic.substack.com/">Make All The Things</a> - my monthly
+                            newsletter about life as a dad, runner, cook, and software engineer.
+                        </li>
                     </ul>
 
                     <h2 className="mt-6 mb-4 text-2xl font-semibold leading-snug">
@@ -66,6 +70,29 @@ const LinksPage = () => {
                             - Michele chats with longtime listener Vic Vijayakumar about how to get
                             to the point where he feels comfortable letting people pay for his new
                             shared SMS inbox SaaS, HeyTexting.
+                        </li>
+                        <li>
+                            <a
+                                href="https://podrocket.logrocket.com/tech-for-social-good"
+                                rel="noreferrer nofollow"
+                            >
+                                PodRocket S2
+                            </a>{' '}
+                            - Building tech for social good with low-code tools with Vic Vijayakumar
+                            - When Vic Vijayakumar saw his daughter’s preschool struggling with an
+                            inefficient and non-digital admissions process, he decided to lend a
+                            hand by building an admissions system using low-code tools with limited
+                            costs. He joins us to talk about this project and how other developers
+                            can provide impactful tech while cutting time and costs.
+                        </li>
+                        <li>
+                            <a
+                                href="https://anchor.fm/data-and-dev/episodes/Vic-Vijayakumar---Looking-at-the-arc-of-a-Software-Engineering-career-e1nftvn"
+                                rel="noreferrer nofollow"
+                            >
+                                Data &amp; Dev with Jon and Mel ep 0204
+                            </a>{' '}
+                            - Looking at the arc of a Software Engineering career
                         </li>
 
                         <h2 className="mt-6 mb-4 text-2xl font-semibold leading-snug">Talks</h2>
