@@ -3,11 +3,13 @@
 import Link from 'next/link'
 import { allPosts, Post } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
+import { usePlausible } from 'next-plausible'
 import PostPreview from '@/components/blog/PostPreview'
 import DefaultLayout from '@/components/Layout/DefaultLayout'
-import NewsletterSignup from '@/components/NewsletterSignup'
 
 const IndexPage = ({ posts }: { posts: Post[] }) => {
+    const plausible = usePlausible()
+
     return (
         <DefaultLayout className="homepage" title="Home">
             <div className="md:mx-auto lg:col-span-12 lg:text-left">
@@ -34,16 +36,24 @@ const IndexPage = ({ posts }: { posts: Post[] }) => {
                     </p>
 
                     <p>
+                        Ways to get in touch with me:{' '}
+                        <a href="https://twitter.com/VicVijayakumar">Twitter</a>,{' '}
+                        <a href="https://www.linkedin.com/in/vicvijayakumar/">LinkedIn</a>, and my{' '}
+                        <a
+                            href="https://vic.substack.com"
+                            onClick={() => plausible('Subscribed to newsletter')}
+                        >
+                            newsletter
+                        </a>
+                        .
+                    </p>
+
+                    <p>
                         This is my personal website. What you see below are a collection of my
                         thoughts, and sometimes just public documentation. I&rsquo;ve realized that
                         if I try to get my thoughts <b>perfect</b> before hitting publish they will
                         never see the light of day. So strap yourself in and read the things I was
                         happy to put out into the world, freed from expectations.
-                    </p>
-
-                    <p>
-                        If you want to get in touch with me, you can reply to my newsletter, or via{' '}
-                        <a href="https://twitter.com/VicVijayakumar">Twitter</a>.
                     </p>
                 </div>
 
@@ -79,8 +89,6 @@ const IndexPage = ({ posts }: { posts: Post[] }) => {
                         </a>
                     </Link>
                 </div>
-
-                <NewsletterSignup />
             </div>
         </DefaultLayout>
     )
