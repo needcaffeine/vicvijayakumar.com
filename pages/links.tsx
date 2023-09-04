@@ -94,6 +94,16 @@ const LinksPage = () => {
                             </a>{' '}
                             - Looking at the arc of a Software Engineering career
                         </li>
+                        <li>
+                            <a
+                                href="https://refactoring.fm/p/how-to-build-side-projects"
+                                rel="noreferrer nofollow"
+                            >
+                                How to Build Side Projects
+                            </a>{' '}
+                            - How to stick with them, and why you should start them in the first
+                            place.
+                        </li>
 
                         <h2 className="mt-6 mb-4 text-2xl font-semibold leading-snug">Talks</h2>
                         <li>
@@ -113,6 +123,16 @@ const LinksPage = () => {
                                 Building tech for social good with low-code tools
                             </a>{' '}
                             - a lightning talk given at Remix Conf 2022
+                        </li>
+                        <li>
+                            <a
+                                href="https://leaddev.com/new-york/staffplus/video/2023/zero-brands-matter-improving-scientific-discovery-during-pandemic"
+                                rel="noreferrer nofollow"
+                            >
+                                From zero to "Brands that Matter" - Improving science communication
+                                when everything is not fine,
+                            </a>{' '}
+                            a talk given at StaffPlus New York 2023
                         </li>
                     </ul>
                 </div>
