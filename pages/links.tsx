@@ -129,8 +129,8 @@ const LinksPage = () => {
                                 href="https://leaddev.com/new-york/staffplus/video/2023/zero-brands-matter-improving-scientific-discovery-during-pandemic"
                                 rel="noreferrer nofollow"
                             >
-                                From zero to "Brands that Matter" - Improving science communication
-                                when everything is not fine,
+                                From zero to &ldquo;Brands that Matter&rdquo; - Improving science
+                                communication when everything is not fine,
                             </a>{' '}
                             a talk given at StaffPlus New York 2023
                         </li>
