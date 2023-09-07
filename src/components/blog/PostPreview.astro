@@ -1,0 +1,18 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import type { CollectionEntry } from "astro:content";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
+  post: CollectionEntry<"post">;
+  withDesc?: boolean;
+};
+
+const { post, as: Tag = "div", withDesc = false } = Astro.props;
+---
+
+<Tag>
+  <a href={`/blog/${post.slug}/`} class="link" rel="prefetch">
+    {post.data.title}
+  </a>
+</Tag>
+{withDesc && <q class="line-clamp-3 block">{post.data.description}</q>}

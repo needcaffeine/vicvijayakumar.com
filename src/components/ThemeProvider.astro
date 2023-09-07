@@ -1,0 +1,28 @@
+{/* Inlined to avoid FOUC. */}
+<script is:inline>
+	const root = document.documentElement;
+	const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
+
+	function getUserPref() {
+		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
+		return (
+			storedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
+		);
+	}
+
+	function setTheme(theme) {
+		root.classList.toggle("dark", theme === "dark");
+		const bgColour = getComputedStyle(document.body).getPropertyValue("--theme-bg");
+
+		colorThemeMetaTag.setAttribute("content", `rgb(${bgColour})`);
+		if (typeof localStorage !== "undefined") {
+			localStorage.setItem("theme", theme);
+		}
+	}
+
+	setTheme(getUserPref());
+
+	root.addEventListener("theme-change", (e) => {
+		setTheme(e.detail.theme);
+	});
+</script>

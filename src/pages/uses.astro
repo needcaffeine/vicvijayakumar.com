@@ -1,0 +1,166 @@
+---
+import PageLayout from "@/layouts/Base";
+
+const meta = {
+  title: "Uses",
+  description: "This is a list of my hardware, software, and other things I use regularly.",
+};
+---
+
+<PageLayout meta={meta}>
+  <div class="space-y-6">
+    <h1 class="title">Uses</h1>
+    <p>This is a list of my hardware, software, and other things I use regularly.</p>
+
+    <h2 class="title">Hardware</h2>
+    <p>
+      When I first started coding professionally in 2004, I did all my work on a Dell Inspiron. I
+      think I first switched to a MacBook Pro in 2010, and have not looked back.
+    </p>
+
+    <h3 class="h3">My desk</h3>
+    <ul class="list-inside list-disc">
+      <li>
+        <a href="https://www.upliftdesk.com" class="link" rel="noopener noreferrer" target="_blank">
+          Uplift Standing Desk V2</a
+        >{" "}+{" "}
+        <a
+          href="https://www.google.com/search?q=ikea+gerton+beech+tabletop"
+          class="link"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          IKEA Gerton beech tabletop
+        </a>
+      </li>
+      <li>
+        <a href="https://amzn.to/3sxh33m" class="link" rel="noopener noreferrer" target="_blank">
+          UREVO 2 in 1 Under Desk Treadmill
+        </a>
+      </li>
+      <li>
+        <a href="https://amzn.to/3sGZj5R" class="link" rel="noopener noreferrer" target="_blank">
+          2 x VIVO Dual Monitor desk mount
+        </a>
+      </li>
+      <li>
+        <a href="https://amzn.to/3Lbg2EO" class="link" rel="noopener noreferrer" target="_blank">
+          Dell 27&rdquo; P2719HC LED monitor x 1
+        </a>
+      </li>
+      <li>ASUS 26&rdquo; LCD monitor x 2</li>
+      <li>Apple MacBook Pro (16&rdquo;, 2019)</li>
+      <li>Apple MacBook M1 Max Pro (14&rdquo;, 2021)</li>
+      <li>
+        <a
+          href="https://www.yubico.com/product/yubikey-5c-nano"
+          class="link"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          YubiKey 5C Nano
+        </a>
+      </li>
+      <li>
+        <a href="https://amzn.to/3Pozlg7" class="link" rel="noopener noreferrer" target="_blank">
+          Bose QC45 Wireless Noise Canceling headphones
+        </a>
+      </li>
+      <li>
+        <a href="https://amzn.to/3L7Gf77" class="link" rel="noopener noreferrer" target="_blank">
+          Blue Yeticaster USB microphone + Radius III Shockmount &amp; Compass Boom
+        </a>
+      </li>
+      <li>
+        <a href="https://amzn.to/484kaQz" class="link" rel="noopener noreferrer" target="_blank">
+          Elgato Facecam
+        </a>
+      </li>
+      <li>
+        <a href="https://amzn.to/482ulFy" class="link" rel="noopener noreferrer" target="_blank">
+          Lume Cube Edge LED Desk Light
+        </a>
+      </li>
+    </ul>
+
+    <h3 class="h3">On the go</h3>
+    <ul class="list-inside list-disc">
+      <li>
+        <a href="https://amzn.to/3sChysZ" class="link" rel="noopener noreferrer" target="_blank"
+          >Powerbeats Pro wireless headphones</a
+        >
+      </li>
+      <li>
+        <a href="https://amzn.to/45Xn9sh" class="link" rel="noopener noreferrer" target="_blank"
+          >Kindle Paperwhite 2018</a
+        >
+      </li>
+      <li>Apple Watch Series 8 Ultra</li>
+    </ul>
+
+    <h2 class="h2">Software</h2>
+    <p>
+      Every few months, I wipe my laptop and set it up from scratch using my{" "}
+      <a
+        href="https://github.com/needcaffeine/dotfiles.git"
+        class="link"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        dotfiles</a
+      >. My dotfiles repo contains scripts that uses Homebrew to set up most to all the applications
+      I use.
+    </p>
+
+    <h3 class="h3">Coding environment</h3>
+    <ul class="list-inside list-disc">
+      <li>
+        <a href="https://code.visualstudio.com" rel="noopener noreferrer" target="_blank">
+          Visual Studio Code
+        </a>{" "}+{" "}
+        <a
+          href="https://marketplace.visualstudio.com/items?itemName=sdras.night-owl"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Night Owl
+        </a> theme
+      </li>
+    </ul>
+
+    <h3 class="h3">Other applications that are always open</h3>
+    <ul class="list-inside list-disc">
+      <li>Apple Music</li>
+      <li>Chrome</li>
+      <li>Descript</li>
+      <li>Discord</li>
+      <li>Docker</li>
+      <li>Fig</li>
+      <li>iTerm2</li>
+      <li>KeepingYouAwake - prevents my Mac from going to sleep when I&rsquo;m making lunch</li>
+      <li>Obsidian</li>
+      <li>Postman</li>
+      <li>Sequel Ace</li>
+      <li>Slack</li>
+      <li>Spectacle - window management</li>
+      <li>WhatsApp</li>
+    </ul>
+
+    <h2 class="h2">My shoes</h2>
+    <ul class="list-inside list-disc">
+      <li>Hoka One One Clifton 7</li>
+      <li>Mizuno Wave Rider 24</li>
+      <li>New Balance 680 V6</li>
+      <li>Altra Torin 4</li>
+    </ul>
+
+    <p>
+      For more lists like this one, check out <a
+        href="https://uses.tech"
+        class="link"
+        rel="noopener noreferrer"
+        target="_blank">uses.tech</a
+      >.
+    </p>
+  </div>
+</PageLayout>
