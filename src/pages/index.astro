@@ -1,0 +1,58 @@
+---
+import PostPreview from "@/components/blog/PostPreview";
+import PageLayout from "@/layouts/Base";
+import { sortMDByDate } from "@/utils";
+import { getCollection } from "astro:content";
+
+const MAX_POSTS = 20;
+const allPosts = await getCollection("post");
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+---
+
+<PageLayout meta={{ title: "Home" }}>
+  <section>
+    <h1 class="title mb-6">
+      Hello, I&rsquo;m Vic{" "}
+      <span role="img" aria-label="wave"> 👋🏾</span>
+    </h1>
+    <p class="mb-4">
+      I&rsquo;m a software engineer in Raleigh, North Carolina. I enjoy running, biking, disc golf,
+      reading, writing, food, dadding, buying plants, playing with dough, playing violin, and
+      raising backyard chickens.
+    </p>
+    <p class="mb-4">
+      I also start a lot of new projects. Some of them are <a href="/links" class="link">here</a>.
+    </p>
+    <p class="mb-4">
+      Ways to get in touch with me:{" "}
+      <a href="https://twitter.com/VicVijayakumar" class="link">Twitter</a>,{" "}
+      <a href="https://www.linkedin.com/in/vicvijayakumar/" class="link">LinkedIn</a>, and my{" "}
+      <a href="https://vic.substack.com" class="link">newsletter</a>.
+    </p>
+    <p class="mb-4">
+      This is my personal website. What you see below are a collection of my thoughts, and sometimes
+      just public documentation. I&rsquo;ve realized that if I try to get my thoughts <b>perfect</b>
+       before hitting publish they will never see the light of day. So strap yourself in and read
+      the things I was happy to put out into the world, freed from expectations.
+    </p>
+  </section>
+  <section aria-label="Blog post list" class="mt-16">
+    <h2 class="title mb-4 text-xl">Some personal favorites</h2>
+    <ul class="space-y-4 sm:space-y-6">
+      {
+        allPostsByDate
+          .filter((p) => p.data.favorite == true)
+          .map((p) => (
+            <li>
+              <PostPreview post={p} withDesc={true} />
+            </li>
+          ))
+      }
+    </ul>
+    <p class="mt-8">
+      <a class="sm:hover:text-accent" href="/blog/" aria-label="View all blog posts">
+        View all posts &rightarrow;
+      </a>
+    </p>
+  </section>
+</PageLayout>

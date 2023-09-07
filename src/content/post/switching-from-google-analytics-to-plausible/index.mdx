@@ -1,0 +1,108 @@
+---
+title: Migrating away from Google Analytics to Plausible
+description: I've decided to move away from GA and go with a different analytics product.
+publishDate: "2021-11-29T00:00:00-04:00"
+---
+
+For my entire career in web development, one of the first things I've always done before pushing a site to production is setting up Google Analytics. It's always there; part of every launch checklist, whether that is for a work project or one of my side projects.
+
+Google Analytics is _the_ de facto analytics service for the web, and is the most widely used. So why change anything at all?
+
+## If you aren't paying for it, you're the product
+
+Google Analytics is a very featureful product. But it's also a free product for under 10 million hits a month. The reason that Google Analytics is free for is because Google serves personalized advertisements to users based on what sites they are visiting across the web. As website owners, we have traded away the privacy of our users so that can get free analytics about who visits our site.
+
+## Google Analytics is way too complicated
+
+I'm being honest here. There is so much going on in Google Analytics that I can never figure out how to get what I need for several minutes every time. Oh you want to know how many visits a particular page got this month?
+
+First, change the date range. Then Go to Behavior > Site Content > All Pages, and filter by the page you need. What? How does that make sense?
+
+![Plane cockpit full of switches](./leonel-fernandez-REZp_5-2wzA-unsplash.jpg)
+
+## Google Analytics is often blocked
+
+No matter your relationship to ads and ad tracking, the fact of the matter is that in 2019, advertising made up over 80% of Alphabet's revenue. This is one of the reasons that just about every ad blocker blocks Google Analytics and Google Tag Manager.
+
+uBlock Origin and Adblock Plus, the two most popular ad blocking extensions block both Google Analytics (GA) and Google Tag Manager (GTM) by default, and if that weren't enough, Firefox and Brave both come with settings to block all trackers and ads by default.
+
+How this affects website owners is that a large percentage of our users, and especially if they're tech savvy, do not show up in our analytics. The more technical your audience is, the less analytics you are getting about which of your pages they find useful, how they found you, etc.
+
+## Google Analytics is not compliant with privacy laws
+
+By default, Google Analytics is not GDPR (this applies to the EU) or CCPA (California, US) compliant. To be legally compliant with opt-in consent in the European Union, this requires you to display a banner asking all EU visitors if they consent to you activating the Google Analytics script. For California, this changes to optout consent, but still requires a banner.
+
+I really don't want to display a banner to my users. All I want to know is how someone found one of my blog posts, for heaven's sake.
+
+## Finding an alternate analytics tool
+
+We live in a magical time because there are now over a dozen other privacy-conscious analytics tools that are not Google Analytics, and many are run by independent developers!
+
+Just to list out a few of them:
+
+1. Fathom Analytics
+2. Simple Analytics
+3. Plausible Analytics
+4. Matomo Analytics
+5. Splitbee
+6. Mixpanel
+7. Cloudflare Analytics
+8. Amplitude
+
+I spent quite a bit of time looking through their pricing plans, feature sets, and ease of implementation and finally settled on <a href="https://plausible.io/" rel="nofollow noreferrer">Plausible</a>.
+
+Plausible came with a generous 30-day unlimited trial which I was able to use to set up my sites. The pricing made way more sense for my amounts of traffic.
+
+## Implementing Plausible in Blitz.js and Next.js
+
+This section may also apply to you if you use any other Node framework.
+
+### One line and done
+
+The simplest way to implement Plausible is to add a line to your `<head>` area. The setting screen in your Plausible account shows you what the snippet is for your site. It may look like this:
+
+```html
+<script defer data-domain="yourdomain.com" src="https://plausible.io/js/plausible.js"></script>
+```
+
+If you have a `<BlitzHead>` or `<NextHead>` section in your app, add the script tag above within there.
+
+### My recommended approach to not miss any data
+
+Plausible is privacy conscious, but ad blockers do not see it that way. Plausible is afterall still tracking a user's behavior, and so ad blockers will block the plausible.io domain.
+
+For this reason, I set up the [next-plausible](https://github.com/4lejandrito/next-plausible) library which turns the Plausible library and its network calls into a proxied first party script.
+
+```bash
+npm install next-plausible
+```
+
+And then in your \_app.js / \_app.tsx, wrap your component with `<PlausibleProvider>`.
+
+```js
+import PlausibleProvider from "next-plausible";
+
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <PlausibleProvider domain="example.com">
+      <Component {...pageProps} />
+    </PlausibleProvider>
+  );
+}
+```
+
+You will need to do one final thing, which is to wrap your config in next.config.js / blitz.config.js:
+
+```js
+import { withPlausibleProxy } from "next-plausible";
+
+module.exports = withPlausibleProxy()();
+```
+
+That's it! Restart your dev server, and watch as requests show up in your Plausible dashboard but aren't blocked by your browser.
+
+## Comparing the results
+
+I am going to be running Google Analytics alongside Plausible for a month, and will report back with some graphs of what the data looks like in each platform.
+
+I don't have enough data at present to be able to definitively draw any conclusions, but it's trending the right way!

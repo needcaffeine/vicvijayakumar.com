@@ -1,7 +1,9 @@
 # VicVijayakumar.com
+
 This is the repository powering [vicvijayakumar.com](https://vicvijayakumar.com).
 
 ## Contributing
+
 We would like you to follow [the standard commit format](/CONTRIBUTING.md).
 
 ## Code formatting guidelines
@@ -24,3 +26,7 @@ To open settings.json, type Cmd-Shift-P on a Mac and click `Preferences: Open Se
             "editor.defaultFormatter": "esbenp.prettier-vscode",
         }
     }
+
+## Acknowledgment
+
+This site uses a modified version of [astro-theme-cactus](https://github.com/chrismwilliams/astro-theme-cactus).
