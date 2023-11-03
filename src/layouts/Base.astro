@@ -1,32 +1,41 @@
 ---
-import type { SiteMeta } from "@/data/types";
 import BaseHead from "@/components/BaseHead";
-import ThemeProvider from "@/components/ThemeProvider";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import SkipLink from "@/components/SkipLink";
+import ThemeProvider from "@/components/ThemeProvider";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import type { SiteMeta } from "@/data/types";
 import { siteConfig } from "@/site-config";
+import { GoogleAnalytics } from "astro-google-analytics";
 
 interface Props {
-	meta: SiteMeta;
+    meta: SiteMeta;
 }
 
 const {
-	meta: { title, description = siteConfig.description, ogImage, articleDate },
+    meta: { title, description = siteConfig.description, ogImage, articleDate },
 } = Astro.props;
 ---
 
 <html lang={siteConfig.lang}>
-	<head>
-		<BaseHead title={title} description={description} ogImage={ogImage} articleDate={articleDate} />
-	</head>
-	<body>
-		<ThemeProvider />
-		<SkipLink />
-		<Header />
-		<main id="main">
-			<slot />
-		</main>
-		<Footer />
-	</body>
+    <head>
+        <GoogleAnalytics id="UA-135048-11" />
+        <BaseHead
+            title={title}
+            description={description}
+            ogImage={ogImage}
+            articleDate={articleDate}
+        />
+        <script defer data-domain="vicvijayakumar.com" src="https://plausible.io/js/script.js"
+        ></script>
+    </head>
+    <body>
+        <ThemeProvider />
+        <SkipLink />
+        <Header />
+        <main id="main">
+            <slot />
+        </main>
+        <Footer />
+    </body>
 </html>
