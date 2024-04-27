@@ -265,7 +265,7 @@ And now let's go ahead and output that to a file which you can import into Excel
 ```bash
 $ curl --silent "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=3" \
     | jq '.[] \
-    | [.text, .type, .createdAt, if .status.verified == true then "verified" else "unverified" end]' \
+    | [.text, .type, .createdAt, if .status.verified == true then "verified" else "unverified" end] | @csv' \
     >> output.csv
 ```
 
