@@ -2,135 +2,155 @@
 import PageLayout from "@/layouts/Base";
 
 const meta = {
-  title: "Links",
-  description: "Super important links to things",
+    title: "Links",
+    description: "Super important links to things",
 };
 
 const featuredProjects: Array<{ title: string; desc: string; href: string }> = [
-  {
-    title: "Everyoak",
-    href: "https://www.everyoak.com",
-    desc: "a preschool management system that helps schools move their paperwork online",
-  },
-  {
-    title: "Hey Texting",
-    href: "https://www.heytexting.com",
-    desc: "Two way texting for soloists and small businesses. SMS conversations that work without a phone.",
-  },
-  {
-    title: "Heimdall",
-    href: "https://github.com/needcaffeine/heimdall",
-    desc: "a program that allows you to programmatically connect to AWS EC2 hosts via a Bastion",
-  },
-  {
-    title: "Meatsweats",
-    href: "https://meatsweats.com",
-    desc: "the phenomenon that is taking the internet by storm",
-  },
-  {
-    title: "Engineering Advice You Didn’t Ask For",
-    href: "https://engineeringadvice.dev",
-    desc: "a weekly engineering leadership podcast",
-  },
-  {
-    title: "Make All The Things",
-    href: "https://vic.substack.com",
-    desc: "my monthly newsletter about life as a dad, runner, cook, and software engineer.",
-  },
+    {
+        title: "Everyoak",
+        href: "https://www.everyoak.com",
+        desc: "a preschool management system that helps schools move their paperwork online",
+    },
+    {
+        title: "Onetime Fax",
+        href: "https://www.onetimefax.com",
+        desc: "Onetime Fax lets you send faxes from your phone or computer. No fax machine or subscriptions necessary.",
+    },
+    {
+        title: "Hey Texting (RETIRED)",
+        href: "https://www.heytexting.com",
+        desc: "Two way texting for soloists and small businesses. SMS conversations that work without a phone.",
+    },
+    {
+        title: "Heimdall",
+        href: "https://github.com/needcaffeine/heimdall",
+        desc: "a program that allows you to programmatically connect to AWS EC2 hosts via a Bastion",
+    },
+    {
+        title: "Meatsweats",
+        href: "https://meatsweats.com",
+        desc: "the phenomenon that is taking the internet by storm",
+    },
+    {
+        title: "Engineering Advice You Didn’t Ask For",
+        href: "https://engineeringadvice.dev",
+        desc: "a weekly engineering leadership podcast",
+    },
+    {
+        title: "Make All The Things",
+        href: "https://vic.substack.com",
+        desc: "my monthly newsletter about life as a dad, runner, cook, and software engineer.",
+    },
 ];
 
 const podcastEpisodes: Array<{ title: string; desc: string; href: string }> = [
-  {
-    title: "Virtual Coffee podcast ep 0104",
-    href: "https://virtualcoffee.io/podcast/0104-vic-vijayakumar/",
-    desc: "In this episode, Vic talks about Indie Hacking and gives us his take on when to ship, what to focus on, and the value of diverse opinions in your community.",
-  },
-  {
-    title: "Software Social Podcast ep 104",
-    href: "https://softwaresocial.dev/episodes/when-should-you-let-people-pay-you",
-    desc: "Michele chats with longtime listener Vic Vijayakumar about how to get to the point where he feels comfortable letting people pay for his new shared SMS inbox SaaS, HeyTexting.",
-  },
-  {
-    title: "PodRocket S2",
-    href: "https://podrocket.logrocket.com/tech-for-social-good",
-    desc: "Building tech for social good with low-code tools with Vic Vijayakumar - When Vic Vijayakumar saw his daughter’s preschool struggling with an inefficient and non-digital admissions process, he decided to lend a hand by building an admissions system using low-code tools with limited costs. He joins us to talk about this project and how other developers can provide impactful tech while cutting time and costs.",
-  },
-  {
-    title: "Data & Dev with Jon and Mel ep 0204",
-    href: "https://anchor.fm/data-and-dev/episodes/Vic-Vijayakumar---Looking-at-the-arc-of-a-Software-Engineering-career-e1nftvn",
-    desc: "Looking at the arc of a Software Engineering career",
-  },
-  {
-    title: "How to Build Side Projects",
-    href: "https://refactoring.fm/p/how-to-build-side-projects",
-    desc: "How to stick with them, and why you should start them in the first place.",
-  },
+    {
+        title: "Virtual Coffee podcast ep 0104",
+        href: "https://virtualcoffee.io/podcast/0104-vic-vijayakumar/",
+        desc: "In this episode, Vic talks about Indie Hacking and gives us his take on when to ship, what to focus on, and the value of diverse opinions in your community.",
+    },
+    {
+        title: "Software Social Podcast ep 104",
+        href: "https://softwaresocial.dev/episodes/when-should-you-let-people-pay-you",
+        desc: "Michele chats with longtime listener Vic Vijayakumar about how to get to the point where he feels comfortable letting people pay for his new shared SMS inbox SaaS, HeyTexting.",
+    },
+    {
+        title: "PodRocket S2",
+        href: "https://podrocket.logrocket.com/tech-for-social-good",
+        desc: "Building tech for social good with low-code tools with Vic Vijayakumar - When Vic Vijayakumar saw his daughter’s preschool struggling with an inefficient and non-digital admissions process, he decided to lend a hand by building an admissions system using low-code tools with limited costs. He joins us to talk about this project and how other developers can provide impactful tech while cutting time and costs.",
+    },
+    {
+        title: "Data & Dev with Jon and Mel ep 0204",
+        href: "https://anchor.fm/data-and-dev/episodes/Vic-Vijayakumar---Looking-at-the-arc-of-a-Software-Engineering-career-e1nftvn",
+        desc: "Looking at the arc of a Software Engineering career",
+    },
+    {
+        title: "How to Build Side Projects",
+        href: "https://refactoring.fm/p/how-to-build-side-projects",
+        desc: "How to stick with them, and why you should start them in the first place.",
+    },
 ];
 
 const talks = [
-  {
-    title: "Building minimum viable products with low-code tools",
-    href: "https://www.youtube.com/watch?v=yVacRISm0t4",
-    desc: "part of Virtual Coffee Lightning Talks 2021",
-  },
-  {
-    title: "Building tech for social good with low-code tools",
-    href: "https://www.youtube.com/watch?v=4_nxvVTNY9s&t=21868s",
-    desc: "a lightning talk given at Remix Conf 2022",
-  },
-  {
-    title: 'From zero to "Brands that Matter"',
-    href: "https://leaddev.com/new-york/staffplus/video/2023/zero-brands-matter-improving-scientific-discovery-during-pandemic",
-    desc: "Improving science communication when everything is not fine - a talk given at StaffPlus New York 2023",
-  },
+    {
+        title: "Building minimum viable products with low-code tools",
+        href: "https://www.youtube.com/watch?v=yVacRISm0t4",
+        desc: "part of Virtual Coffee Lightning Talks 2021",
+    },
+    {
+        title: "Building tech for social good with low-code tools",
+        href: "https://www.youtube.com/watch?v=4_nxvVTNY9s&t=21868s",
+        desc: "a lightning talk given at Remix Conf 2022",
+    },
+    {
+        title: 'From zero to "Brands that Matter"',
+        href: "https://leaddev.com/new-york/staffplus/video/2023/zero-brands-matter-improving-scientific-discovery-during-pandemic",
+        desc: "Improving science communication when everything is not fine - a talk given at StaffPlus New York 2023",
+    },
 ];
 ---
 
 <PageLayout meta={meta}>
-  <div class="space-y-6">
-    <h1 class="title">Links</h1>
-    <p>Super important links to things.</p>
+    <div class="space-y-6">
+        <h1 class="title">Links</h1>
+        <p>Super important links to things.</p>
 
-    <h2 class="title">Featured projects</h2>
-    <ul class="list-inside list-disc">
-      {
-        featuredProjects.map(({ href, title, desc }) => (
-          <li>
-            <a href={href} target="_blank" rel="noopener noreferrer" class="link inline-block">
-              {title}
-            </a>{" "}
-            - {desc}
-          </li>
-        ))
-      }
-    </ul>
+        <h2 class="title">Featured projects</h2>
+        <ul class="list-inside list-disc">
+            {
+                featuredProjects.map(({ href, title, desc }) => (
+                    <li>
+                        <a
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="link inline-block"
+                        >
+                            {title}
+                        </a>{" "}
+                        - {desc}
+                    </li>
+                ))
+            }
+        </ul>
 
-    <h2 class="title">Podcast appearances</h2>
-    <ul class="list-inside list-disc">
-      {
-        podcastEpisodes.map(({ href, title, desc }) => (
-          <li>
-            <a href={href} target="_blank" rel="noopener noreferrer" class="link inline-block">
-              {title}
-            </a>{" "}
-            - {desc}
-          </li>
-        ))
-      }
-    </ul>
+        <h2 class="title">Podcast appearances</h2>
+        <ul class="list-inside list-disc">
+            {
+                podcastEpisodes.map(({ href, title, desc }) => (
+                    <li>
+                        <a
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="link inline-block"
+                        >
+                            {title}
+                        </a>{" "}
+                        - {desc}
+                    </li>
+                ))
+            }
+        </ul>
 
-    <h2 class="title">Talks</h2>
-    <ul class="list-inside list-disc">
-      {
-        talks.map(({ href, title, desc }) => (
-          <li>
-            <a href={href} target="_blank" rel="noopener noreferrer" class="link inline-block">
-              {title}
-            </a>{" "}
-            - {desc}
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+        <h2 class="title">Talks</h2>
+        <ul class="list-inside list-disc">
+            {
+                talks.map(({ href, title, desc }) => (
+                    <li>
+                        <a
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="link inline-block"
+                        >
+                            {title}
+                        </a>{" "}
+                        - {desc}
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
 </PageLayout>
