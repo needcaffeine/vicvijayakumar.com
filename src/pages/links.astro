@@ -91,10 +91,10 @@ const talks = [
         <h1 class="title">Links</h1>
         <p>Super important links to things.</p>
 
-        <h2 class="title">Featured projects</h2>
+        <h2 class="title">Talks</h2>
         <ul class="list-inside list-disc">
             {
-                featuredProjects.map(({ href, title, desc }) => (
+                talks.map(({ href, title, desc }) => (
                     <li>
                         <a
                             href={href}
@@ -129,10 +129,10 @@ const talks = [
             }
         </ul>
 
-        <h2 class="title">Talks</h2>
+        <h2 class="title">Featured projects</h2>
         <ul class="list-inside list-disc">
             {
-                talks.map(({ href, title, desc }) => (
+                featuredProjects.map(({ href, title, desc }) => (
                     <li>
                         <a
                             href={href}
