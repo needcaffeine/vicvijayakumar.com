@@ -15,7 +15,7 @@ const featuredProjects: Array<{ title: string; desc: string; href: string }> = [
     {
         title: "Onetime Fax",
         href: "https://www.onetimefax.com",
-        desc: "Onetime Fax lets you send faxes from your phone or computer. No fax machine or subscriptions necessary.",
+        desc: "Onetime Fax lets you send faxes from your phone or computer for a flat fee. No fax machine or subscriptions needed!",
     },
     {
         title: "Hey Texting (RETIRED)",
@@ -96,12 +96,7 @@ const talks = [
             {
                 talks.map(({ href, title, desc }) => (
                     <li>
-                        <a
-                            href={href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="link inline-block"
-                        >
+                        <a href={href} target="_blank" class="link inline-block">
                             {title}
                         </a>{" "}
                         - {desc}
