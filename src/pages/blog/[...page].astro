@@ -8,97 +8,86 @@ import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const allPosts = await getCollection("post");
-  const allPostsByDate = sortMDByDate(allPosts);
-  const uniqueTags = getUniqueTags(allPosts);
-  return paginate(allPostsByDate, { props: { uniqueTags }, pageSize: 100 });
+    const allPosts = await getCollection("post");
+    const allPostsByDate = sortMDByDate(allPosts);
+    const uniqueTags = getUniqueTags(allPosts);
+    return paginate(allPostsByDate, { props: { uniqueTags }, pageSize: 100 });
 }) satisfies GetStaticPaths;
 
 interface Props {
-  page: Page<CollectionEntry<"post">>;
-  uniqueTags: string[];
+    page: Page<CollectionEntry<"post">>;
+    uniqueTags: string[];
 }
 
 const { page, uniqueTags } = Astro.props;
 
 const meta = {
-  title: "Posts",
-  description: "Ready my collection of posts and the things that interest me",
+    title: "Writing",
+    description: "Notes on software, projects, and the things that interest me.",
 };
 
 const paginationProps = {
-  ...(page.url.prev && {
-    prevUrl: {
-      url: page.url.prev,
-      text: `← Previous Posts`,
-    },
-  }),
-  ...(page.url.next && {
-    nextUrl: {
-      url: page.url.next,
-      text: `Next Posts →`,
-    },
-  }),
+    ...(page.url.prev && {
+        prevUrl: {
+            url: page.url.prev,
+            text: `← Previous Posts`,
+        },
+    }),
+    ...(page.url.next && {
+        nextUrl: {
+            url: page.url.next,
+            text: `Next Posts →`,
+        },
+    }),
 };
 ---
 
 <PageLayout meta={meta}>
-  <h1 class="title mb-6">Posts</h1>
-  <div class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8">
-    <section aria-label="Blog post list">
-      <ul class="space-y-8 text-start">
+    <div class="page-width">
+        <p class="eyebrow mb-6">Archive</p>
+        <h1 class="page-title mb-8">Writing.</h1>
+        <p class="muted mb-16 max-w-[620px] text-xl">
+            Things I’ve learned, built, and thought about. Some are polished; some are just useful
+            notes.
+        </p>
+    </div>
+    <div class="page-width">
+        <section aria-label="Blog post list">
+            <ul class="editorial-list text-start">
+                {
+                    page.data.map((p) => (
+                        <li>
+                            <PostPreview post={p} as="h2" withDesc />
+                        </li>
+                    ))
+                }
+            </ul>
+            <Pagination {...paginationProps} />
+        </section>
         {
-          page.data.map((p) => (
-            <li class="flex flex-col flex-wrap gap-2 sm:flex-row [&_q]:basis-full">
-              <PostPreview post={p} as="h2" withDesc />
-            </li>
-          ))
+            !!uniqueTags.length && (
+                <aside class="mt-16">
+                    <h2 class="eyebrow mb-5">Topics</h2>
+                    <ul class="flex flex-wrap gap-x-3 gap-y-2 text-[14px]">
+                        {uniqueTags.map((tag) => (
+                            <li>
+                                <a
+                                    class="text-link"
+                                    href={`/tags/${tag}/`}
+                                    aria-label={`View all posts with the tag: ${tag}`}
+                                >
+                                    {tag}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <span class="mt-6 block text-[14px]">
+                        <a class="text-link" href="/tags/" aria-label="View all blog categories">
+                            All topics →
+                        </a>
+                    </span>
+                </aside>
+            )
         }
-      </ul>
-      <Pagination {...paginationProps} />
-    </section>
-    {
-      !!uniqueTags.length && (
-        <aside>
-          <h2 class="mb-4 flex items-center text-lg font-semibold">
-            <svg
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M7.859 6h-2.834a2.025 2.025 0 0 0 -2.025 2.025v2.834c0 .537 .213 1.052 .593 1.432l6.116 6.116a2.025 2.025 0 0 0 2.864 0l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-6.117 -6.116a2.025 2.025 0 0 0 -1.431 -.593z" />
-              <path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116" />
-              <path d="M6 9h-.01" />
-            </svg>
-            Tags
-          </h2>
-          <ul class="flex flex-wrap gap-2 text-bgColor">
-            {uniqueTags.map((tag) => (
-              <li>
-                <a
-                  class="flex items-center justify-center rounded-lg bg-accent p-1"
-                  href={`/tags/${tag}/`}
-                  aria-label={`View all posts with the tag: ${tag}`}
-                >
-                  {tag}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <span class="mt-4 block sm:text-end">
-            <a class="sm:hover:text-accent" href="/tags/" aria-label="View all blog categories">
-              View all →
-            </a>
-          </span>
-        </aside>
-      )
-    }
-  </div>
+    </div>
 </PageLayout>

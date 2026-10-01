@@ -87,57 +87,63 @@ const talks = [
 ---
 
 <PageLayout meta={meta}>
-    <div class="space-y-6">
-        <h1 class="title">Links</h1>
-        <p>Super important links to things.</p>
+    <div class="page-width">
+        <p class="eyebrow mb-6">Elsewhere</p>
+        <h1 class="page-title mb-8">Links.</h1>
+        <p class="muted mb-20 text-xl">Projects, talks, and conversations from around the web.</p>
 
-        <h2 class="title">Talks</h2>
-        <ul class="list-inside list-disc">
+        <h2 class="section-title mb-8">Talks</h2>
+        <ul class="editorial-list mb-20">
             {
                 talks.map(({ href, title, desc }) => (
-                    <li>
-                        <a href={href} target="_blank" class="link inline-block">
+                    <li class="text-[16px]">
+                        <a
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="mb-1 block text-[23px] font-medium leading-tight tracking-tight hover:underline"
+                        >
                             {title}
-                        </a>{" "}
-                        - {desc}
+                        </a>
+                        <span class="muted">{desc}</span>
                     </li>
                 ))
             }
         </ul>
 
-        <h2 class="title">Podcast appearances</h2>
-        <ul class="list-inside list-disc">
+        <h2 class="section-title mb-8">Conversations</h2>
+        <ul class="editorial-list mb-20">
             {
                 podcastEpisodes.map(({ href, title, desc }) => (
-                    <li>
+                    <li class="text-[16px]">
                         <a
                             href={href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="link inline-block"
+                            class="mb-1 block text-[23px] font-medium leading-tight tracking-tight hover:underline"
                         >
                             {title}
-                        </a>{" "}
-                        - {desc}
+                        </a>
+                        <span class="muted">{desc}</span>
                     </li>
                 ))
             }
         </ul>
 
-        <h2 class="title">Featured projects</h2>
-        <ul class="list-inside list-disc">
+        <h2 class="section-title mb-8">Projects</h2>
+        <ul class="editorial-list">
             {
                 featuredProjects.map(({ href, title, desc }) => (
-                    <li>
+                    <li class="text-[16px]">
                         <a
                             href={href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="link inline-block"
+                            class="mb-1 block text-[23px] font-medium leading-tight tracking-tight hover:underline"
                         >
                             {title}
-                        </a>{" "}
-                        - {desc}
+                        </a>
+                        <span class="muted">{desc}</span>
                     </li>
                 ))
             }

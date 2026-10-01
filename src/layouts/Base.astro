@@ -29,11 +29,11 @@ const {
         <script defer data-domain="vicvijayakumar.com" src="https://plausible.io/js/script.js"
         ></script>
     </head>
-    <body>
+    <body class="flex min-h-screen flex-col">
         <ThemeProvider />
         <SkipLink />
         <Header />
-        <main id="main">
+        <main id="main" class="site-shell site-main">
             <slot />
         </main>
         <Footer />

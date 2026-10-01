@@ -1,29 +1,24 @@
 ---
-import { menuLinks, siteConfig } from "@/site-config";
-
 const year = new Date().getFullYear();
 ---
 
 <footer
-	class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 pb-4 pt-20 text-center align-top text-gray-500 sm:flex-row sm:justify-between sm:text-xs"
+    class="site-shell rule flex flex-col gap-4 border-t py-8 text-[14px] sm:flex-row sm:items-center sm:justify-between"
 >
-	<div class="me-0 sm:me-4">
-		Copyright &copy; {year}{" "}
-		{siteConfig.author}
-	</div>
-	<nav
-		aria-label="More on this site"
-		class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
-	>
-		{
-			menuLinks.map((link) => (
-				<a
-					href={link.path}
-					class="px-4 py-2 sm:px-2 sm:py-0 sm:hover:text-textColor sm:hover:underline"
-				>
-					{link.title}
-				</a>
-			))
-		}
-	</nav>
+    <p class="muted">© {year} Vic Vijayakumar</p>
+    <div class="flex gap-6">
+        <a
+            class="text-link"
+            href="https://github.com/needcaffeine"
+            rel="me noopener noreferrer"
+            target="_blank">GitHub</a
+        >
+        <a
+            class="text-link"
+            href="https://www.linkedin.com/in/vicvijayakumar/"
+            rel="me noopener noreferrer"
+            target="_blank">LinkedIn</a
+        >
+        <a class="text-link" href="/rss.xml">RSS</a>
+    </div>
 </footer>

@@ -3,32 +3,242 @@
 @tailwind utilities;
 
 @layer base {
-	:root {
-		color-scheme: light;
-		/* https://tailwindcss.com/docs/customizing-colors#using-css-variables */
-		--theme-bg: 0deg 0% 98%;
-		--theme-link: 172deg 18% 41%;
-		--theme-text: 203deg 11% 15%;
-		--theme-accent: 351deg 66% 48%;
-		--theme-accent-2: 0deg 0% 7%;
-		--theme-quote: 351deg 66% 48%;
-	}
+    :root {
+        color-scheme: light;
+        --theme-bg: 0deg 0% 100%;
+        --theme-link: 0deg 0% 12%;
+        --theme-text: 0deg 0% 12%;
+        --theme-accent: 0deg 0% 12%;
+        --theme-accent-2: 0deg 0% 8%;
+        --theme-quote: 0deg 0% 32%;
+        --muted: #686868;
+        --rule: #dedede;
+    }
+    :root.dark {
+        color-scheme: dark;
+        --theme-bg: 0deg 0% 7%;
+        --theme-link: 0deg 0% 93%;
+        --theme-text: 0deg 0% 91%;
+        --theme-accent: 0deg 0% 91%;
+        --theme-accent-2: 0deg 0% 98%;
+        --theme-quote: 0deg 0% 76%;
+        --muted: #a0a0a0;
+        --rule: #383838;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        min-height: 100vh;
+        margin: 0;
+        background: hsl(var(--theme-bg));
+        color: hsl(var(--theme-text));
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+    }
+    ::selection {
+        background: hsl(var(--theme-text));
+        color: hsl(var(--theme-bg));
+    }
+    a {
+        text-underline-offset: 0.18em;
+    }
+    a:focus-visible,
+    button:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 4px;
+    }
+}
 
-	:root.dark {
-		color-scheme: dark;
-		--theme-bg: 210deg 6% 12%;
-		--theme-link: 330deg 49% 67%;
-		--theme-text: 220deg 3% 79%;
-		--theme-accent: 159deg 64% 45%;
-		--theme-accent-2: 0deg 0% 93%;
-		--theme-quote: 102deg 100% 86%;
-	}
+.site-shell {
+    width: min(100% - 48px, 1200px);
+    margin-inline: auto;
+}
+.site-main {
+    flex: 1;
+    padding-block: clamp(72px, 10vw, 150px) 140px;
+}
+.page-width {
+    max-width: 790px;
+    margin-inline: auto;
+}
+.eyebrow {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+.display-title {
+    font-size: clamp(64px, 10.5vw, 152px);
+    font-weight: 600;
+    letter-spacing: -0.075em;
+    line-height: 0.94;
+}
+.page-title {
+    font-size: clamp(62px, 9vw, 112px);
+    font-weight: 600;
+    letter-spacing: -0.07em;
+    line-height: 0.98;
+}
+.section-title {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 600;
+    letter-spacing: -0.055em;
+    line-height: 1.1;
+}
+.muted {
+    color: var(--muted);
+}
+.rule {
+    border-color: var(--rule);
+}
+.text-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+.text-link:hover {
+    text-decoration-thickness: 2px;
+}
+.editorial-list {
+    border-top: 1px solid var(--rule);
+}
+.editorial-list > li {
+    border-bottom: 1px solid var(--rule);
+    padding-block: 24px;
+}
 
-	html {
-		@apply scroll-smooth;
-	}
+header.site-shell,
+footer.site-shell {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
 
-	html body {
-		@apply mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-8 pt-16 font-mono text-sm font-normal text-textColor antialiased;
-	}
+.home-content {
+    max-width: 790px;
+    margin: -48px auto 0;
+}
+.home-title {
+    font-size: clamp(52px, 7vw, 82px);
+    font-weight: 650;
+    letter-spacing: -0.065em;
+    line-height: 1.05;
+}
+.home-lead {
+    max-width: 730px;
+    margin-top: 36px;
+    font-size: clamp(22px, 2.5vw, 28px);
+    line-height: 1.45;
+    letter-spacing: -0.025em;
+}
+.home-personal {
+    max-width: 690px;
+    margin-top: 24px;
+    color: var(--muted);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(20px, 2.2vw, 25px);
+    line-height: 1.5;
+}
+.home-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin-top: 36px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 13px;
+}
+.home-links a:hover,
+.home-section a:hover {
+    text-decoration: underline;
+}
+.home-section {
+    margin-top: 112px;
+}
+.home-section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.home-section-heading h2 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+}
+.home-section-heading > a {
+    flex: none;
+    color: var(--muted);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 12px;
+}
+.home-projects,
+.home-writing {
+    border-top: 1px solid var(--rule);
+}
+.home-projects li,
+.home-writing li {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 20px;
+    border-bottom: 1px solid var(--rule);
+    padding: 17px 0;
+    line-height: 1.4;
+}
+.home-projects a,
+.home-writing a {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+}
+.home-projects span,
+.home-writing time {
+    color: var(--muted);
+    font-size: 15px;
+}
+.home-writing li {
+    grid-template-columns: 95px minmax(0, 1fr);
+}
+.home-writing time {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 13px;
+    padding-top: 5px;
+}
+@media (max-width: 640px) {
+    .site-shell {
+        width: min(100% - 36px, 1200px);
+    }
+    .site-main {
+        padding-block: 74px 100px;
+    }
+    .editorial-list > li {
+        padding-block: 20px;
+    }
+    .home-content {
+        margin-top: -20px;
+    }
+    .home-section {
+        margin-top: 80px;
+    }
+    .home-section-heading {
+        display: block;
+    }
+    .home-section-heading > a {
+        display: inline-block;
+        margin-top: 8px;
+    }
+    .home-projects li,
+    .home-writing li {
+        display: block;
+    }
+    .home-projects span,
+    .home-writing time {
+        display: block;
+        margin-bottom: 4px;
+    }
+    .home-projects a {
+        display: block;
+        margin-bottom: 4px;
+    }
 }

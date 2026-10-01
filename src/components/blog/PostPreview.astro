@@ -3,16 +3,30 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 import type { CollectionEntry } from "astro:content";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
-  post: CollectionEntry<"post">;
-  withDesc?: boolean;
+    post: CollectionEntry<"post">;
+    withDesc?: boolean;
 };
 
 const { post, as: Tag = "div", withDesc = false } = Astro.props;
+const year = post.data.publishDate.getFullYear();
 ---
 
-<Tag>
-  <a href={`/blog/${post.slug}/`} class="link" rel="prefetch">
-    {post.data.title}
-  </a>
-</Tag>
-{withDesc && <q class="line-clamp-3 block">{post.data.description}</q>}
+<div class="grid gap-2 sm:grid-cols-[1fr_auto] sm:gap-8">
+    <div>
+        <Tag class="text-[clamp(23px,3vw,35px)] font-medium leading-[1.2] tracking-[-0.04em]">
+            <a href={`/blog/${post.slug}/`} class="hover:underline" rel="prefetch"
+                >{post.data.title}</a
+            >
+        </Tag>
+        {
+            withDesc && (
+                <p class="muted mt-3 max-w-[670px] text-[16px] leading-[1.55]">
+                    {post.data.description}
+                </p>
+            )
+        }
+    </div>
+    <time class="muted text-[13px] sm:pt-1" datetime={post.data.publishDate.toISOString()}
+        >{year}</time
+    >
+</div>

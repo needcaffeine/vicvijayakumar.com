@@ -1,58 +1,96 @@
 ---
-import PostPreview from "@/components/blog/PostPreview";
 import PageLayout from "@/layouts/Base";
 import { sortMDByDate } from "@/utils";
 import { getCollection } from "astro:content";
 
-const MAX_POSTS = 20;
-const allPosts = await getCollection("post");
-const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+const posts = sortMDByDate(await getCollection("post"));
+const favorites = posts.filter((post) => post.data.favorite).slice(0, 4);
+const projects = [
+    {
+        name: "Everyoak",
+        description: "Less paperwork for preschools.",
+        href: "https://www.everyoak.com",
+    },
+    {
+        name: "Onetime Fax",
+        description: "Send a fax without owning a fax machine.",
+        href: "https://www.onetimefax.com",
+    },
+    {
+        name: "Engineering Advice",
+        description: "Conversations about leading software teams.",
+        href: "https://engineeringadvice.dev",
+    },
+];
 ---
 
 <PageLayout meta={{ title: "Home" }}>
-  <section>
-    <h1 class="title mb-6">
-      Hello, I&rsquo;m Vic{" "}
-      <span role="img" aria-label="wave"> 👋🏾</span>
-    </h1>
-    <p class="mb-4">
-      I&rsquo;m a software engineer in Raleigh, North Carolina. I enjoy running, biking, disc golf,
-      reading, writing, food, dadding, buying plants, playing with dough, playing violin, and
-      raising backyard chickens.
-    </p>
-    <p class="mb-4">
-      I also start a lot of new projects. Some of them are <a href="/links" class="link">here</a>.
-    </p>
-    <p class="mb-4">
-      Ways to get in touch with me:{" "}
-      <a href="https://twitter.com/VicVijayakumar" class="link">Twitter</a>,{" "}
-      <a href="https://www.linkedin.com/in/vicvijayakumar/" class="link">LinkedIn</a>, and my{" "}
-      <a href="https://vic.substack.com" class="link">newsletter</a>.
-    </p>
-    <p class="mb-4">
-      This is my personal website. What you see below are a collection of my thoughts, and sometimes
-      just public documentation. I&rsquo;ve realized that if I try to get my thoughts <b>perfect</b>
-       before hitting publish they will never see the light of day. So strap yourself in and read
-      the things I was happy to put out into the world, freed from expectations.
-    </p>
-  </section>
-  <section aria-label="Blog post list" class="mt-16">
-    <h2 class="title mb-4 text-xl">Some personal favorites</h2>
-    <ul class="space-y-4 sm:space-y-6">
-      {
-        allPostsByDate
-          .filter((p) => p.data.favorite == true)
-          .map((p) => (
-            <li>
-              <PostPreview post={p} withDesc={true} />
-            </li>
-          ))
-      }
-    </ul>
-    <p class="mt-8">
-      <a class="sm:hover:text-accent" href="/blog/" aria-label="View all blog posts">
-        View all posts &rightarrow;
-      </a>
-    </p>
-  </section>
+    <div class="home-content">
+        <section aria-labelledby="intro-title" class="home-intro">
+            <h1 id="intro-title" class="home-title">Vic Vijayakumar.</h1>
+            <p class="home-lead">
+                I’m a software engineer in Raleigh, North Carolina. I build useful things, start a
+                lot of projects, and write down what I learn.
+            </p>
+            <p class="home-personal">
+                Outside of work: running, cooking, reading, playing violin, being a dad, and tending
+                to our backyard chickens.
+            </p>
+            <div class="home-links">
+                <a
+                    href="https://github.com/needcaffeine"
+                    rel="me noopener noreferrer"
+                    target="_blank">GitHub ↗</a
+                >
+                <a
+                    href="https://www.linkedin.com/in/vicvijayakumar/"
+                    rel="me noopener noreferrer"
+                    target="_blank">LinkedIn ↗</a
+                >
+                <a href="https://vic.substack.com" rel="noopener noreferrer" target="_blank"
+                    >Newsletter ↗</a
+                >
+            </div>
+        </section>
+
+        <section aria-labelledby="work-title" class="home-section">
+            <div class="home-section-heading">
+                <h2 id="work-title">A few things I’ve made</h2>
+                <a href="/links/">More links →</a>
+            </div>
+            <ul class="home-projects">
+                {
+                    projects.map((project) => (
+                        <li>
+                            <a href={project.href} rel="noopener noreferrer" target="_blank">
+                                {project.name} ↗
+                            </a>
+                            <span>{project.description}</span>
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+
+        <section aria-labelledby="writing-title" class="home-section">
+            <div class="home-section-heading">
+                <h2 id="writing-title">Some writing</h2>
+                <a href="/blog/">All posts →</a>
+            </div>
+            <ul class="home-writing">
+                {
+                    favorites.map((post) => (
+                        <li>
+                            <time datetime={post.data.publishDate.toISOString()}>
+                                {post.data.publishDate.getFullYear()}
+                            </time>
+                            <h3>
+                                <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                            </h3>
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+    </div>
 </PageLayout>
