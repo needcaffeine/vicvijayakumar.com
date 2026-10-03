@@ -51,11 +51,8 @@ const paginationProps = {
 
 <PageLayout meta={meta}>
     <div class="page-width">
-        <h1 class="title mb-6 flex items-center">
-            <a href="/tags/" class="text-accent sm:hover:underline">Tags</a>
-            <span class="me-3 ms-2">→</span>
-            <span class="text-xl">#{tag}</span>
-        </h1>
+        <a href="/tags/" class="eyebrow mb-6 inline-block hover:underline">← Topics</a>
+        <h1 class="page-title mb-8">#{tag}</h1>
         <section aria-label="Blog post list">
             <ul class="editorial-list">
                 {

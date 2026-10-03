@@ -29,7 +29,7 @@ import "@pagefind/default-ui/css/ui.css";
 	</button>
 	<dialog
 		aria-label="search"
-		class="h-full max-h-full w-full max-w-full border border-zinc-400 bg-bgColor shadow backdrop:backdrop-blur sm:mx-auto sm:mb-auto sm:mt-16 sm:h-max sm:max-h-[calc(100%-8rem)] sm:min-h-[15rem] sm:w-5/6 sm:max-w-[48rem] sm:rounded-md"
+		class="font-sans h-full max-h-full w-full max-w-full border border-zinc-400 bg-bgColor shadow backdrop:backdrop-blur sm:mx-auto sm:mb-auto sm:mt-16 sm:h-max sm:max-h-[calc(100%-8rem)] sm:min-h-[15rem] sm:w-5/6 sm:max-w-[48rem] sm:rounded-md"
 	>
 		<div class="dialog-frame flex flex-col gap-4 p-6 pt-12 sm:pt-6">
 			<button
@@ -105,7 +105,7 @@ import "@pagefind/default-ui/css/ui.css";
 					new PagefindUI({
 						element: "#cactus__search",
 						baseUrl: import.meta.env.BASE_URL,
-						bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/_pagefind/",
+						bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
 						showImages: false,
 					});
 				});

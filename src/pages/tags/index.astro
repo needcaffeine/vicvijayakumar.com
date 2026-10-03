@@ -14,25 +14,26 @@ const meta = {
 
 <PageLayout meta={meta}>
     <div class="page-width">
-        <h1 class="title mb-6">Tags</h1>
-        <ul class="space-y-4">
-            {
-                allTags.map(([tag, val]) => (
-                    <li class="flex items-center gap-x-2">
-                        <a
-                            class="cactus-link inline-block"
-                            href={`/tags/${tag}/`}
-                            title={`View posts with the tag: ${tag}`}
-                            rel="prefetch"
-                        >
-                            &#35;{tag}
-                        </a>
-                        <span class="inline-block">
-                            - {val} Post{val > 1 && "s"}
-                        </span>
-                    </li>
-                ))
-            }
-        </ul>
+        <p class="eyebrow mb-6">Archive</p>
+        <h1 class="page-title mb-8">Topics</h1>
+        {
+            allTags.length ? (
+                <ul class="editorial-list">
+                    {allTags.map(([tag, count]) => (
+                        <li class="flex items-baseline justify-between gap-4">
+                            <a class="text-link text-xl" href={`/tags/${tag}/`} rel="prefetch">
+                                {tag}
+                            </a>
+                            <span class="muted text-sm">{count} {count === 1 ? "post" : "posts"}</span>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <div class="editorial-list">
+                    <p class="muted border-b rule py-6">There aren’t any topics yet.</p>
+                    <a class="text-link mt-8 inline-block" href="/blog/">Browse all writing →</a>
+                </div>
+            )
+        }
     </div>
 </PageLayout>
