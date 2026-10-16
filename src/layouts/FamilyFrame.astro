@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <title>{title} · Family Frame Dashboard</title>
+    <style>
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #fff; color: #141414; font: 17px/1.6 Arial, Helvetica, sans-serif; }
+      :global(a) { color: inherit; text-underline-offset: 3px; }
+      .wrap { width: min(100% - 40px, 680px); margin: 0 auto; }
+      header { border-bottom: 1px solid #d8d8d8; padding: 24px 0; }
+      header .wrap, footer .wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+      header a { text-decoration: none; font-size: 14px; font-weight: 700; }
+      main { padding: 75px 0 95px; }
+      :global(main h1) { font-size: clamp(38px, 7vw, 66px); line-height: 1.06; letter-spacing: -.055em; margin: 0 0 24px; }
+      :global(main h2) { font-size: 22px; line-height: 1.2; letter-spacing: -.025em; margin: 38px 0 10px; }
+      :global(main p), :global(main ul) { margin: 0 0 18px; }
+      :global(main ul) { padding-left: 22px; }
+      :global(main .eyebrow) { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 20px; }
+      :global(main .intro) { font-size: 21px; line-height: 1.5; }
+      footer { border-top: 1px solid #d8d8d8; padding: 25px 0 35px; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <header><div class="wrap"><a href="/family-frame/">Family Frame Dashboard</a><a href="/">Vic Vijayakumar</a></div></header>
+    <main class="wrap"><slot /></main>
+    <footer><div class="wrap"><span>© {new Date().getFullYear()} Vic Vijayakumar</span><span><a href="/family-frame/privacy/">Privacy</a> · <a href="/family-frame/terms/">Terms</a></span></div></footer>
+  </body>
+</html>

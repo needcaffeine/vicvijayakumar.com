@@ -1,0 +1,23 @@
+---
+import FamilyFrame from "../../layouts/FamilyFrame.astro";
+---
+
+<FamilyFrame title="Privacy" description="How Family Frame Dashboard handles Google Calendar data.">
+  <p class="eyebrow">Updated October 16, 2026</p>
+  <h1>Privacy</h1>
+  <p class="intro">Family Frame Dashboard is a personal display I run at home. It uses Google Calendar data only to show upcoming events on that display.</p>
+
+  <h2>Calendar access</h2>
+  <p>The Mac mini requests read-only Google Calendar access from the signed-in account. The Google permission can see calendars that account can access. The dashboard code fetches only the specifically configured calendars and shows event titles, dates, and times in the Vic, Holly, and Both views. It does not create, change, or delete events.</p>
+
+  <h2>Where data goes</h2>
+  <p>The Mac mini fetches calendar data from Google, keeps a short in-memory cache, and sends upcoming event details to the picture frame over our home network. The Mac stores the OAuth credential in a private local configuration file. Calendar data is not sent to Open-Meteo, advertisers, or an analytics service. The frame dashboard and these information pages are separate; these pages do not load calendar data.</p>
+  <p>The local frame connection uses HTTP on our home network. The dashboard API requires an authorized device or a private cookie, but local HTTP traffic is not encrypted in transit.</p>
+
+  <h2>Other data</h2>
+  <p>Tasks and the selected calendar view stay in the frame browser's local storage. The Mac requests weather for the configured city from Open-Meteo. This page uses no third-party analytics scripts.</p>
+
+  <h2>Control and removal</h2>
+  <p>The Google connection can be revoked in the account's <a href="https://myaccount.google.com/connections">third-party connections</a>. Removing the Mac's local OAuth credential stops new calendar fetches; restarting the dashboard clears its in-memory event cache. Clearing the frame browser's storage removes its local tasks and view choice.</p>
+  <p>Questions: <a href="mailto:needcaffeine@gmail.com">needcaffeine@gmail.com</a>.</p>
+</FamilyFrame>
